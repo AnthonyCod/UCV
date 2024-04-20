@@ -1,0 +1,382 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: auto;
+}
+
+body{
+    max-width: 2300px;
+    min-width: 520px;
+}
+
+#check {
+    display: none;
+}
+
+body{
+    background-color: rgb(255, 255, 255);
+    zoom: 90%;
+}
+ 
+/*HEADER*/
+
+header{
+    display: flex;
+    width: 100%;
+    background-color: rgba(0,3,70,255);
+    position: relative;
+    justify-content: space-between;
+    text-align: center;
+    padding: 15px 30px;
+    border-bottom: 10px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+header .icon{
+    font-size: 40px;
+    font-weight: 800;
+    cursor: pointer;
+    color: white;
+    display: flex;
+}
+
+header .icon span{
+    flex: 1;
+    margin: auto;
+}
+
+header .icon img{
+    width: 110px;
+    height: 80px;
+}
+
+header ol{
+    display: flex;
+    list-style: none;
+    margin: auto 0;
+    margin-right: 40px;
+}
+
+header ol li{
+    margin: 0 10px;
+}
+
+header ol li a{
+    color:rgb(255, 255, 255);
+    font-size: 20px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 22px;
+    font-weight: 800;
+    padding: 20px;
+}
+
+header .search-container{
+    display: flex;
+    margin: auto 0;
+    height: 40px;
+    line-height:35px;
+    margin-left: 550px;
+}
+
+header .search-container input{
+    border: 2.5px solid black;
+    border-radius: 10px;
+    height: 100%;
+    padding: 0 5px;
+    font-size: 20px;
+    width: 350px;
+}
+
+header .search-container span{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    height: 100%;
+    padding: 8px;
+    position: relative;
+    cursor: pointer;
+    margin: auto;
+    z-index: 1;
+}
+
+header .bar{
+    position: relative;
+    margin: auto;
+    display: none;
+}
+
+header .bar span{
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-size: 35px;
+}
+
+
+@media screen and (max-width: 1350px) {
+    header{
+        display: block;
+        align-items: center;
+    }
+
+    header .icon{
+        display: flex;
+    }
+
+    header .span{
+        margin-right: 100px;
+    }
+
+
+    header #bars{
+        margin-left: 30px;
+        margin-top: 20px;
+    }
+
+    header .search-container{
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+        margin: auto;
+        margin-left: 30px;
+        margin: 10px;
+    }
+
+    header .search-container span{
+        margin-left: 5px;
+    }
+
+    header .search-container input{
+        width: 90%;
+    }
+
+    header ol{  
+        margin: auto;
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+        height: 0;
+        overflow: hidden;
+        transition: 0.5s;
+    }
+
+    header ol li{
+        text-align: center;
+    }
+
+    header ol li a{
+        font-size: 25px;
+        padding: 25px;
+        display: block;
+    }
+
+    header .bar{
+        display:block ;
+        position: absolute;
+        top: 20px;
+        right: 80px;
+        cursor: pointer;
+    }
+
+    header .bar #times{
+        display: none;
+    }
+
+    #check:checked ~ header .bar #times{
+        display: block;
+    }
+
+    #check:checked ~ header .bar #bars{
+        display: none;
+    }
+
+    #check:checked ~ header ol{
+        visibility: visible;
+        height: 200px;
+    }
+}
+
+/*NAV*/
+
+nav{
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 10px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin: auto;
+    border-radius: 25px;
+    margin-top: 20px;
+}
+
+nav .foods{
+    display: flex;
+    justify-content: center;
+}
+
+.foods ol{
+    display: flex;
+    list-style: none;
+    margin: auto;
+    width: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.foods ol li{
+    padding: 10px;
+    text-decoration: none;
+    margin: 20px;
+}
+
+.foods ol li img{
+    display: block;
+    margin: auto;
+}
+
+.foods ol li span{
+    display: block;
+    padding: 10px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;   
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+.foods ol img{
+    width: 120px;
+    height: 120px;
+}
+
+@media screen and (max-width: 1350px){
+
+    .foods ol li span{
+        display: block;
+        padding: 10px;
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .foods ol img{
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/*SECTION*/
+
+section{
+    height: auto;
+}
+
+section .container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+section .container img{
+    width: 450px;
+    height: 300px;
+    border-radius: 25px;
+}
+
+section .container .items{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(255, 255, 255);
+    width: fit-content;
+    height: auto;
+    border: 1px solid black;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); 
+    border-radius: 25px;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+section .items{
+    margin:  20px;
+}
+
+@media screen and (max-width:1350px) {
+    section .container img{
+    width: 250px;
+    height: 180px;
+    border-radius: 25px;
+}
+}
+
+section .container .price{
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+}
+
+section .container button{
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 250px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: rgba(254,0,5,255);
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+
+
+/*FOOTER*/
+
+footer{
+    background-color: rgba(0,3,70,255);
+    color: white;
+    height: auto;
+    margin-top: 50px;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer .final{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 25px;
+    text-align: center;
+}
+
+footer .final h3{
+    font-size: 40px;
+    padding: 20px;
+}
+
+footer .final img{
+    width: 90px;
+    height: 90px;
+}
+
+footer .final button{
+    border-radius: 5px;
+    background-color: rgba(254,0,5,255);
+    color: white;
+    height: 60px;
+    width: 300px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+@media screen and (max-width:1350px) {
+    footer .final h3{
+        font-size: 30px;
+    }
+    footer .final button{
+        height: 50px;
+        width: 280px;
+    }
+
+    footer .final img{
+        display: none;
+    }
+}
