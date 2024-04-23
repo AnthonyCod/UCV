@@ -52,11 +52,6 @@ header .icon img{
     height: 80px;
 }
 
-
-header .icon{
-    margin-left: 10px;
-}
-
 header ol{
     display: flex;
     list-style: none;
@@ -67,6 +62,12 @@ header ol{
 header ol li{
     margin: 0 10px;
 }
+
+
+header .icon{
+    margin-left: 10px;
+}
+
 
 header ol li a{
     color:rgb(255, 255, 255);

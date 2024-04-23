@@ -52,6 +52,11 @@ header .icon img{
     height: 80px;
 }
 
+
+header .icon{
+    margin-left: 10px;
+}
+
 header ol{
     display: flex;
     list-style: none;
@@ -68,9 +73,19 @@ header ol li a{
     font-size: 20px;
     text-decoration: none;
     letter-spacing: 1px;
-    font-size: 22px;
+    font-size: 32px;
     font-weight: 800;
     padding: 20px;
+}
+
+header ol h4{
+    color:rgb(255, 255, 255);
+    font-size: 20px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 32px;
+    font-weight: 800;
+    padding: 10px;
 }
 
 header .search-container{
