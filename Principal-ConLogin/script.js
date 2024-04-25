@@ -1,1 +1,0 @@
-const cartInfo = document.querySelector

@@ -78,6 +78,15 @@ header ol li a{
     padding: 20px;
 }
 
+header ol li #cuentaPedido{
+    font-size: 20px;
+    text-align:center;
+    position: absolute;
+    background-color: rgba(255,59,60,255);
+    width: 25px;
+    border-radius: 15px;
+}
+
 header ol h4{
     color:rgb(255, 255, 255);
     font-size: 20px;
@@ -116,6 +125,7 @@ header .search-container span{
     z-index: 1;
 }
 
+
 header .bar{
     position: relative;
     margin: auto;
@@ -137,6 +147,10 @@ header .bar span{
 
     header .icon{
         display: flex;
+    }
+
+    header .cart-container #cuentaPedido{
+        display: none;
     }
 
     header .span{
@@ -164,6 +178,16 @@ header .bar span{
 
     header .search-container input{
         width: 90%;
+    }
+
+    header ol #cuentaPedido{
+        display: flex;
+        padding: 1px;
+        font-size: 10px;
+        flex-direction: column;
+        height: auto;
+        overflow: hidden;
+        transition: 3s;
     }
 
     header ol{  
@@ -195,7 +219,19 @@ header .bar span{
     }
 
     header .bar #times{
+        display:block ;
+        position: absolute;
+        top: 20px;
+        right: -50px;
+        cursor: pointer;
+    }
+
+    header .bar #times{
         display: none;
+    }
+
+    #check:checked ~ header .cart-container #cuentaPedido {
+        display: inline-block; 
     }
 
     #check:checked ~ header .bar #times{
@@ -210,6 +246,8 @@ header .bar span{
         visibility: visible;
         height: 200px;
     }
+
+
 }
 
 /*NAV*/
@@ -288,20 +326,20 @@ section{
     height: auto;
 }
 
-section .container{
+#targetContainer{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 10px;
 }
 
-section .container img{
+#targetContainer .tarjetaProducto img{
     width: 450px;
     height: 300px;
     border-radius: 25px;
 }
 
-section .container .items{
+#targetContainer .tarjetaProducto{
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: rgb(255, 255, 255);
@@ -326,12 +364,12 @@ section .items{
 }
 }
 
-section .container .price{
+#targetContainer .tarjetaProducto .price{
     font-size: 25px;
     color: rgb(0, 0, 0);
 }
 
-section .container button{
+#targetContainer .tarjetaProducto button{
     margin-bottom: 20px;
     margin-top: 10px;
     width: 250px;
@@ -342,6 +380,12 @@ section .container button{
     font-size: 25px;
     font-weight: 700;
     cursor: pointer;
+    transition: 200ms;
+}
+
+#targetContainer .tarjetaProducto button:hover{
+    translate: 0 -3px;
+
 }
 
 
