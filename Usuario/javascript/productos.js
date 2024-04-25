@@ -3,56 +3,56 @@ const products = [
     {
         id: 1,
         img: "panPollo.png",
-        name: "Pan con Pollo",
-        price: "2.50",
+        name: "<br>Pan con Pollo <br><br> 150 gramos de pollo <br> Pan frances<br><br> ",
+        price: "S/ 2.50",
         button: "Comprar", 
     },
 
     {
         id: 2,
         img: "hamburguesa1.jpg",
-        name: " Hamburguesa",
-        price: "9.50",
+        name: "<br> Hamburguesa <br><br> 150 gramos de carne <br> Pan hamburguesa<br><br>",
+        price: "S/ 9.50",
         button: "Comprar", 
     },
 
     {
         id: 3,
         img: "pizzas.jpg",
-        name: "Pizzas",
-        price: "4.00",
+        name: "<br>Pizzas <br><br> 50 gramos de Pepperoni <br>Salsa de Tomate<br><br>",
+        price: "S/ 4.00",
         button: "Comprar", 
     },
 
     {
         id: 4,
         img: "broaster.png",
-        name: "Broaster",
-        price: "8.00",
+        name: "<br>Broaster <br><br> Alita <br>Papas Fritas<br><br>" ,
+        price: "S/ 8.00",
         button: "Comprar", 
     },
 
     {
         id: 5,
         img: "panPollo.png",
-        name: "Pan con Pollo",
-        price: "2.50",
+        name: "<br>Pan con Pollo <br><br> 150 gramos de pollo <br> Pan frances<br><br> ",
+        price: "S/ 2.50",
         button: "Comprar", 
     },
 
     {
         id: 6,
         img: "hamburguesa1.jpg",
-        name: " Hamburguesa",
-        price: "9.50",
+        name: "<br> Hamburguesa <br><br> 150 gramos de carne <br> Pan hamburguesa<br><br>",
+        price: "S/ 9.50",
         button: "Comprar", 
     },
 
     {
         id: 7,
         img: "pizzas.jpg",
-        name: "Pizzas",
-        price: "4.00",
+        name: "<br> Pizzas <br><br> 50 gramos de Pepperoni <br>Salsa de Tomate<br><br>",
+        price: "S/ 4.00",
         button: "Comprar", 
     }
 
