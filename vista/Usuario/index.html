@@ -19,7 +19,8 @@
             <span class="fa fa-bars" id="bars"></span>
             <span>UCV FOOD</span>
                 <img src="../images/iconoPrincipal.png">
-                <button><a><i class="fas fa-shopping-cart"></i><span id="cuentaPedido">0</span></a></button>
+                    <a data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fas fa-shopping-cart"></i><span id="cuentaPedido">0</span>
+                    </a>
         </div>
 
         <div class="search-container">
@@ -28,6 +29,59 @@
         </div>
 
     </header>
+
+    <!--Carrito Menu-->
+    <div class="modal" id="jsModalCarrito">
+        <div class="modal__container">
+            <button type="button" class="modal__close fa-solid fa-xmark jsModalClose ">Cerrar</button>
+
+            <div class="modal__info">
+                <div class="modal__header">
+                    <h2><i class="fas fa fa-shopping-cart"></i>Carrito de Compras</h2>
+                </div>
+
+                <div class="modal__body">
+                    <div class="modal__list">
+                        <div class="modal__item">
+                            <div class="modal__thumb">
+                                <img src="img/naranja.jpg" alt="Naranja">
+                            </div>
+                            <div class="modal__text-product">
+                                <p>Naranja</p>
+                                <p><strong>$9.00 / kg</strong></p>
+                            </div>
+                        </div>
+
+
+                        <div class="modal__item">
+                            <div class="modal__thumb">
+                                <img src="img/manzana.jpg" alt="Naranja">
+                            </div>
+                            <div class="modal__text-product">
+                                <p>Manzana</p>
+                                <p><strong>$5.00 / kg</strong></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal__footer">
+                    <div class="modal__list-price">
+                        <ul>
+                            <li>Subtotal: <strong>$14.00</strong></li>
+                            <li>Descuento: <strong>$0.00</strong></li>
+                        </ul>
+                        <h4 class="modal__total-cart"> Total: $14.00</h4>
+                    </div>
+
+                    <div class="modal__btns">
+                        <a href="#" class="btn-primary">Comprar Ahora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
  <!--============== NAV ==============-->
     <nav>
@@ -53,6 +107,7 @@
             <a href="#"><button>Unete Aqui!</button></a>
         </div>
     </footer>
-
+    
+    <script src="javascript/abrirCarrito.js"></script>
 </body>
 </html>
