@@ -114,6 +114,13 @@ header .bar span{
     
 }
 
+header button{
+    background-color: transparent;
+    border: none;
+    font-size: 90%;
+    cursor: pointer;
+}
+
 
 @media screen and (max-width: 1350px) {
     header{
@@ -184,6 +191,12 @@ header .search-container span{
 
     header .search-container input{
         width: 90%;
+    }
+
+    header button{
+        background-color: transparent;
+        border: none;
+        font-size: 30%;
     }
 }
 
