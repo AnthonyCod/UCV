@@ -6,9 +6,7 @@
     margin: auto;
 }
 
-body{
-    max-width: 2300px;
-}
+
 
 #check {
     display: none;
@@ -202,12 +200,12 @@ header .search-container span{
 /*Menu Carrito*/
 
 .modal{
-    position:absolute;
-    right: 0;
+    position: absolute;
     background-color: rgba(254,0,5,255);
     width: 100%;
-    max-width: 350px;
-    height: 100vh;
+    max-width: 30%;
+    height: auto;
+    right: 0;
     
     visibility: hidden;
     opacity: 0;
@@ -216,6 +214,7 @@ header .search-container span{
 
     z-index: 20000;
 }
+
 
 .modal::after{
     position: fixed;
@@ -245,7 +244,7 @@ header .search-container span{
 .modal__container{
     height: 100%;
     padding: 30px;
-    position: relative;
+    position: abso;
     z-index: 1000;
 }
 
