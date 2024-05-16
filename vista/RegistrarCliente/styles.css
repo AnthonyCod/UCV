@@ -11,13 +11,13 @@ section{
     align-items: center;
     width: 100%;
     min-height: 100vh;
-    background-image: url('../../images/fondoucv.jpg');
+    background-image: url('../images/fondoucv.jpg');
     background-position: center;
     background-size: cover;
 }
 
 .formulario img{
-    width: 250px;
+    width: 200px;
 }
 
 .formulario{

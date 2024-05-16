@@ -374,6 +374,7 @@ nav .foods{
     padding: 10px;
     text-decoration: none;
     margin: 20px;
+    transition: 0.8s;
 }
 
 .foods ol li img{
@@ -398,6 +399,7 @@ nav .foods{
 .foods ol li:hover{
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); 
     border-radius: 15%;
+    transition:ease-in;
 }
 
 @media screen and (max-width: 1350px){
