@@ -17,12 +17,14 @@ section{
 }
 
 .formulario img{
-    width: 200px;
+    width: 150px;
 }
 
 .formulario{
+    margin: 100px;
+    border: solid thin red;
     background-color: white;
-    border-radius: 15px;
+    border-radius: 20px;
     box-shadow: 0 16px 20px rgba(0, 0, 0, 0.5); 
     width: 500px;
     height: 650px;
@@ -32,48 +34,136 @@ section{
 
 .formulario h1{
     margin-top: -20px ;
-    font-size: 40px;
+    font-size: 30px;
     color: #f83f40;
     margin-bottom: 20px;
 }
-
-.formulario input{
-    margin-top: 10px;
-    width: 60%;
-    height: 30px;
-    border-radius: 10px;
-    text-align: center;
+.form{
+    margin: 30px 70px 0px 70px;
+}
+#nombre-label,
+#apellido-label,
+#fecha-label,
+#email-label,
+#contraseña-label {
+    display: flex;
+    width: 100%;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 0 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
 }
 
-.formulario .pass{
-    color: #0d52af;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.formulario .regi{
-    color: #0d52af;
-    font-weight: 600;
-    text-decoration: none; 
-}
-
-.formulario .pass:hover{
-    color: #f83f40;
-}
-
-.formulario .regi:hover{
-    color: #f83f40;
-}
-
-.formulario .boton{
-    height: 120px;
+#nombre-label input,
+#apellido-label input,
+#fecha-label input,
+#email-label input,
+#contraseña-label input {
+    width: 100%;
     padding: 10px;
-    border-radius: 10px;
-    background-color:#f83f40;
-    color: white;
-    font-weight: 500;
-    font-size: 20px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    color: #333;
+}
+
+#nombre-label i,
+#apellido-label i,
+#fecha-label i,
+#email-label i,
+#contraseña-label i {
+    color: #a7a7a7;
+}
+
+.form input[type="submit"] {
+    background-color: #f83f40;
+    color: #fff;
+    border-radius: 20px;
+    border: none;
+    padding: 10px ;
     cursor: pointer;
-    text-decoration: none;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+}
+
+.form input[type="submit"]:hover {
+    background-color: #a7a7a9;
+}
+.gender-label {
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.form .gender-label input[type="radio"] {
+    margin-right: 5px;
+}
+
+.gender-title {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+/* Responsive*/
+
+/* Estilos base */
+*{
+    font-family: 'poppins',sans-serif;
+    margin: 0; 
+    padding: 0;
+}
+
+/* Estilos para pantallas grandes */
+@media screen and (min-width: 768px) {
+    .formulario {
+        width: 500px;
+        margin: 100px;
+    }
+
+    .form {
+        margin: 30px 70px 0px 70px;
+    }
+
+    #nombre-label,
+    #apellido-label,
+    #fecha-label,
+    #email-label,
+    #contraseña-label {
+        padding: 0 10px;
+    }
+
+    .form input[type="submit"] {
+        padding: 10px;
+    }
+}
+
+/* Estilos para pantallas pequeñas */
+@media screen and (max-width: 767px) {
+    .formulario {
+        width: 90%;
+        margin: 50px auto;
+    }
+
+    .form {
+        margin: 30px;
+    }
+
+    #nombre-label,
+    #apellido-label,
+    #fecha-label,
+    #email-label,
+    #contraseña-label {
+        padding: 0 5px;
+    }
+
+    .form input[type="submit"] {
+        padding: 10px;
+    }
 }
