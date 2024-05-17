@@ -386,7 +386,7 @@ nav .foods{
     width: auto;
     overflow-x: auto;
     white-space: nowrap;
-    color:rgba(0,3,70,255);
+    color: black;
 }
 
 .foods ol li{

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="javascript/script.js" defer></script>
+    <script src="javascript/productos.js"></script>
+    <script src="javascript/agregarProducto.js" defer></script>
+</head>
+<body>
+
+ <!--============== HEADER ==============-->
+
+    <header>
+        <div class="icon">
+            <span class="fa fa-bars" id="bars"></span>
+            <span>UCV FOOD </span>
+                <img src="../images/iconoPrincipal.png">
+
+            <button class="nuevoProducto">Agregar Producto </button>
+        </div>
+
+        <div class="search-container">
+            <input type="search" placeholder=" Buscar...">
+            <span class="fa fa-search"></span>
+        </div>
+
+    </header>
+
+    <div id="formContainer">
+        <div class="formContent">
+            <h2>Nuevo Producto</h2>
+            <label for="productName">Nombre:</label>
+            <input type="text" id="productName" name="productName">
+            <label for="productPrice">Precio:</label>
+            <input type="text" id="productPrice" name="productPrice">
+            <label for="productImage">Imagen:</label>
+            <input type="text" id="productImage" name="productImage">
+            <button id="saveProduct">Guardar Producto</button>
+            <button id="closeForm">Cerrar</button>
+        </div>
+    </div>
+    
+ <!--============== NAV ==============-->
+    <nav>
+        <div class="foods">
+            <ol>
+                <li><a href="#"><img src="../images/jugo.png"></a><span>Tienda 1</span></li>
+                <li><a href="#"><img src="../images/feijoada.png"></a><span>Tienda 2</span></li>
+                <li><a href="#"><img src="../images/pizza (2).png"></a><span>Tienda 3</span></li>
+                <li><a href="#"><img src="../images/pierna-de-pollo (1).png"></a><span>Tienda 4</span></li>
+                <li><a href="#"><img src="../images/sandwich (1).png"></a><span>Tienda 5</span></li>
+                <li><a href="#"><img src="../images/jugo.png"></a><span>Tienda 6</span></li>
+                <li><a href="#"><img src="../images/feijoada.png"></a><span>Tienda 7</span></li>
+                <li><a href="#"><img src="../images/pizza (2).png"></a><span>Tienda 8</span></li>
+                <li><a href="#"><img src="../images/pierna-de-pollo (1).png"></a><span>Tienda 9</span></li>
+                <li><a href="#"><img src="../images/sandwich (1).png"></a><span>Tienda 10</span></li>              
+            </ol>
+        </div>
+    </nav>
+ 
+<!--============== SECTION ==============-->
+<section id="targetContainer">
+</section>
+<!--============== FOOTER ==============-->
+    <footer>
+        <div class="final">
+            <h3>¿Te gustaria formar parte de nuestro equipo de delivery?</h3>
+            <img src="../images/delivery.png">
+            <a href="#"><button>Unete Aqui!</button></a>
+        </div>
+    </footer>
+    
+</body>
+</html>
