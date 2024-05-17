@@ -17,63 +17,100 @@ section{
 }
 
 .formulario img{
-    width: 250px;
+    width: 200px;
 }
 
 .formulario{
     background-color: white;
     border-radius: 15px;
     box-shadow: 0 16px 20px rgba(0, 0, 0, 0.5); 
-    width: 500px;
-    height: 720px;
+    width: 450px;
+    height: 680px;
     text-align: center;
     font-size: 20px;
 }
 
 .formulario h1{
     margin-top: -20px ;
-    font-size: 40px;
+    font-size: 30px;
     color: #f83f40;
     margin-bottom: 20px;
 }
 
-.formulario input{
-    margin-top: 10px;
-    width: 60%;
-    height: 30px;
-    border-radius: 10px;
-    text-align: center;
+.form{
+    margin: 30px 70px 0px 70px;
+}
+
+.form label {
+    display: flex;
+    width: 100%;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 0 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
 }
-
-.formulario .pass{
-    color: #0d52af;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.formulario .regi{
-    color: #0d52af;
-    font-weight: 600;
-    text-decoration: none; 
-}
-
-.formulario .pass:hover{
-    color: #f83f40;
-}
-
-.formulario .regi:hover{
-    color: #f83f40;
-}
-
-.formulario .boton{
-    height: 120px;
+.form label input{
+    width: 100%;
     padding: 10px;
-    border-radius: 10px;
-    background-color:#f83f40;
-    color: white;
-    font-weight: 500;
-    font-size: 20px;
-    cursor: pointer;
-    text-decoration: none;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    color: #333;
+
 }
+
+.form label i{
+    color: #a7a7a7;
+}
+.form input[type="submit"] {
+    background-color: #f83f40;
+    color: #fff;
+    border-radius: 20px;
+    border: none;
+    padding:  10px 30px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+}
+.form input[type="submit"]:hover {
+    background-color: #a7a7a9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .formulario {
+        width: 350px;
+        height: 680px; 
+    }
+
+    .form {
+        margin: 30px 50px 0px 50px;
+    }
+}
+
+@media (max-width: 576px) {
+    .formulario {
+        width: 250px; 
+        height: 400px; 
+    }
+
+    .form {
+        margin: 30px 20px 0px 20px;
+    }
+
+    .form label {
+        flex-direction: column;
+        padding: 10px 5px; 
+    }
+
+    .form label input {
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+    
+}
+
