@@ -13,15 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     saveProductButton.addEventListener("click", () => {
+        const img = document.getElementById("productImage").files[0];
         const name = document.getElementById("productName").value;
+        const desp = document.getElementById("productDescription").value;
         const price = document.getElementById("productPrice").value;
-        const img = document.getElementById("productImage").value;
 
-        if (name && price && img) {
+        if (img && name && price && desp ) {
             const newProduct = {
+                img: img,
                 name: name,
                 price: price,
-                img: img,
+                desp:desp,
                 button: "Comprar"
             };
 

@@ -398,6 +398,7 @@ footer{
     border-radius: 10px;
     justify-content: space-evenly;
     align-items: center;
+    position: sticky;
 }
 
 footer .final{
@@ -408,46 +409,67 @@ footer .final{
     text-align: center;
 }
 
-footer .final h3{
-    font-size: 40px;
+.nuevoProducto{
     padding: 20px;
-}
-
-footer .final img{
-    width: 90px;
-    height: 90px;
-}
-
-footer .final button{
-    border-radius: 5px;
-    background-color: rgba(254,0,5,255);
-    color: white;
-    height: 60px;
-    width: 300px;
-    font-size: 25px;
-    font-weight: 600;
     cursor: pointer;
+    transition: 200ms;
+}
+
+.nuevoProducto:hover{
+    translate: 0 -3px;
 }
 
 @media screen and (max-width:1350px) {
     footer .final h3{
         font-size: 30px;
     }
-    footer .final button{
-            height: 50px;
-            width: 280px;
-    }
-
-    footer .final img{
-        display: none;
-    }
 
     }
 
-@media screen and (max-width:485px){
-    footer .final button{
-        height: 60px;
-        width: 120%;
-}
+/*Formulario Agregar Producto*/
+
+.formContent{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    border: solid thin #0c53b3;
+    font-family: 'poppins',sans-serif;
 }
 
+.formContent h2{
+    color: #f83f40;
+}
+
+.formContent label{
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    padding: 0;
+    margin: 10px;
+    text-align: center;
+}
+
+.formContent input{
+    width: 80%;
+    height: 120%;
+    border-radius: 5px;
+    border: none;
+    color: #333;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .1);
+}
+
+.formContent input:focus {
+    outline: none;
+}
+
+.formContent button{
+    width: 60%;
+    margin: auto;
+    padding: 10px;
+    background-color: #f83f40;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}

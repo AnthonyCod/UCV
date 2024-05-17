@@ -20,7 +20,6 @@
             <span>UCV FOOD </span>
                 <img src="../images/iconoPrincipal.png">
 
-            <button class="nuevoProducto">Agregar Producto </button>
         </div>
 
         <div class="search-container">
@@ -32,13 +31,25 @@
 
     <div id="formContainer">
         <div class="formContent">
-            <h2>Nuevo Producto</h2>
-            <label for="productName">Nombre:</label>
-            <input type="text" id="productName" name="productName">
-            <label for="productPrice">Precio:</label>
-            <input type="text" id="productPrice" name="productPrice">
-            <label for="productImage">Imagen:</label>
-            <input type="text" id="productImage" name="productImage">
+            <h2>Agregar Producto <i class="fas fa-box-open"></i></h2>
+
+            <label for="productImage">
+                <input  type="file" src="" id="productImage" name="productImage" required>
+            </label>
+
+            <label for="productName">
+                <input type="text" id="productName" name="productName" placeholder=" Nombre" required>
+            </label>
+
+            <label for="productDescription">
+                <input type="text" id="productDescription" name="productDescription" placeholder="Descripcion" required>
+            </label>
+
+            <label for="productPrice">
+                <input type="text" id="productPrice" name="productPrice" placeholder="Precio" required>
+            </label>
+            
+
             <button id="saveProduct">Guardar Producto</button>
             <button id="closeForm">Cerrar</button>
         </div>
@@ -68,9 +79,7 @@
 <!--============== FOOTER ==============-->
     <footer>
         <div class="final">
-            <h3>¿Te gustaria formar parte de nuestro equipo de delivery?</h3>
-            <img src="../images/delivery.png">
-            <a href="#"><button>Unete Aqui!</button></a>
+            <button class="nuevoProducto">Agregar Producto </button>
         </div>
     </footer>
     
