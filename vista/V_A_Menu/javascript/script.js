@@ -5,8 +5,9 @@ function createProducts(producto){
         const newProduct = document.createElement("div");
         newProduct.classList = "tarjetaProducto";
         newProduct.innerHTML =  `
-        <img src="./images/${products.img}">
+        <img src="${products.img}">
         <h2>${products.name}</h2>
+        <h3>${products.desp}</h3>
         <h3 class="price">${products.price}</h3>
         <button>${products.button}</button>
     `   
