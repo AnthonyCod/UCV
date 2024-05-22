@@ -1,0 +1,82 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: 'poppins',sans-serif;
+    margin: 0; 
+    padding: 0;
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../images/fondoucv.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.formulario img{
+    width: 150px;
+}
+
+.formulario{
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 16px 20px rgba(0, 0, 0, 0.5); 
+    width: 500px;
+    height: 650px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.formulario h1{
+    margin-top: -20px ;
+    font-size: 40px;
+    color: #f83f40;
+    margin-bottom: 20px;
+}
+
+.formulario input{
+    margin-top: 10px;
+    width: 60%;
+    height: 30px;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+.formulario .pass{
+    color: #0d52af;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.formulario .regi{
+    color: #0d52af;
+    font-weight: 600;
+    text-decoration: none; 
+}
+
+.formulario .pass:hover{
+    color: #f83f40;
+}
+
+.formulario .regi:hover{
+    color: #f83f40;
+}
+
+.formulario .boton{
+    height: 120px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color:#f83f40;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
