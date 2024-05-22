@@ -1,5 +1,5 @@
 <?php
-require '../modelos/conexion.php'; // Asegúrate de que la ruta al archivo es correcta
+require '../modelos/Usuario.php'; // Asegúrate de que la ruta al archivo es correcta
 
 $db = new Database();
 $conn = $db->connect();
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['correo'], $_POST['cont
 
     if ($result->num_rows > 0) {
         // Credenciales correctas, redireccionar a otra página
-        header("Location: ../vista/Usuario/index.html"); // Asegúrate de cambiar la ruta según sea necesario
+        header("Location: ../vista/V_V_Producto/index.html"); // Asegúrate de cambiar la ruta según sea necesario
         exit();
     } else {
         // Credenciales incorrectas

@@ -1,32 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="styles.css">
-        <script src="https://kit.fontawesome.com/a91f4172e9.js" crossorigin="anonymous"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>login</title>
-        
-    </head>
-    <body>
-        <section>
-            <div class="formulario">
-                <img src="../images/iconoPrincipal.png">
-                <h1>Inicio de Sesion</h2>
-                    <h4>Correo electronico <i class="fa-regular fa-envelope"></i></h4>
-                    <input type="email" placeholder="  Correo Electronico...">
-                    <br><br>
-                    <h4>Contraseña <i class="fa-solid fa-lock"></i></h4>
-                    <input type="password" placeholder="  Contraseña...">
-                    <br><br>
-                    <a class="pass" href="#">Olvide la Contraseña</a>
-                    <br><br>
-                    <a class="boton" href="../VisualizarProducto/index.html"> Ingresar </a>
-                    <br><br>
-                    <h4>¿No tienes una cuenta? <a class="regi" href="../RegistrarCliente/register.html">Registrate</a></h4>
-                    <br>
-                    <h4>¿Eres empresa?</h4><a class="regi" href="../RegistrarEmpresa/register.html">Trabaja con Nosotros</a>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a91f4172e9.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+</head>
+<body>
+    <section>
+        <div class="formulario">
+            <img src="../images/iconoPrincipal.png">
+            <h1>Inicio de Sesión</h1>
+            <form action="../../controladores/LoginController.php" method="post">
+                <div class="form-group">
+                    <h4>Correo electrónico <i class="fa-regular fa-envelope"></i></h4>
+                    <input type="email" placeholder="Correo Electrónico" name="correo" required>
                 </div>
-        </section>
-    </body>
+                <br>
+                <div class="form-group">
+                    <h4>Contraseña <i class="fa-solid fa-lock"></i></h4>
+                    <input type="password" placeholder="Contraseña" name="contrasena" required>
+                </div>
+                <br>
+                <a class="pass" href="#">Olvidé la Contraseña</a>
+                <br><br>
+                <button type="submit" class="boton">Ingresar</button>
+                <br><br>
+                <h4>¿No tienes una cuenta? <a href="../RegistrarCliente/register.html">Regístrate</a></h4>
+                <br>
+                <h4>¿Eres empresa?</h4>
+                <a href="../RegistrarEmpresa/register.html">Trabaja con Nosotros</a>
+            </form>
+        </div>
+    </section>
+</body>
 </html>
