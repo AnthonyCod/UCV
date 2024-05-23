@@ -1,32 +1,23 @@
 <?php
-require '../modelos/Usuario.php'; // Asegúrate de que la ruta al archivo es correcta
+session_start();
+require '../modelos/Usuario.php';
 
-$db = new Database();
-$conn = $db->connect();
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nombreUsuario'], $_POST['contrasena'])) {
+    $usuarioModel = new Usuario();
+    $nombreUsuario = $_POST['nombreUsuario'];
+    $contrasena = $_POST['contrasena'];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['correo'], $_POST['contrasena'])) {
-    $user = $_POST['correo'];
-    $pass = $_POST['contrasena'];
+    $usuarioInfo = $usuarioModel->findUserByNombreUsuarioAndPassword($nombreUsuario, $contrasena);
+    if ($usuarioInfo) {
+        $_SESSION['usuarioID'] = $usuarioInfo['usuarioID'];
+        $_SESSION['nombreUsuario'] = $usuarioInfo['nombreUsuario'];
 
-    // Preparar y ejecutar consulta
-    $stmt = $conn->prepare("SELECT * FROM usuarios WHERE correo=? AND contrasena=?");
-    $stmt->bind_param("ss", $user, $pass);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        // Credenciales correctas, redireccionar a otra página
-        header("Location: ../vista/V_V_Producto/index.html"); // Asegúrate de cambiar la ruta según sea necesario
+        header("Location: ../vista/V_V_Producto/index.html");
         exit();
     } else {
-        // Credenciales incorrectas
         echo "Usuario o contraseña incorrectos.";
     }
-
-    $stmt->close();
-    $conn->close();
 } else {
-    // Formulario no enviado o campos faltantes
     echo "Por favor, envía todos los campos requeridos.";
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-require_once 'conexion.php';  // Asegúrate de que la ruta es correcta
+require_once 'conexion.php';  
 
 class Usuario {
     private $db;
@@ -9,25 +9,47 @@ class Usuario {
         $this->db = $database->connect();
     }
 
-    public function findUserByCorreoAndPassword($correo, $password) {
-        $stmt = $this->db->prepare("SELECT * FROM usuarios WHERE correo = ? AND contrasena = ?");
-        $stmt->bind_param("ss", $correo, $password);
+    public function findUserByNombreUsuarioAndPassword($nombreUsuario, $password) {
+        $stmt = $this->db->prepare("SELECT * FROM usuario WHERE nombreUsuario = ? LIMIT 1");
+        $stmt->bind_param("s", $nombreUsuario);
         $stmt->execute();
-        return $stmt->get_result()->fetch_assoc();
-    }
-
-    // Método para registrar un nuevo usuario
-    public function registerNewUser($dni, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento, $contrasena) {
-        $hashed_password = password_hash($contrasena, PASSWORD_DEFAULT); // Hashing the password
-        $stmt = $this->db->prepare("INSERT INTO persona (dni, nombre, apellido, telefono, correo, genero, fechaNacimiento, contraseña) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssss", $dni, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento, $hashed_password);
-        
-        if ($stmt->execute()) {
-            return true; // Registro exitoso
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
+    
+        if ($user && password_verify($password, $user['contraseña'])) {
+            return $user;  
         } else {
-            return false; // Error en el registro
+            return false;
+        }
+    }
+    
+    public function registerNewUser($dni, $nombreUsuario, $contrasena, $estado, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento, $codEstudiante, $repartidor) {
+        $this->db->begin_transaction();
+        try {
+            // Insertar usuario
+            $hashed_password = password_hash($contrasena, PASSWORD_DEFAULT);
+            $stmt = $this->db->prepare("INSERT INTO usuario (nombreUsuario, contraseña, estado) VALUES (?, ?, ?)");
+            $stmt->bind_param("ssi", $nombreUsuario, $hashed_password, $estado);
+            $stmt->execute();
+            $usuarioID = $this->db->insert_id;
+
+            // Insertar persona
+            $stmt = $this->db->prepare("INSERT INTO persona (dni, nombre, apellido, telefono, correo, genero, fechaNacimiento, contraseña) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssssss", $dni, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento, $hashed_password);
+            $stmt->execute();
+
+            // Insertar cliente
+            $fechaRegistro = date("Y-m-d"); 
+            $stmt = $this->db->prepare("INSERT INTO cliente (cod_Estudiante, dni, usuarioID, fechaRegistro, repartidor) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssisi", $codEstudiante, $dni, $usuarioID, $fechaRegistro, $repartidor);
+            $stmt->execute();
+
+            $this->db->commit();
+            return true;  
+        } catch (Exception $e) {
+            $this->db->rollback();
+            return 'Error en el registro: ' . $e->getMessage();
         }
     }
 }
-
-
+?>

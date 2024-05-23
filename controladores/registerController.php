@@ -12,16 +12,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $genero = $_POST['genero'];
     $fechaNacimiento = $_POST['fechaNacimiento'];
     $contrasena = $_POST['contraseña'];
+    $codEstudiante = $_POST['codEstudiante'];
+    $repartidor = $_POST['repartidor'];
+    $nombreUsuario = $_POST['nombreUsuario'];
+    $estado = $_POST['estado'];
 
-    $resultado = $usuario->registerNewUser($dni, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento, $contrasena);
+    $resultado = $usuario->registerNewUser($dni, $nombreUsuario, $contrasena, $estado, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento, $codEstudiante, $repartidor);
 
     if ($resultado) {
         echo "Registro exitoso.";
-        // Redirigir al usuario a la página de inicio de sesión o página principal
         header("Location: ../vista/V_I_Sesion/login.html");
     } else {
         echo "Error en el registro.";
     }
 }
-
 ?>

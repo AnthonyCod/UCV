@@ -13,45 +13,22 @@
         <div class="formulario">
             <img src="../images/iconoPrincipal.png">
             <h1>Registro de Cuenta</h1>
-            <form class="form" action="../../controladores/register.php" method="post">
-                <label for="dni">
-                    DNI:
-                    <input type="text" id="dni" name="dni" placeholder="DNI" required>
-                </label>
-                <label for="nombre">
-                    Nombre:
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
-                </label>
-                <label for="apellido">
-                    Apellido:
-                    <input type="text" id="apellido" name="apellido" placeholder="Apellido">
-                </label>
-                <label for="telefono">
-                    Teléfono:
-                    <input type="text" id="telefono" name="telefono" placeholder="Teléfono">
-                </label>
-                <label for="email">
-                    Correo Electrónico:
-                    <input type="email" id="email" name="correo" placeholder="ejemplo@gmail.com" required>
-                </label>
-                <label for="dob">
-                    Fecha de Nacimiento:
-                    <input type="date" id="dob" name="fechaNacimiento" required>
-                </label>
-                <label for="password">
-                    Contraseña:
-                    <input type="password" id="password" name="contraseña" required>
-                </label>
+            <form class="form" action="../../controladores/registerController.php" method="post">
+                <label for="dni">DNI:<input type="text" id="dni" name="dni" placeholder="DNI" required></label>
+                <label for="nombreUsuario">Nombre de Usuario:<input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre de Usuario" required></label>
+                <label for="nombre">Nombre:<input type="text" id="nombre" name="nombre" placeholder="Nombre" required></label>
+                <label for="apellido">Apellido:<input type="text" id="apellido" name="apellido" placeholder="Apellido"></label>
+                <label for="telefono">Teléfono:<input type="text" id="telefono" name="telefono" placeholder="Teléfono"></label>
+                <label for="email">Correo Electrónico:<input type="email" id="email" name="correo" placeholder="ejemplo@gmail.com" required></label>
+                <label for="dob">Fecha de Nacimiento:<input type="date" id="dob" name="fechaNacimiento" required></label>
+                <label for="password">Contraseña:<input type="password" id="password" name="contraseña" required></label>
                 <label>Género:</label>
-                <label>
-                    <input type="radio" name="genero" value="Masculino" required> Masculino
-                </label>
-                <label>
-                    <input type="radio" name="genero" value="Femenino" required> Femenino
-                </label>
-                <label>
-                    <input type="radio" name="genero" value="Otro" required> Otro
-                </label>
+                <label><input type="radio" name="genero" value="Masculino" required> Masculino</label>
+                <label><input type="radio" name="genero" value="Femenino" required> Femenino</label>
+                <label><input type="radio" name="genero" value="Otro" required> Otro</label>
+                <label for="codEstudiante">Código Estudiante:<input type="text" id="codEstudiante" name="codEstudiante" placeholder="Código Estudiante"></label>
+                <label for="estado">Estado:<select id="estado" name="estado"><option value="1">Activo</option><option value="0">Inactivo</option></select></label>
+                <label for="repartidor">Repartidor:<select id="repartidor" name="repartidor"><option value="0">No</option><option value="1">Sí</option></select></label>
                 <button type="submit">Registrarse</button>
             </form>
         </div>
