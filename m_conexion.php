@@ -1,9 +1,9 @@
 <?php
     /* Declaracion de variables de conexion */
-    $servidor = "bnabxjshqgmawevpokn5-mysql.services.clever-cloud.com";
-    $user = "umhcbwens7czqkbe";
-    $pass = "ml92LjhBN2aIwLvzU42J";
-    $database = "bnabxjshqgmawevpokn5";
+    $servidor = "localhost";
+    $user = "root";
+    $pass = "";
+    $database = "bnabxjshqgmawevpokn5 (1)";
     /*Instanciacion de la variable conexion con el objeto mysqli */
     function conectar($servidor, $user, $pass, $database)
     {
@@ -19,5 +19,5 @@
     }
 
     // Llama a la función con las variables de conexión
-    $conexion = conectar($servidor, $user, $pass, $database);
+    $conexion = conectar($servidor, $user, $pass,$database);
 ?>
