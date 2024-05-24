@@ -1,23 +1,35 @@
 <?php
 session_start();
-require '../modelos/Usuario.php';
+require_once '../modelos/UsuarioModel.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nombreUsuario'], $_POST['contrasena'])) {
-    $usuarioModel = new Usuario();
-    $nombreUsuario = $_POST['nombreUsuario'];
-    $contrasena = $_POST['contrasena'];
+class LoginController {
+    private $usuarioModel;
 
-    $usuarioInfo = $usuarioModel->findUserByNombreUsuarioAndPassword($nombreUsuario, $contrasena);
-    if ($usuarioInfo) {
-        $_SESSION['usuarioID'] = $usuarioInfo['usuarioID'];
-        $_SESSION['nombreUsuario'] = $usuarioInfo['nombreUsuario'];
-
-        header("Location: ../vista/V_V_Producto/index.html");
-        exit();
-    } else {
-        echo "Usuario o contraseña incorrectos.";
+    public function __construct() {
+        $this->usuarioModel = new UsuarioModel();
     }
-} else {
-    echo "Por favor, envía todos los campos requeridos.";
+
+    public function login() {
+        if (empty($_POST['nombreUsuario']) || empty($_POST['contraseña'])) {
+            echo "Por favor, completa todos los campos.";
+            return;
+        }
+
+        $nombreUsuario = $_POST['nombreUsuario'];
+        $contraseña = $_POST['contraseña'];
+
+        $usuario = $this->usuarioModel->verificarUsuario($nombreUsuario, $contraseña);
+        if ($usuario) {
+            $_SESSION['usuario'] = $usuario['nombreUsuario']; // Guardar nombre de usuario en sesión
+            header("Location: ../vista/V_V_Producto/index.html"); // Redireccionar a la página principal
+            exit();
+        } else {
+            echo "Error en las credenciales.";
+        }
+    }
 }
+
+$controller = new LoginController();
+$controller->login();
+
 ?>

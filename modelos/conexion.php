@@ -1,22 +1,14 @@
 <?php
-class Database {
-    private $host = "localhost";
-    private $user = "root";
-    private $pass = "";
-    private $dbname = "bnabxjshqgmawevpokn5";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "comidaweb";
 
-    private $connection;
+// Crear conexión
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-    public function connect() {
-        if ($this->connection == null) {
-            $this->connection = new mysqli($this->host, $this->user, $this->pass, $this->dbname);
-
-            if ($this->connection->connect_error) {
-                die("Conexión fallida: " . $this->connection->connect_error);
-            }
-        }
-        
-        return $this->connection;
-    }
+// Verificar conexión
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>
