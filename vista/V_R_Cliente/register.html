@@ -2,25 +2,27 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Registro de Persona</title>
+    <title>Registro de Usuario</title>
 </head>
 <body>
     <h1>Formulario de Registro</h1>
     <form action="../../controladores/RegistroController.php" method="post">
-        DNI: <input type="text" name="dni" required><br>
+        <h2>Información de Usuario</h2>
+        Nombre de Usuario: <input type="text" name="nombreUsuario" required><br>
+        Contraseña: <input type="password" name="contraseña" required><br>
+        
+        <h2>Información Personal</h2>
         Nombre: <input type="text" name="nombre" required><br>
         Apellido: <input type="text" name="apellido" required><br>
         Teléfono: <input type="text" name="telefono"><br>
         Correo Electrónico: <input type="email" name="correo" required><br>
-        Género:
-        <select name="genero" required>
-            <option value="">Seleccione...</option>
-            <option value="M">Masculino</option>
-            <option value="F">Femenino</option>
+        Género: <select name="genero" required>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Otro">Otro</option>
         </select><br>
         Fecha de Nacimiento: <input type="date" name="fechaNacimiento" required><br>
-        Nombre de Usuario: <input type="text" name="nombreUsuario" required><br>
-        Contraseña: <input type="password" name="contraseña" required><br>
+        
         <input type="submit" value="Registrar">
     </form>
 </body>

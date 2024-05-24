@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once '../modelos/UsuarioModel.php';
 
 class LoginController {
@@ -10,26 +9,23 @@ class LoginController {
     }
 
     public function login() {
-        if (empty($_POST['nombreUsuario']) || empty($_POST['contraseña'])) {
-            echo "Por favor, completa todos los campos.";
-            return;
-        }
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $nombreUsuario = $_POST['nombreUsuario'];
+            $contraseña = $_POST['contraseña'];
 
-        $nombreUsuario = $_POST['nombreUsuario'];
-        $contraseña = $_POST['contraseña'];
-
-        $usuario = $this->usuarioModel->verificarUsuario($nombreUsuario, $contraseña);
-        if ($usuario) {
-            $_SESSION['usuario'] = $usuario['nombreUsuario']; // Guardar nombre de usuario en sesión
-            header("Location: ../vista/V_V_Producto/index.html"); // Redireccionar a la página principal
-            exit();
-        } else {
-            echo "Error en las credenciales.";
+            $usuario_id = $this->usuarioModel->verificarUsuario($nombreUsuario, $contraseña);
+            if ($usuario_id) {
+                session_start();
+                $_SESSION['usuario_id'] = $usuario_id;
+                header("Location: ../vista/V_V_Producto/index.html");
+                exit();
+            } else {
+                echo "Error en las credenciales.";
+            }
         }
     }
 }
 
 $controller = new LoginController();
 $controller->login();
-
 ?>

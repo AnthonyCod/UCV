@@ -1,47 +1,44 @@
 <?php
-require_once '../modelos/PersonaModel.php';  // Asume que PersonaModel incluye las funciones para interactuar con la base de datos
+require_once '../modelos/PersonaModel.php';  // Asegúrate de que la ruta al archivo del modelo es correcta
 
 class RegistroController {
-    private $modelo;
+    private $personaModel;
 
     public function __construct() {
-        $this->modelo = new PersonaModel();
+        $this->personaModel = new PersonaModel();
     }
 
     public function registrar() {
-        // Recolectar datos del formulario
-        $dni = $_POST['dni'];
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        $telefono = $_POST['telefono'];
-        $correo = $_POST['correo'];
-        $genero = $_POST['genero'];
-        $fechaNacimiento = $_POST['fechaNacimiento'];
-        $nombreUsuario = $_POST['nombreUsuario'];
-        $contraseña = $_POST['contraseña'];
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            try {
+                // Recolectar y sanitizar los datos del formulario
+                $nombreUsuario = $_POST['nombreUsuario'];
+                $contraseña = $_POST['contraseña'];  // La contraseña será hasheada en el modelo
+                $nombre = $_POST['nombre'];
+                $apellido = $_POST['apellido'];
+                $telefono = $_POST['telefono'];
+                $correo = $_POST['correo'];
+                $genero = $_POST['genero'];
+                $fechaNacimiento = $_POST['fechaNacimiento'];
 
-        // Validar datos aquí (ejemplo simple de validación)
-        if (empty($dni) || empty($nombre) || empty($correo)) {
-            return "Por favor, asegúrese de llenar todos los campos obligatorios.";
-        }
+                // Insertar el usuario y obtener el ID
+                $usuario_id = $this->personaModel->insertarUsuario($nombreUsuario, $contraseña);
+                
+                // Usar el ID del usuario para insertar el cliente
+                $this->personaModel->insertarCliente($usuario_id, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento);
 
-        // Hashear la contraseña antes de enviarla al modelo
-        $contraseñaHasheada = password_hash($contraseña, PASSWORD_DEFAULT);
-
-        // Llamar al modelo para guardar los datos
-        $resultado = $this->modelo->agregarPersona($dni, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento, $nombreUsuario, $contraseñaHasheada);
-
-        if ($resultado) {
-            echo "Registro completado con éxito.";
+                header("Location: ../Vista/V_I_Sesion/login.html");
+                exit();
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
         } else {
-            echo "Error al registrar los datos.";
+            echo "Solicitud inválida.";
         }
     }
 }
 
 // Crear una instancia del controlador y llamar al método registrar
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $controlador = new RegistroController();
-    $controlador->registrar();
-}
+$controller = new RegistroController();
+$controller->registrar();
 ?>
