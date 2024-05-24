@@ -3,7 +3,7 @@
     $servidor = "localhost";
     $user = "root";
     $pass = "";
-    $database = "bnabxjshqgmawevpokn5 (1)";
+    $database = "bnabxjshqgmawevpokn5(1)";
     /*Instanciacion de la variable conexion con el objeto mysqli */
     function conectar($servidor, $user, $pass, $database)
     {

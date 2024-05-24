@@ -27,7 +27,7 @@ section{
     border-radius: 20px;
     box-shadow: 0 16px 20px rgba(0, 0, 0, 0.5); 
     width: 500px;
-    height: 650px;
+    height: 750px;
     text-align: center;
     font-size: 20px;
 }
@@ -45,7 +45,10 @@ section{
 #apellido-label,
 #fecha-label,
 #email-label,
-#contraseña-label {
+#contraseña-label,
+#telefono-label,
+#usuario-label,
+#gender-title {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -61,7 +64,10 @@ section{
 #apellido-label input,
 #fecha-label input,
 #email-label input,
-#contraseña-label input {
+#contraseña-label input,
+#telefono-label input,
+#usuario-label input,
+#gender-title{
     width: 100%;
     padding: 10px;
     background-color: #fff;
@@ -71,11 +77,18 @@ section{
     color: #333;
 }
 
+#gender-title{
+    width: 103%;
+}
+
 #nombre-label i,
 #apellido-label i,
 #fecha-label i,
 #email-label i,
-#contraseña-label i {
+#contraseña-label i,
+#telefono-label i,
+#usuario-label i,
+#gender.title i {
     color: #a7a7a7;
 }
 
@@ -88,27 +101,19 @@ section{
     cursor: pointer;
     margin-top: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+    width: 60%;
 }
 
 .form input[type="submit"]:hover {
     background-color: #a7a7a9;
 }
-.gender-label {
+.gender-title {
     display: flex;
     font-size: 14px;
     align-items: center;
     margin-bottom: 10px;
     color: #000000;
-}
-
-.form .gender-label input[type="radio"] {
-    margin-right: 5px;
-}
-
-.gender-title {
-    font-size: 16px;
-    color: #000000;
-    margin-bottom: 10px;
+    border: none;
 }
 
 /* Responsive*/
@@ -125,18 +130,11 @@ section{
     .formulario {
         width: 500px;
         margin: 100px;
+        height: 140%;
     }
 
     .form {
         margin: 30px 70px 0px 70px;
-    }
-
-    #nombre-label,
-    #apellido-label,
-    #fecha-label,
-    #email-label,
-    #contraseña-label {
-        padding: 0 10px;
     }
 
     .form input[type="submit"] {
@@ -149,6 +147,7 @@ section{
     .formulario {
         width: 90%;
         margin: 50px auto;
+        height: 120%;
     }
 
     .form {

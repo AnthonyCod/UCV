@@ -29,30 +29,35 @@
                         <i class='bx bx-calendar'></i>
                         <input type="date" placeholder="Fecha de Nacimiento" id="dob" required>
                     </label>
+
+                    <label id="telefono-label">
+                        <i class='bx bx-phone'></i>
+                        <input type="text" placeholder="Telefono" id="telefono" required>
+                    </label>
                     
                     <label id="email-label">
                         <i class='bx bx-envelope'></i>
                         <input type="email" placeholder="ejemplo@gmail.com" id="email" required>
                     </label>
                     
+                    <label id="usuario-label">
+                        <i class='bx bx-user-pin' ></i>
+                        <input type="text" placeholder="Usuario" id="telefono" required>
+                    </label>
+
                     <label id="contraseña-label">
                         <i class='bx bx-lock-alt'></i>
                         <input type="password" placeholder="contraseña" id="password" required>
                     </label>
-                    <p class="gender-title">Género:</p>
-                        <label class="gender-label" id="male-label">
-                            <i class='bx bx-gender-male'></i>
-                            <input type="radio" name="gender" value="male" required>
-                            <span>Masculino</span>
-                        </label>
-                        <label class="gender-label" id="female-label">
-                            <input type="radio" name="gender" value="female" required>
-                            <span>Femenino</span>
-                        </label>
-                        <label class="gender-label" id="prefer-not-label">
-                            <input type="radio" name="gender" value="prefer_not" required>
-                            <span>Prefiero no decirlo</span>
-                        </label>
+
+                    <select id="gender-title" name="productList" >
+                        <option value="">Selecciona tu genero </option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                        
+                    <br>
                     <input type="submit" value="Registrarse" >
                     <br><br>
                 </form>
