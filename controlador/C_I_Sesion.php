@@ -20,7 +20,7 @@ class LoginController {
                 header("Location: ../vista/V_V_Producto/index.php");
                 exit();
             } else {
-                echo "Error en las credenciales.";
+                header("Location: ../vista/V_I_Sesion/login.php");
             }
         }
     }

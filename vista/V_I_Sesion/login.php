@@ -12,13 +12,14 @@
             <div class="formulario">
                 <img src="../images/iconoPrincipal.png">
                 <h1>Inicio de Sesión</h1>
-                <form action="../../controlador/C_I_Sesion.php" method="POST">
+                <form action="../../controlador/C_I_Sesion.php" method="POST" id='formInicio'>
                     <h4>Nombre de Usuario <i class="fa-regular fa-envelope"></i></h4>
                     <input type="text" name="nombreUsuario" placeholder="NombreUsuario..." required>
                     <br><br>
                     <h4>Contraseña <i class="fa-solid fa-lock"></i></h4>
                     <input type="password" name="contraseña" placeholder="Contraseña..." required>
                     <br><br>
+                    
                     <a class="pass" href="#">Olvidé la Contraseña</a>
                     <br><br>
                     <button type="submit" class="boton">Ingresar</button>
