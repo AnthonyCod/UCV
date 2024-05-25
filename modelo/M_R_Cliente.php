@@ -8,28 +8,17 @@ class PersonaModel {
         $this->conexion = $GLOBALS['conexion'];
     }
 
-    public function insertarUsuario($nombreUsuario, $contraseña) {
-        $contraseñaHash = password_hash($contraseña, PASSWORD_DEFAULT);
-        $stmt = $this->conexion->prepare("INSERT INTO usuario (nombreUsuario, contraseña) VALUES (?, ?)");
-        $stmt->bind_param("ss", $nombreUsuario, $contraseñaHash);
-
-        if ($stmt->execute()) {
-            return $this->conexion->insert_id;
-        } else {
-            throw new Exception("Error al insertar usuario: " . $stmt->error);
-        }
-    }
-
-    public function insertarCliente($usuario_id, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento) {
+    public function registrarCliente($nombreUsuario, $contraseña, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento) {
+        // Obtener fecha actual
         $fechaRegistro = date('Y-m-d');
-        $puntosFidelidad = 0;
-        $repartidor = 0;
-        $estado = 1;
-    
-        $stmt = $this->conexion->prepare("INSERT INTO cliente (usuarioID, puntosFidelidad, fechaRegistro, repartidor, estado, nombre, apellido, telefono, correo, genero, fechaNacimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        // Corrección aquí: especifica correctamente los tipos de cada parámetro
-        $stmt->bind_param("iisiissssss", $usuario_id, $puntosFidelidad, $fechaRegistro, $repartidor, $estado, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento);
 
+        // Preparar la consulta sql
+        $stmt = $this->conexion->prepare("CALL i_Cliente(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+        // Asignar el tipo de cada dato
+        $stmt->bind_param("sssssssss", $fechaRegistro, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento, $nombreUsuario, $contraseña);
+
+        // Realizar la ejecución
         if ($stmt->execute()) {
             return true;
         } else {
@@ -37,4 +26,5 @@ class PersonaModel {
         }
     }
 }
+
 ?>
