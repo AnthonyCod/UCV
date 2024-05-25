@@ -21,11 +21,11 @@
                     <br><br>
                     <a class="pass" href="#">Olvide la Contraseña</a>
                     <br><br>
-                    <a class="boton" href="../VisualizarProducto/index.html"> Ingresar </a>
+                    <a class="boton" href="../V_A_Menu/index.php"> Ingresar </a>
                     <br><br>
-                    <h4>¿No tienes una cuenta? <a class="regi" href="../RegistrarCliente/register.html">Registrate</a></h4>
+                    <h4>¿No tienes una cuenta? <a class="regi" href="../V_R_Cliente/register.html">Registrate</a></h4>
                     <br>
-                    <h4>¿Eres empresa?</h4><a class="regi" href="../RegistrarEmpresa/register.html">Trabaja con Nosotros</a>
+                    <h4>¿Eres empresa?</h4><a class="regi" href="../V_R_Establecimiento/register.html">Trabaja con Nosotros</a>
                 </div>
         </section>
     </body>
