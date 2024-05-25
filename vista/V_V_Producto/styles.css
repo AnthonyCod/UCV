@@ -203,7 +203,7 @@ header .search-container span{
     position: absolute;
     background-color: whitesmoke;
     width: 100%;
-    max-width: 30%;
+    max-width: 50%;
     height: auto;
     right: 0;
     border-radius: 3%;
@@ -361,6 +361,12 @@ header .search-container span{
     text-align: center;
     font-size: 1.5rem;
     font-weight: 600;
+}
+
+@media screen and (max-width: 1350px){
+    .modal{
+        max-width: 80%;
+    }
 }
 
 /*NAV*/

@@ -1,5 +1,5 @@
 <?php
-require_once '../modelos/PersonaModel.php';  // Asegúrate de que la ruta al archivo del modelo es correcta
+require_once '../modelos/M_R_Cliente.php';  // Asegúrate de que la ruta al archivo del modelo es correcta
 
 class RegistroController {
     private $personaModel;

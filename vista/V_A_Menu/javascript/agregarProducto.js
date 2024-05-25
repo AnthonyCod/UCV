@@ -13,22 +13,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     saveProductButton.addEventListener("click", () => {
-        const img = document.getElementById("productImage").files[0];
+        const imgFile = document.getElementById("productImage").files[0];
         const name = document.getElementById("productName").value;
         const desp = document.getElementById("productDescription").value;
         const price = document.getElementById("productPrice").value;
 
-        if (img && name && price && desp ) {
-            const newProduct = {
-                img: img,
-                name: name,
-                price: price,
-                desp:desp,
-                button: "Comprar"
-            };
+        if (imgFile && name && price && desp) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imgSrc = e.target.result;
+                const newProduct = {
+                    img: imgSrc,
+                    name: name,
+                    price: price,
+                    desp: desp,
+                    button: "Editar"
+                };
 
-            createProducts([newProduct]);
-            formContainer.classList.add("hidden");
+                createProducts([newProduct]);
+                formContainer.style.display = "none";
+
+                document.getElementById("productImage").value = "";
+                document.getElementById("productName").value = "";
+                document.getElementById("productDescription").value = "";
+                document.getElementById("productPrice").value = "";
+            };
+            reader.readAsDataURL(imgFile);
         } else {
             alert("Por favor, complete todos los campos.");
         }

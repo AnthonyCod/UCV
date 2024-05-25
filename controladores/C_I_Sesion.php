@@ -1,5 +1,5 @@
 <?php
-require_once '../modelos/UsuarioModel.php';
+require_once '../modelos/M_I_Sesion.php';
 
 class LoginController {
     private $usuarioModel;
@@ -16,7 +16,7 @@ class LoginController {
             $usuario_id = $this->usuarioModel->verificarUsuario($nombreUsuario, $contraseña);
             if ($usuario_id) {
                 session_start();
-                $_SESSION['usuario_id'] = $usuario_id;
+                $_SESSION['usuarioID'] = $usuario_id;
                 header("Location: ../vista/V_V_Producto/index.html");
                 exit();
             } else {

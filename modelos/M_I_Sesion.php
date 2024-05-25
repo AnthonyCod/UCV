@@ -1,5 +1,5 @@
 <?php
-require_once 'conexion.php';
+require_once 'm_conexion.php';
 
 class UsuarioModel {
     private $conn;
@@ -9,13 +9,13 @@ class UsuarioModel {
     }
 
     public function verificarUsuario($nombreUsuario, $contraseña) {
-        $stmt = $this->conn->prepare("SELECT usuario_id, contraseña FROM usuario WHERE nombreUsuario = ?");
+        $stmt = $this->conn->prepare("SELECT usuarioID, contraseña FROM usuario WHERE nombreUsuario = ?");
         $stmt->bind_param("s", $nombreUsuario);
         $stmt->execute();
         $result = $stmt->get_result();
         if ($usuario = $result->fetch_assoc()) {
             if (password_verify($contraseña, $usuario['contraseña'])) {
-                return $usuario['usuario_id'];  // Retorna el ID del usuario si la contraseña es correcta
+                return $usuario['usuarioID'];  // Retorna el ID del usuario si la contraseña es correcta
             }
         }
         return null;  // Retorna null si la autenticación falla
