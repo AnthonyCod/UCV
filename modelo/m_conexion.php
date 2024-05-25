@@ -13,6 +13,7 @@
         if ($conexion->connect_errno) {
             die("No se pudo establecer la conexión: \n" . $conexion->connect_errno);
         } else {
+            echo "Establecido correctamente";
             return $conexion;
         }
     }
