@@ -1,24 +1,36 @@
 <?php
 require_once 'm_conexion.php';
 
-class UsuarioModel {
+class UsuarioModel
+{
     private $conexion;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->conexion = $GLOBALS['conexion'];
     }
 
-    public function verificarUsuario($nombreUsuario, $contraseña) {
-        $stmt = $this->conexion->prepare("SELECT usuarioID, contraseña FROM usuario WHERE nombreUsuario = ?");
-        $stmt->bind_param("s", $nombreUsuario);
+    public function verificarUsuario($nombreUsuario, $contraseña)
+    {
+        $stmt = $this->conexion->prepare("call c_usuario(?,?);");
+        $stmt->bind_param("ss", $nombreUsuario, $contraseña);
         $stmt->execute();
         $result = $stmt->get_result();
-        if ($usuario = $result->fetch_assoc()) {
-            if (password_verify($contraseña, $usuario['contraseña'])) {
-                return $usuario['usuarioID'];  // Retorna el ID del usuario si la contraseña es correcta
+        // Verificar si hay un resultado y obtenerlo
+        if ($result && $usuario = $result->fetch_assoc()) {
+            // La variable $usuario ahora contiene un array asociativo con las columnas 'usuarioID' y 'mensaje'
+            if ($usuario['usuarioID'] !== null) {
+                // Retorna el ID del usuario si la autenticación es correcta
+                return [
+                    'usuarioID' => $usuario['usuarioID']
+                ];
+            } else {
+                // Retorna el mensaje de error si la autenticación falla
+
+                echo "usuario o contraseña incorrecta";
+                return null;
             }
         }
-        return null;  // Retorna null si la autenticación falla
+        return null;  // Retorna null si ocurre algún error inesperado
     }
 }
-?>
