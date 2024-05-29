@@ -26,9 +26,9 @@ class PersonaModel {
         $repartidor = 0;
         $estado = 1;
     
-        $stmt = $this->conn->prepare("INSERT INTO cliente (usuarioID, puntosFidelidad, fechaRegistro, repartidor, estado, nombre, apellido, telefono, correo, genero, fechaNacimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $this->conn->prepare("INSERT INTO cliente (usuarioID, puntosFidelidad, fechaRegistro, repartidor, nombre, apellido, telefono, correo, genero, fechaNacimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         // Corrección aquí: especifica correctamente los tipos de cada parámetro
-        $stmt->bind_param("iisiissssss", $usuario_id, $puntosFidelidad, $fechaRegistro, $repartidor, $estado, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento);
+        $stmt->bind_param("iisissssss", $usuario_id, $puntosFidelidad, $fechaRegistro, $repartidor, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento);
 
         if ($stmt->execute()) {
             return true;
