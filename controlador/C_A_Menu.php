@@ -28,14 +28,14 @@ if (isset($_POST['saveProduct'])) {
             echo json_encode(["success" => false, "error" => "El archivo no es una imagen"]);
             exit;
         } else if ($size > 3 * 1024 * 1024) {
-            echo json_encode(["success" => false, "error" => "El tamaño máximo permitido es 3MB"]);
-            exit;
+           echo json_encode(["success" => false, "error" => "El tamaño máximo permitido es 3MB"]);
+           exit;
         } else {
             $src = $carpeta . $nombreArchivo;
             if (move_uploaded_file($ruta_provisional, $src)) {
                 $image = $src;
             } else {
-                echo json_encode(["success" => false, "error" => "Error al mover el archivo."]);
+               echo json_encode(["success" => false, "error" => "Error al mover el archivo."]);
                 exit;
             }
         }
@@ -43,13 +43,10 @@ if (isset($_POST['saveProduct'])) {
 
     try {
         if ($producto->guardarProducto($nombre, $descripcion, $precio, $image, $descripcionCategoria)) {
-            echo "Producto insertado correctamente.";
-            
-        } else {
-            echo "Error al insertar el producto.";
-        }
+            header("Location: ../vista/V_A_Menu/index.php?success=1");
+            exit;
+        } 
     } catch (Exception $e) {
-        echo "Error: " . $e->getMessage();
     }
 }
 ?>

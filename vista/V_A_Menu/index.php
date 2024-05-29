@@ -72,8 +72,12 @@ try {
                 
                 <label for="productImage">Imagen del Producto:</label>
                 <input type="file" id="productImage" name="productImage" accept="image/*" required>
-                
+                <img id="previewImage" src="" alt="Previsualización de la imagen"
+                style="width:100px;height:100px;margin-top:10px; display:none;">
+
+
                 <button id="saveProduct" name="saveProduct">Guardar Producto</button>
+                <button id="closeForm" class="closeButton">Cerrar</button>
             </div>
         </form>
     </div>
@@ -103,3 +107,4 @@ try {
     
 </body>
 </html>
+
