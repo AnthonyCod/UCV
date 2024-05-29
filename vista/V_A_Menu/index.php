@@ -11,10 +11,8 @@ try {
 }
 ?>
 
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,13 +25,12 @@ try {
 </head>
 <body>
 
- <!--============== HEADER ==============-->
-
+    <!--============== HEADER ==============-->
     <header>
         <div class="icon">
             <span class="fa fa-bars" id="bars"></span>
             <span>UCV FOOD </span>
-                <img src="../images/iconoPrincipal.png">
+            <img src="../images/iconoPrincipal.png">
         </div>
 
         <div class="search-container">
@@ -42,41 +39,46 @@ try {
         </div>
     </header>
 
-    <form action="../../controlador/C_A_Menu.php" id="formContainer" method="post">
-        <div class="formContent">
-            <h2>Agregar Producto <i class="fas fa-box-open"></i></h2>
-            
-            <select id="productList" name="productList" required>
-                <option value="">Selecciona una tienda</option>
-                <?php
-                if (isset($categorias) && !empty($categorias)) {
-                    foreach ($categorias as $categoria): ?>
-                        <option value="<?php echo htmlspecialchars($categoria); ?>"><?php echo htmlspecialchars($categoria); ?></option>
-                    <?php endforeach;
-                } else {
-                    echo "<option value=''>No hay categorías disponibles</option>";
-                }
-                ?>
-            </select>
-            
-            <label for="productName">
-                <input type="text" id="productName" name="productName" placeholder="Nombre">
-            </label>
+    <!--============== FORMULARIO ==============-->
+    <div id="productForm" class="box">
+        <form action="../../controlador/C_A_Menu.php" id="formContainer" method="post" enctype="multipart/form-data">
+            <div class="formContent">
+                <h2>Agregar Producto <i class="fas fa-box-open"></i></h2>
+                
+                <select id="productList" name="productList" required>
+                    <option value="">Selecciona una tienda</option>
+                    <?php
+                    if (isset($categorias) && !empty($categorias)) {
+                        foreach ($categorias as $categoria): ?>
+                            <option value="<?php echo htmlspecialchars($categoria); ?>"><?php echo htmlspecialchars($categoria); ?></option>
+                        <?php endforeach;
+                    } else {
+                        echo "<option value=''>No hay categorías disponibles</option>";
+                    }
+                    ?>
+                </select>
+                
+                <label for="productName">
+                    <input type="text" id="productName" name="productName" placeholder="Nombre" required>
+                </label>
 
-            <label for="productDescription">
-                <input type="text" id="productDescription" name="productDescription" placeholder="Descripción" required>
-            </label>
+                <label for="productDescription">
+                    <input type="text" id="productDescription" name="productDescription" placeholder="Descripción" required>
+                </label>
 
-            <label for="productPrice">
-                <input type="text" id="productPrice" name="productPrice" placeholder="Precio">
-            </label>
-            
-            <button id="saveProduct" name="saveProduct">Guardar Producto</button>
-            <button id="closeForm">Cerrar</button>
-        </div>
-    </form>
-    
- <!--============== NAV ==============-->
+                <label for="productPrice">
+                    <input type="text" id="productPrice" name="productPrice" placeholder="Precio" required>
+                </label>
+                
+                <label for="productImage">Imagen del Producto:</label>
+                <input type="file" id="productImage" name="productImage" accept="image/*" required>
+                
+                <button id="saveProduct" name="saveProduct">Guardar Producto</button>
+            </div>
+        </form>
+    </div>
+
+    <!--============== NAV ==============-->
     <nav>
         <div class="foods">
             <ol>
@@ -84,11 +86,11 @@ try {
             </ol>
         </div>
     </nav>
- 
-<!--============== SECTION ==============-->
-<section id="targetContainer">
-</section>
-<!--============== FOOTER ==============-->
+
+    <!--============== SECTION ==============-->
+    <section id="targetContainer"></section>
+
+    <!--============== FOOTER ==============-->
     <footer>
         <div class="agregarTienda">
             <button class="nuevaTienda">Agregar Tienda</button>
