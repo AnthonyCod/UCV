@@ -3,7 +3,7 @@
     $servidor = "localhost";
     $user = "root";
     $pass = "";
-    $database = "bnabxjshqgmawevpokn5 (1)";
+    $database = "ucvfood";
     /*Instanciacion de la variable conexion con el objeto mysqli */
     function conectar($servidor, $user, $pass, $database)
     {
@@ -13,7 +13,6 @@
         if ($conexion->connect_errno) {
             die("No se pudo establecer la conexión: \n" . $conexion->connect_errno);
         } else {
-            echo "Se estableció la conexión correctamente \n";
             return $conexion;
         }
     }
