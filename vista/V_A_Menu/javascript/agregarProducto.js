@@ -2,45 +2,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const addProductButton = document.querySelector(".nuevoProducto");
     const formContainer = document.getElementById("formContainer");
     const closeFormButton = document.getElementById("closeForm");
-    const saveProductButton = document.getElementById("saveProduct");
+    const productImageInput = document.getElementById("productImage");
+    const previewImage = document.getElementById("previewImage");
 
     addProductButton.addEventListener("click", () => {
         formContainer.style.display = "flex";
     });
 
-    closeFormButton.addEventListener("click", () => {
+    closeFormButton.addEventListener("click", (event) => {
+        event.preventDefault();
         formContainer.style.display = "none";
     });
+    
+    productImageInput.addEventListener("change", (event) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
 
-    saveProductButton.addEventListener("click", () => {
-        const imgFile = document.getElementById("productImage").files[0];
-        const name = document.getElementById("productName").value;
-        const desp = document.getElementById("productDescription").value;
-        const price = document.getElementById("productPrice").value;
+        reader.onload = (e) => {
+            previewImage.src = e.target.result;
+            previewImage.style.display = "block";
+        };
 
-        if (imgFile && name && price && desp) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const imgSrc = e.target.result;
-                const newProduct = {
-                    img: imgSrc,
-                    name: name,
-                    price: price,
-                    desp: desp,
-                    button: "Editar"
-                };
-
-                createProducts([newProduct]);
-                formContainer.style.display = "none";
-
-                document.getElementById("productImage").value = "";
-                document.getElementById("productName").value = "";
-                document.getElementById("productDescription").value = "";
-                document.getElementById("productPrice").value = "";
-            };
-            reader.readAsDataURL(imgFile);
+        if (file) {
+            reader.readAsDataURL(file);
         } else {
-            alert("Por favor, complete todos los campos.");
+            previewImage.src = "";
+            previewImage.style.display = "none";
         }
     });
+
 });

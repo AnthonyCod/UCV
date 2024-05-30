@@ -13,7 +13,7 @@
         <div class="formulario">
             <img src="../images/iconoPrincipal.png">
             <h1>Registro de Cuenta</h1>
-            <form class="form" action="../../controladores/C_R_Cliente.php" method="post">
+            <form action="../../controlador/C_R_Cliente.php" class="form" method="post">
                 <label id="nombre-label">
                     <i class='bx bx-user'></i>
                     <input type="text" name="nombre" placeholder="Nombre" id="nombres" required>

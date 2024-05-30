@@ -1,5 +1,5 @@
 <?php
-require_once '../modelos/M_R_Cliente.php';  // Asegúrate de que la ruta al archivo del modelo es correcta
+require_once '../modelo/M_R_Cliente.php';  // Asegúrate de que la ruta al archivo del modelo es correcta
 
 class RegistroController {
     private $personaModel;
@@ -13,7 +13,7 @@ class RegistroController {
             try {
                 // Recolectar y sanitizar los datos del formulario
                 $nombreUsuario = $_POST['nombreUsuario'];
-                $contraseña = $_POST['contraseña'];  // La contraseña será hasheada en el modelo
+                $contraseña = $_POST['contraseña'];  
                 $nombre = $_POST['nombre'];
                 $apellido = $_POST['apellido'];
                 $telefono = $_POST['telefono'];
@@ -21,16 +21,17 @@ class RegistroController {
                 $genero = $_POST['genero'];
                 $fechaNacimiento = $_POST['fechaNacimiento'];
 
-                // Insertar el usuario y obtener el ID
-                $usuario_id = $this->personaModel->insertarUsuario($nombreUsuario, $contraseña);
-                
                 // Usar el ID del usuario para insertar el cliente
-                $this->personaModel->insertarCliente($usuario_id, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento);
+                $resultado = $this->personaModel->registrarCliente($nombreUsuario, $contraseña, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento);
 
-                header("Location: ../Vista/V_I_Sesion/login.html");
-                exit();
+                if ($resultado) {
+                    header("Location: ../Vista/V_I_Sesion/login.php");
+                    exit();
+                } else {
+                    echo "Error al registrar el cliente.";
+                }
             } catch (Exception $e) {
-                echo $e->getMessage();
+                echo "Error al registrar el cliente: " . $e->getMessage();
             }
         } else {
             echo "Solicitud inválida.";
@@ -41,4 +42,5 @@ class RegistroController {
 // Crear una instancia del controlador y llamar al método registrar
 $controller = new RegistroController();
 $controller->registrar();
+
 ?>
