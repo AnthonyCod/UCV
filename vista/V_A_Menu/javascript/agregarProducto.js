@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <h2>${product.nombre}</h2>
                         <p>${product.descripcion}</p>
                         <p class="price">$${product.precio}</p>
-                        <img src="${product.image}" alt="${product.nombre}" style="width:300px;height:300px;margin-top:20px;">
+                        <img src="../../ucv/${product.image}" alt="${product.nombre}" style="width:300px;height:300px;margin-top:20px;">
                     `;
                     targetContainer.appendChild(productCard);
     
@@ -72,5 +72,28 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => console.error('Error:', error));
     });
-    
+
+    // Función para cargar productos al inicio
+    function cargarProductos() {
+        fetch('../../controlador/C_A_Menu.php')
+        .then(response => response.json())
+        .then(productos => {
+            targetContainer.innerHTML = ''; // Limpiar contenedor
+            productos.forEach(product => {
+                const productCard = document.createElement("div");
+                productCard.className = "tarjetaProducto";
+                productCard.innerHTML = `
+                    <h2>${product.nombreProducto}</h2>
+                    <p>${product.descripcionProducto}</p>
+                    <p class="price">$${product.precio}</p>
+                    <img src="../../ucv/${product.foto}" alt="${product.nombreProducto}" style="width:100px;height:100px;margin-top:10px;">
+                `;
+                targetContainer.appendChild(productCard);
+            });
+        })
+        .catch(error => console.error('Error cargando productos:', error));
+    }
+
+    // Cargar productos al inicio
+    cargarProductos();
 });
