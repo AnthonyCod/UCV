@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeFormButton = document.getElementById("closeForm");
     const productImageInput = document.getElementById("productImage");
     const previewImage = document.getElementById("previewImage");
-    const productForm = document.getElementById("productForm"); // Ajustado para que coincida con el formulario en HTML
+    const productForm = document.getElementById("productForm");
     const targetContainer = document.getElementById("targetContainer");
 
     addProductButton.addEventListener("click", () => {
@@ -35,9 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     productForm.addEventListener("submit", (event) => {
         event.preventDefault(); // Prevent normal form submission
-    
-        const formData = new FormData(productForm); // Asegurarse de que se usa el formulario correcto
-    
+
+        const formData = new FormData(productForm);
+        formData.append('action', 'guardar'); // Añadir el campo de acción
+
         fetch('../../controlador/C_A_Menu.php', {
             method: 'POST',
             body: formData
@@ -52,18 +53,22 @@ document.addEventListener("DOMContentLoaded", () => {
                     const productCard = document.createElement("div");
                     productCard.className = "tarjetaProducto";
                     productCard.innerHTML = `
+                        <button class="delete-btn" data-nombre="${product.nombre}">&times;</button>
                         <h2>${product.nombre}</h2>
                         <p>${product.descripcion}</p>
                         <p class="price">$${product.precio}</p>
                         <img src="../../fotos/${product.foto}" alt="${product.nombre}" style="width:300px;height:300px;margin-top:20px;">
                     `;
                     targetContainer.appendChild(productCard);
-    
+
                     // Clear form inputs
                     productForm.reset();
                     previewImage.src = "";
                     previewImage.style.display = "none";
                     formContainer.style.display = "none";
+
+                    // Add delete functionality
+                    productCard.querySelector(".delete-btn").addEventListener("click", () => eliminarProducto(product.nombre, productCard));
                 } else {
                     console.error(data.error);
                 }
@@ -86,17 +91,43 @@ document.addEventListener("DOMContentLoaded", () => {
                 const productCard = document.createElement("div");
                 productCard.className = "tarjetaProducto";
                 productCard.innerHTML = `
+                    <button class="delete-btn" data-nombre="${product.nombre}">&times;</button>
                     <h2>${product.nombre}</h2>
                     <p>${product.descripcion}</p>
                     <p class="price">$${product.precio}</p>
                     <img src="../../fotos/${product.foto}" alt="${product.nombre}" style="width:100px;height:100px;margin-top:10px;">
                 `;
                 targetContainer.appendChild(productCard);
+
+                // Add delete functionality
+                productCard.querySelector(".delete-btn").addEventListener("click", () => eliminarProducto(product.nombre, productCard));
             });
         })
         .catch(error => console.error('Error cargando productos:', error));
     }
 
-    // Cargar productos al inicio
+    function eliminarProducto(nombre, productCard) {
+        if (confirm(`¿Estás seguro de que deseas eliminar el producto ${nombre}?`)) {
+            const formData = new FormData();
+            formData.append('action', 'eliminar');
+            formData.append('nombreProducto', nombre);
+
+            fetch('../../controlador/C_A_Menu.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    productCard.remove();
+                    alert('Producto eliminado exitosamente');
+                } else {
+                    alert('Error al eliminar el producto');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    }
+
     cargarProductos();
 });

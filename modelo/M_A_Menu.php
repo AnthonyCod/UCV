@@ -91,6 +91,23 @@ class Producto
     
         return $productos;
     }
+    public function eliminarProducto($nombre) {
+        $consulta = "UPDATE producto SET disponibilidad = 0 WHERE nombreProducto = ?";
+        $stmt = $this->conexion->prepare($consulta);
+
+        if (!$stmt) {
+            throw new Exception("Error al preparar la consulta: " . $this->conexion->error);
+        }
+
+        $stmt->bind_param('s', $nombre);
+
+        if (!$stmt->execute()) {
+            throw new Exception("Error al ejecutar la consulta: " . $stmt->error);
+        }
+
+        return true;
+    }
+
     
 }
 ?>
