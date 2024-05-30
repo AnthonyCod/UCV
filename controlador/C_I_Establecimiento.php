@@ -20,7 +20,7 @@ class LoginController {
                 header("Location: ../vista/V_A_Menu/index.php");
                 exit();
             } else {
-                header("Location: ../vista/V_I_Establecimiento/Empresa.html");
+                header("Location: ../vista/V_I_Establecimiento/login.html");
             }
         }
     }
