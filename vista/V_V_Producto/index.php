@@ -13,13 +13,23 @@
  <!--============== HEADER ==============-->
 
     <header>
-        <div class="icon">
+        <!--<div class="icon">
             <span class="fa fa-bars" id="bars"></span>
             <span>UCV FOOD</span>
                 <img src="../images/iconoPrincipal.png">
                     <a data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fas fa-shopping-cart"></i><span id="cuentaPedido">0</span>
                     </a>
-        </div>
+        </div>-->
+
+        <div class="icon">
+        <span class="fa fa-bars" id="bars"></span>
+        <span>UCV FOOD</span>
+        <img src="../images/iconoPrincipal.png">
+        <!-- Enlace modificado para ir directamente a la página del carrito -->
+        <a href="../V_A_Carrito/carrito.html">
+            <i class="fas fa-shopping-cart"></i><span id="cuentaPedido">0</span>
+        </a>
+    </div>
 
         <div class="search-container">
             <input type="search" placeholder=" Buscar...">

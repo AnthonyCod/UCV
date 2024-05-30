@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Encabezado común -->
+    <header>
+        <div class="icon">
+            <span class="fa fa-bars" id="bars"></span>
+            <span>UCV FOOD</span>
+            <a href="index.php"><img src="../images/iconoPrincipal.png"></a>
+        </div>
+    </header>
+
+    <!-- Contenedor principal del carrito -->
+    <div class="container-carrito">
+        <h1>Carrito de Compras</h1>
+        <div class="productos-carrito" id="productosCarrito">
+            <!-- Los productos se añadirán aquí dinámicamente -->
+        </div>
+        <div class="acciones-carrito">
+            <button onclick="window.location.href='V_V_Producto/index.php'">Continuar Comprando</button>
+            <button onclick="procederAlPago()">Proceder al Pago</button>
+        </div>
+    </div>
+
+    <footer>
+        <!-- Tu pie de página común -->
+    </footer>
+
+    <script src="carrito.js"></script>
+</body>
+</html>
