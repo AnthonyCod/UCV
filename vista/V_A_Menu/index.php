@@ -10,7 +10,6 @@ try {
     $categorias = [];
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -40,8 +39,8 @@ try {
     </header>
 
     <!--============== FORMULARIO ==============-->
-    <div id="productForm" class="box">
-        <form action="../../controlador/C_A_Menu.php" id="formContainer" method="post" enctype="multipart/form-data">
+    <div id="formContainer" class="box">
+        <form action="../../controlador/C_A_Menu.php" id="productForm" method="post" enctype="multipart/form-data">
             <div class="formContent">
                 <h2>Agregar Producto <i class="fas fa-box-open"></i></h2>
                 
@@ -72,8 +71,7 @@ try {
                 
                 <label for="productImage">Imagen del Producto:</label>
                 <input type="file" id="productImage" name="productImage" accept="image/*" required>
-                <img id="previewImage" src="" alt="Previsualización de la imagen"
-                style="width:100px;height:100px;margin-top:10px; display:none;">
+                <img id="previewImage" src="" alt="Previsualización de la imagen" style="width:100px;height:100px;margin-top:10px; display:none;">
 
                 <button id="saveProduct" name="saveProduct">Guardar Producto</button>
                 <button id="closeForm" class="closeButton">Cerrar</button>

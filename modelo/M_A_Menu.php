@@ -76,9 +76,21 @@ class Producto
         return $categorias;
     }
 
+    public function obtenerProductosActivos() {
+        $consulta = "SELECT nombreProducto as nombre, descripcionProducto as descripcion, precio, foto FROM producto WHERE disponibilidad = 1";
+        $resultado = $this->conexion->query($consulta);
     
-
-
-
+        if (!$resultado) {
+            throw new Exception("Error al ejecutar la consulta: " . $this->conexion->error);
+        }
+    
+        $productos = [];
+        while ($row = $resultado->fetch_assoc()) {
+            $productos[] = $row;
+        }
+    
+        return $productos;
+    }
+    
 }
 ?>

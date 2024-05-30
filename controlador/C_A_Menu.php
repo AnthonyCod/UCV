@@ -7,6 +7,7 @@ header('Content-Type: application/json');
 
 $response = array("success" => false, "product" => null);
 
+// Procesar solicitud POST para guardar un nuevo producto
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $producto = new Producto($conexion);
 
@@ -31,13 +32,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($tipo != 'image/jpg' && $tipo != 'image/jpeg' && $tipo != 'image/png' && $tipo != 'image/gif') {
             $response['error'] = "El archivo no es una imagen";
-        } else if ($size > 5 * 1080  * 1920) {
-            $response['error'] = "El tamaño máximo permitido es 3MB";
+        } else if ($size > 5 * 1080 * 1920) { // Asegúrate de que esto es lo que quieres (5MB)
+            $response['error'] = "El tamaño máximo permitido es 5MB";
         } else {
             $src = $carpeta . $nombreArchivo;
             if (move_uploaded_file($ruta_provisional, $src)) {
                 $image = $src;
-
             } else {
                 $response['error'] = "Error al mover el archivo.";
                 echo json_encode($response);
@@ -53,17 +53,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 "nombre" => $nombre,
                 "descripcion" => $descripcion,
                 "precio" => $precio,
-                "image" => $image
+                "foto" => $image
             );
         }
     } catch (Exception $e) {
         $response['error'] = $e->getMessage();
-        error_log("Error al guardar el producto en la base de datos");
-
+        error_log("Error al guardar el producto en la base de datos: " . $e->getMessage());
     }
+
+    echo json_encode($response);
+    exit;
 }
 
-// Enviar la respuesta como JSON
-echo json_encode($response);
-exit;
+// Obtener productos activos si no es una solicitud POST
+try {
+    $producto = new Producto($conexion);
+    $productos = $producto->obtenerProductosActivos();
+    echo json_encode($productos);
+} catch (Exception $e) {
+    echo json_encode(["error" => $e->getMessage()]);
+}
+
+mysqli_close($conexion);
 ?>

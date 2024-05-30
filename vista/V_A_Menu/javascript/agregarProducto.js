@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeFormButton = document.getElementById("closeForm");
     const productImageInput = document.getElementById("productImage");
     const previewImage = document.getElementById("previewImage");
-    const productForm = document.getElementById("formContainer");
+    const productForm = document.getElementById("productForm"); // Ajustado para que coincida con el formulario en HTML
     const targetContainer = document.getElementById("targetContainer");
 
     addProductButton.addEventListener("click", () => {
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     productForm.addEventListener("submit", (event) => {
         event.preventDefault(); // Prevent normal form submission
     
-        const formData = new FormData(productForm);
+        const formData = new FormData(productForm); // Asegurarse de que se usa el formulario correcto
     
         fetch('../../controlador/C_A_Menu.php', {
             method: 'POST',
@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(response => response.text()) // Cambiar a .text() para depuración
         .then(text => {
+            console.log('Respuesta del servidor:', text); // Para depuración
             try {
                 const data = JSON.parse(text);
                 if (data.success) {
@@ -54,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <h2>${product.nombre}</h2>
                         <p>${product.descripcion}</p>
                         <p class="price">$${product.precio}</p>
-                        <img src="../../ucv/${product.image}" alt="${product.nombre}" style="width:300px;height:300px;margin-top:20px;">
+                        <img src="../../fotos/${product.foto}" alt="${product.nombre}" style="width:300px;height:300px;margin-top:20px;">
                     `;
                     targetContainer.appendChild(productCard);
     
@@ -78,15 +79,17 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch('../../controlador/C_A_Menu.php')
         .then(response => response.json())
         .then(productos => {
+            console.log('Productos recibidos:', productos); // Para depuración
             targetContainer.innerHTML = ''; // Limpiar contenedor
             productos.forEach(product => {
+                console.log('Producto:', product); // Para depuración
                 const productCard = document.createElement("div");
                 productCard.className = "tarjetaProducto";
                 productCard.innerHTML = `
-                    <h2>${product.nombreProducto}</h2>
-                    <p>${product.descripcionProducto}</p>
+                    <h2>${product.nombre}</h2>
+                    <p>${product.descripcion}</p>
                     <p class="price">$${product.precio}</p>
-                    <img src="../../ucv/${product.foto}" alt="${product.nombreProducto}" style="width:100px;height:100px;margin-top:10px;">
+                    <img src="../../fotos/${product.foto}" alt="${product.nombre}" style="width:100px;height:100px;margin-top:10px;">
                 `;
                 targetContainer.appendChild(productCard);
             });
