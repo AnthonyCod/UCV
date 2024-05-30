@@ -10,6 +10,7 @@ try {
     $categorias = [];
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -39,44 +40,91 @@ try {
     </header>
 
     <!--============== FORMULARIO ==============-->
-    <div id="formContainer" class="box">
-        <form action="../../controlador/C_A_Menu.php" id="productForm" method="post" enctype="multipart/form-data">
-            <div class="formContent">
-                <h2>Agregar Producto <i class="fas fa-box-open"></i></h2>
-                
-                <select id="productList" name="productList" required>
-                    <option value="">Selecciona una tienda</option>
-                    <?php
-                    if (isset($categorias) && !empty($categorias)) {
-                        foreach ($categorias as $categoria): ?>
-                            <option value="<?php echo htmlspecialchars($categoria); ?>"><?php echo htmlspecialchars($categoria); ?></option>
-                        <?php endforeach;
-                    } else {
-                        echo "<option value=''>No hay categorías disponibles</option>";
-                    }
-                    ?>
-                </select>
-                
-                <label for="productName">
-                    <input type="text" id="productName" name="productName" placeholder="Nombre" required>
-                </label>
+    <div id="formContainer" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form action="../../controlador/C_A_Menu.php" id="productForm" method="post" enctype="multipart/form-data">
+                <div class="formContent">
+                    <h2>Agregar Producto <i class="fas fa-box-open"></i></h2>
+                    
+                    <select id="productList" name="productList" required>
+                        <option value="">Selecciona una tienda</option>
+                        <?php
+                        if (isset($categorias) && !empty($categorias)) {
+                            foreach ($categorias as $categoria): ?>
+                                <option value="<?php echo htmlspecialchars($categoria); ?>"><?php echo htmlspecialchars($categoria); ?></option>
+                            <?php endforeach;
+                        } else {
+                            echo "<option value=''>No hay categorías disponibles</option>";
+                        }
+                        ?>
+                    </select>
+                    
+                    <label for="productName">
+                        <input type="text" id="productName" name="productName" placeholder="Nombre" required>
+                    </label>
 
-                <label for="productDescription">
-                    <input type="text" id="productDescription" name="productDescription" placeholder="Descripción" required>
-                </label>
+                    <label for="productDescription">
+                        <input type="text" id="productDescription" name="productDescription" placeholder="Descripción" required>
+                    </label>
 
-                <label for="productPrice">
-                    <input type="text" id="productPrice" name="productPrice" placeholder="Precio" required>
-                </label>
-                
-                <label for="productImage">Imagen del Producto:</label>
-                <input type="file" id="productImage" name="productImage" accept="image/*" required>
-                <img id="previewImage" src="" alt="Previsualización de la imagen" style="width:100px;height:100px;margin-top:10px; display:none;">
+                    <label for="productPrice">
+                        <input type="text" id="productPrice" name="productPrice" placeholder="Precio" required>
+                    </label>
+                    
+                    <label for="productImage">Imagen del Producto:</label>
+                    <input type="file" id="productImage" name="productImage" accept="image/*" required>
+                    <img id="previewImage" src="" alt="Previsualización de la imagen" style="width:100px;height:100px;margin-top:10px; display:none;">
 
-                <button id="saveProduct" name="saveProduct">Guardar Producto</button>
-                <button id="closeForm" class="closeButton">Cerrar</button>
-            </div>
-        </form>
+                    <button id="saveProduct" name="saveProduct">Guardar Producto</button>
+                    <button id="closeForm" class="closeButton">Cerrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--============== FORMULARIO DE EDICIÓN ==============-->
+    <div id="editFormContainer" class="modal">
+        <div class="modal-content">
+            <span class="closeEdit">&times;</span>
+            <form action="../../controlador/C_A_Menu.php" id="editProductForm" method="post" enctype="multipart/form-data">
+                <div class="formContent">
+                    <h2>Editar Producto <i class="fas fa-edit"></i></h2>
+                    
+                    <select id="editProductList" name="editProductList" required>
+                        <option value="">Selecciona una tienda</option>
+                        <?php
+                        if (isset($categorias) && !empty($categorias)) {
+                            foreach ($categorias as $categoria): ?>
+                                <option value="<?php echo htmlspecialchars($categoria); ?>"><?php echo htmlspecialchars($categoria); ?></option>
+                            <?php endforeach;
+                        } else {
+                            echo "<option value=''>No hay categorías disponibles</option>";
+                        }
+                        ?>
+                    </select>
+                    
+                    <label for="editProductName">
+                        <input type="text" id="editProductName" name="editProductName" placeholder="Nombre" required>
+                    </label>
+
+                    <label for="editProductDescription">
+                        <input type="text" id="editProductDescription" name="editProductDescription" placeholder="Descripción" required>
+                    </label>
+
+                    <label for="editProductPrice">
+                        <input type="text" id="editProductPrice" name="editProductPrice" placeholder="Precio" required>
+                    </label>
+                    
+                    <label for="editProductImage">Imagen del Producto:</label>
+                    <input type="file" id="editProductImage" name="editProductImage" accept="image/*">
+                    <img id="editPreviewImage" src="" alt="Previsualización de la imagen" style="width:100px;height:100px;margin-top:10px; display:none;">
+
+                    <button id="saveEditProduct" name="saveEditProduct">Guardar Cambios</button>
+                    <button id="closeEditForm" class="closeButton">Cerrar</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!--============== NAV ==============-->
