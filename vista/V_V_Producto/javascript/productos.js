@@ -4,16 +4,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function crearProductoHTML(producto) {
         console.log('Creando HTML para:', producto); // Para depuración
 
-        const imagePath = `../../../fotos/${producto.foto}`;
+        const imagePath = `../../fotos/${producto.foto}`;
 
         return `
             <div class="producto-card">
                 <div class="producto-image">
-                    <img src="${imagePath}" alt="${producto.nombreProducto}" style="width: 100%; height: 200px; object-fit: cover;">
+                    <img src="${imagePath}" alt="${producto.nombre}" style="width: 100%; height: 200px; object-fit: cover;">
                 </div>
                 <div class="producto-info">
-                    <h2>${producto.nombreProducto}</h2>
-                    <p>${producto.descripcionProducto}</p>
+                    <h2>${producto.nombre}</h2>
+                    <p>${producto.descripcion}</p>
                     <p><strong>$${producto.precio}</strong></p>
                 </div>
             </div>
