@@ -351,7 +351,7 @@ header .search-container span{
     margin-top: 15px;
 }
 
-.btn-primary{
+.btn-primary {
     background-color: red;
     color: white;
     text-decoration: none;
@@ -361,6 +361,11 @@ header .search-container span{
     text-align: center;
     font-size: 1.5rem;
     font-weight: 600;
+    display: inline-block;
+    cursor: pointer;
+}
+.btn-primary:hover {
+    background-color: darkred;
 }
 
 @media screen and (max-width: 1350px){
@@ -589,3 +594,73 @@ footer .final button{
 }
 }
 
+.producto-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 200px; /* Ajusta el ancho según tus necesidades */
+    margin: 10px;
+    display: inline-block;
+    vertical-align: top;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.producto-image img {
+    width: 100%;
+    height: 200px; /* Ajusta la altura según tus necesidades */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsión */
+}
+
+.producto-info {
+    padding: 10px;
+    text-align: center;
+}
+
+.producto-info h2 {
+    font-size: 1em; /* Ajusta el tamaño de la fuente */
+    margin: 0;
+}
+
+.producto-info p {
+    margin: 5px 0;
+    font-size: 0.9em; /* Ajusta el tamaño de la fuente */
+}
+
+/* Estilos base para los botones */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #b30000; 
+}
+
+/* Estilos específicos para los botones dentro de las tarjetas de producto */
+.producto-info button {
+    width: 100%; 
+    margin-top: 10px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
+}
+
+.producto-card {
+    background: #ffffff; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+    border-radius: 8px; 
+    overflow: hidden; 
+    margin-bottom: 20px; 
+}
+
+.producto-image img {
+    display: block; 
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+}
+  

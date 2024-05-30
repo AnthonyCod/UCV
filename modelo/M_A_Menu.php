@@ -54,7 +54,6 @@ class Producto
         if ($resultado) {
             $mensaje = $resultado->fetch_assoc();
             if (isset($mensaje['mensaje'])) {
-                echo $mensaje['mensaje'] . "<br>";
             }
         }
 
@@ -76,5 +75,39 @@ class Producto
 
         return $categorias;
     }
+
+    public function obtenerProductosActivos() {
+        $consulta = "SELECT nombreProducto as nombre, descripcionProducto as descripcion, precio, foto FROM producto WHERE disponibilidad = 1";
+        $resultado = $this->conexion->query($consulta);
+    
+        if (!$resultado) {
+            throw new Exception("Error al ejecutar la consulta: " . $this->conexion->error);
+        }
+    
+        $productos = [];
+        while ($row = $resultado->fetch_assoc()) {
+            $productos[] = $row;
+        }
+    
+        return $productos;
+    }
+    public function eliminarProducto($nombre) {
+        $consulta = "UPDATE producto SET disponibilidad = 0 WHERE nombreProducto = ?";
+        $stmt = $this->conexion->prepare($consulta);
+
+        if (!$stmt) {
+            throw new Exception("Error al preparar la consulta: " . $this->conexion->error);
+        }
+
+        $stmt->bind_param('s', $nombre);
+
+        if (!$stmt->execute()) {
+            throw new Exception("Error al ejecutar la consulta: " . $stmt->error);
+        }
+
+        return true;
+    }
+
+    
 }
 ?>
