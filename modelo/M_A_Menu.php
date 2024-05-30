@@ -54,7 +54,6 @@ class Producto
         if ($resultado) {
             $mensaje = $resultado->fetch_assoc();
             if (isset($mensaje['mensaje'])) {
-                echo $mensaje['mensaje'] . "<br>";
             }
         }
 
@@ -76,5 +75,10 @@ class Producto
 
         return $categorias;
     }
+
+    
+
+
+
 }
 ?>
