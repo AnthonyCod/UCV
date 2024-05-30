@@ -8,7 +8,7 @@ class PagoModel {
 
     public function guardarPago($fechaPago, $montoTotal) {
         $tipoPagoID = 1; // Tipo de pago siempre es 1
-        $query = "INSERT INTO pago (tipoPagoID, fechaPago, montoTotal) VALUES (?, ?, ?)";
+        $query = "call i_pago(?,?)";
         $stmt = $this->conexion->prepare($query);
         $stmt->bind_param("isd", $tipoPagoID, $fechaPago, $montoTotal);
         return $stmt->execute();
