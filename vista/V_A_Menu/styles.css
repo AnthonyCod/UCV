@@ -322,6 +322,16 @@ section {
     border-radius: 25px;
     height: 250px;
     width: 300px;
+    padding-bottom: 10px;
+}
+
+#editPreviewImage{
+    width: 100%;
+    height: 45%;
+    border-radius: 25px;
+    height: 250px;
+    width: 300px;
+    padding-bottom: 10px;
 }
 
 #targetContainer .tarjetaProducto {
@@ -344,11 +354,9 @@ section {
     color: rgb(0, 0, 0);
 }
 
-#targetContainer .tarjetaProducto button {
-    margin-bottom: 60px;
-    margin-top: 10px;
-    width: 250px;
-    height: 60px;
+#targetContainer .tarjetaProducto .delete-btn {
+    width: 50px;
+    height: 30px;
     border-radius: 15px;
     background-color: rgba(254, 0, 5, 255);
     color: white;
@@ -356,6 +364,18 @@ section {
     font-weight: 700;
     cursor: pointer;
     transition: 200ms;
+    right: 10;
+    transform: translatex(250%);
+}
+
+#targetContainer .tarjetaProducto .edit-btn{
+    width: 250px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: rgba(254, 0, 5, 255);
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
 }
 
 #targetContainer .tarjetaProducto button:hover {
@@ -394,9 +414,8 @@ footer {
     border-radius: 10px;
     justify-content: space-evenly;
     align-items: center;
-    position: sticky;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 100%;
     padding: 20px;
 }
 
@@ -439,10 +458,9 @@ footer .nuevoProducto {
     text-align: center;
 }
 
-.formContent input,
-.formContent select {
+.formContent input {
     width: 80%;
-    height: 120%;
+    height: 40px;
     border-radius: 5px;
     border: none;
     color: #333;
@@ -462,6 +480,10 @@ footer .nuevoProducto {
     border: none;
     border-radius: 2px;
     cursor: pointer;
+}
+
+.formContent select{
+    margin: 30px;
 }
 
 .formContent img#previewImage {
