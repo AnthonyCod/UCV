@@ -322,6 +322,7 @@ section {
     border-radius: 25px;
     height: 250px;
     width: 300px;
+<<<<<<< HEAD
     padding-bottom: 10px;
 }
 
@@ -334,6 +335,10 @@ section {
     padding-bottom: 10px;
 }
 
+=======
+}
+
+>>>>>>> refs/remotes/origin/facundo
 #targetContainer .tarjetaProducto {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -354,9 +359,17 @@ section {
     color: rgb(0, 0, 0);
 }
 
+<<<<<<< HEAD
 #targetContainer .tarjetaProducto .delete-btn {
     width: 50px;
     height: 30px;
+=======
+#targetContainer .tarjetaProducto button {
+    margin-bottom: 60px;
+    margin-top: 10px;
+    width: 250px;
+    height: 60px;
+>>>>>>> refs/remotes/origin/facundo
     border-radius: 15px;
     background-color: rgba(254, 0, 5, 255);
     color: white;
@@ -368,6 +381,7 @@ section {
     transform: translatex(250%);
 }
 
+<<<<<<< HEAD
 #targetContainer .tarjetaProducto .edit-btn{
     width: 250px;
     height: 50px;
@@ -378,6 +392,8 @@ section {
     font-weight: 700;
 }
 
+=======
+>>>>>>> refs/remotes/origin/facundo
 #targetContainer .tarjetaProducto button:hover {
     translate: 0 -3px;
 }
@@ -414,8 +430,14 @@ footer {
     border-radius: 10px;
     justify-content: space-evenly;
     align-items: center;
+<<<<<<< HEAD
     display: grid;
     grid-template-columns: 100%;
+=======
+    position: sticky;
+    display: grid;
+    grid-template-columns: 50% 50%;
+>>>>>>> refs/remotes/origin/facundo
     padding: 20px;
 }
 
@@ -458,7 +480,12 @@ footer .nuevoProducto {
     text-align: center;
 }
 
+<<<<<<< HEAD
 .formContent input {
+=======
+.formContent input,
+.formContent select {
+>>>>>>> refs/remotes/origin/facundo
     width: 80%;
     height: 40px;
     border-radius: 5px;
@@ -482,10 +509,13 @@ footer .nuevoProducto {
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 .formContent select{
     margin: 30px;
 }
 
+=======
+>>>>>>> refs/remotes/origin/facundo
 .formContent img#previewImage {
     display: none;
     width: 100px;

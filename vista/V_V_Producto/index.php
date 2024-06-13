@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +15,8 @@
  <!--============== HEADER ==============-->
 
 =======
+=======
+>>>>>>> refs/remotes/origin/facundo
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -24,11 +27,15 @@
 </head>
 <body>
     <!--============== HEADER ==============-->
+<<<<<<< HEAD
 >>>>>>> 499a11045bf18ca573b82c49dce0fb002fdc7653
+=======
+>>>>>>> refs/remotes/origin/facundo
     <header>
         <div class="icon">
             <span class="fa fa-bars" id="bars"></span>
             <span>UCV FOOD</span>
+<<<<<<< HEAD
 <<<<<<< HEAD
                 <img src="../images/iconoPrincipal.png">
                     <a data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fas fa-shopping-cart"></i><span id="cuentaPedido">0</span>
@@ -41,6 +48,8 @@
         </div>
 
 =======
+=======
+>>>>>>> refs/remotes/origin/facundo
             <img src="../images/iconoPrincipal.png">
             <a data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fas fa-shopping-cart"></i><span id="cuentaPedido">0</span></a>
         </div>
@@ -48,11 +57,15 @@
             <input type="search" placeholder="Buscar...">
             <span class="fa fa-search"></span>
         </div>
+<<<<<<< HEAD
 >>>>>>> 499a11045bf18ca573b82c49dce0fb002fdc7653
+=======
+>>>>>>> refs/remotes/origin/facundo
     </header>
 
     <!--Carrito Menu-->
     <div class="modal-grande">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <div class="modal" id="jsModalCarrito">
         <div class="modal__container">
@@ -102,6 +115,8 @@
                         <a href="#" class="btn-primary">Comprar Ahora</a>
                     </div>
 =======
+=======
+>>>>>>> refs/remotes/origin/facundo
         <div class="modal" id="jsModalCarrito">
             <div class="modal__container">
                 <button type="button" class="modal__close fa-solid fa-xmark jsModalClose">X</button>
@@ -117,11 +132,15 @@
                     </div>
                     <!-- Cambia el href a la página a la que deseas redirigir -->
                     <a href="../V_A_Carrito/carrito.html" class="btn-primary">Comprar Ahora</a>
+<<<<<<< HEAD
 >>>>>>> 499a11045bf18ca573b82c49dce0fb002fdc7653
+=======
+>>>>>>> refs/remotes/origin/facundo
                 </div>
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 </div>
  <!--============== NAV ==============-->
@@ -129,6 +148,10 @@
 
     <!--============== NAV ==============-->
 >>>>>>> 499a11045bf18ca573b82c49dce0fb002fdc7653
+=======
+
+    <!--============== NAV ==============-->
+>>>>>>> refs/remotes/origin/facundo
     <nav>
         <div class="foods">
             <ol>
@@ -137,6 +160,7 @@
                 <li><a href="#"><img src="../images/pizza (2).png"></a><span>Pizzas</span></li>
                 <li><a href="#"><img src="../images/pierna-de-pollo (1).png"></a><span>Pollos</span></li>
                 <li><a href="#"><img src="../images/sandwich (1).png"></a><span>Sanguches</span></li>
+<<<<<<< HEAD
 <<<<<<< HEAD
                 <li><a href="#"><img src="../images/jugo.png"></a><span>Jugos</span></li>
                 <li><a href="#"><img src="../images/feijoada.png"></a><span>Criollo</span></li>
@@ -163,6 +187,8 @@
 </body>
 </html>
 =======
+=======
+>>>>>>> refs/remotes/origin/facundo
             </ol>
         </div>
     </nav>
@@ -187,4 +213,7 @@
     <script src="javascript/abrirCarrito.js"></script>  <!-- Incluyendo el script de productos -->
 </body>
 </html>
+<<<<<<< HEAD
 >>>>>>> 499a11045bf18ca573b82c49dce0fb002fdc7653
+=======
+>>>>>>> refs/remotes/origin/facundo

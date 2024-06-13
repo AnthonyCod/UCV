@@ -77,7 +77,11 @@ class Producto
     }
 
     public function obtenerProductosActivos() {
+<<<<<<< HEAD
         $consulta = "call c_producto()";
+=======
+        $consulta = "SELECT nombreProducto as nombre, descripcionProducto as descripcion, precio, foto FROM producto WHERE disponibilidad = 1";
+>>>>>>> refs/remotes/origin/facundo
         $resultado = $this->conexion->query($consulta);
     
         if (!$resultado) {
@@ -92,7 +96,11 @@ class Producto
         return $productos;
     }
     public function eliminarProducto($nombre) {
+<<<<<<< HEAD
         $consulta = "call a_producto(?)";
+=======
+        $consulta = "UPDATE producto SET disponibilidad = 0 WHERE nombreProducto = ?";
+>>>>>>> refs/remotes/origin/facundo
         $stmt = $this->conexion->prepare($consulta);
 
         if (!$stmt) {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -66,6 +67,8 @@
         </section>
     </body>
 =======
+=======
+>>>>>>> refs/remotes/origin/facundo
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -130,5 +133,8 @@
         </div>
     </section>
 </body>
+<<<<<<< HEAD
 >>>>>>> 499a11045bf18ca573b82c49dce0fb002fdc7653
+=======
+>>>>>>> refs/remotes/origin/facundo
 </html>

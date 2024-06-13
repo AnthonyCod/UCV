@@ -20,7 +20,11 @@ class LoginController {
                 header("Location: ../vista/V_A_Menu/index.php");
                 exit();
             } else {
+<<<<<<< HEAD
                 header("Location: ../vista/V_I_Establecimiento/login.html");
+=======
+                header("Location: ../vista/V_I_Establecimiento/Empresa.html");
+>>>>>>> refs/remotes/origin/facundo
             }
         }
     }

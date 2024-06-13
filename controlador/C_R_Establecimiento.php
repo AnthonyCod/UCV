@@ -24,7 +24,11 @@ class RegistroController {
                 $resultado = $this->empresaModel->registrarEmpresa($nombreUsuario, $contraseña, $RUC, $nombreEmpresa, $telefono, $direccion, $correo);
 
                 if ($resultado) {
+<<<<<<< HEAD
                     header("Location: ../vista/V_I_Establecimiento/login.html");
+=======
+                    header("Location: ../vista/V_I_Establecimiento/Empresa.html");
+>>>>>>> refs/remotes/origin/facundo
                     exit();
                 } else {
                     echo "Error al registrar la empresa.";

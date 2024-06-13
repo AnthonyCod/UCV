@@ -76,8 +76,13 @@ try {
                     <input type="file" id="productImage" name="productImage" accept="image/*" required>
                     <img id="previewImage" src="" alt="Previsualización de la imagen" style="width:100px;height:100px;margin-top:10px; display:none;">
 
+<<<<<<< HEAD
                     <div></div>
                     <button id="saveProduct" name="saveProduct">Guardar Producto</button>
+=======
+                    <button id="saveProduct" name="saveProduct">Guardar Producto</button>
+                    <button id="closeForm" class="closeButton">Cerrar</button>
+>>>>>>> refs/remotes/origin/facundo
                 </div>
             </form>
         </div>
@@ -89,9 +94,14 @@ try {
             <span class="closeEdit">&times;</span>
             <form action="../../controlador/C_A_Menu.php" id="editProductForm" method="post" enctype="multipart/form-data">
                 <div class="formContent">
+<<<<<<< HEAD
 
                     <h2>Editar Producto <i class="fas fa-edit"></i></h2>
 
+=======
+                    <h2>Editar Producto <i class="fas fa-edit"></i></h2>
+                    
+>>>>>>> refs/remotes/origin/facundo
                     <select id="editProductList" name="editProductList" required>
                         <option value="">Selecciona una tienda</option>
                         <?php
@@ -104,7 +114,11 @@ try {
                         }
                         ?>
                     </select>
+<<<<<<< HEAD
 
+=======
+                    
+>>>>>>> refs/remotes/origin/facundo
                     <label for="editProductName">
                         <input type="text" id="editProductName" name="editProductName" placeholder="Nombre" required>
                     </label>
@@ -119,9 +133,16 @@ try {
                     
                     <label for="editProductImage">Imagen del Producto:</label>
                     <input type="file" id="editProductImage" name="editProductImage" accept="image/*">
+<<<<<<< HEAD
                     <img id="editPreviewImage" src="" alt="Previsualización de la imagen">
 
                     <button id="saveEditProduct" name="saveEditProduct">Guardar Cambios</button>
+=======
+                    <img id="editPreviewImage" src="" alt="Previsualización de la imagen" style="width:100px;height:100px;margin-top:10px; display:none;">
+
+                    <button id="saveEditProduct" name="saveEditProduct">Guardar Cambios</button>
+                    <button id="closeEditForm" class="closeButton">Cerrar</button>
+>>>>>>> refs/remotes/origin/facundo
                 </div>
             </form>
         </div>
@@ -131,7 +152,11 @@ try {
     <nav>
         <div class="foods">
             <ol>
+<<<<<<< HEAD
                 <li><a href="#"><img src="../images/jugo.png"></a><span>El Patio</span></li>           
+=======
+                <li><a href="#"><img src="../images/jugo.png"></a><span>Tienda 1</span></li>           
+>>>>>>> refs/remotes/origin/facundo
             </ol>
         </div>
     </nav>
@@ -141,9 +166,15 @@ try {
 
     <!--============== FOOTER ==============-->
     <footer>
+<<<<<<< HEAD
         <!-- <div class="agregarTienda" style="display: none">
             <button class="nuevaTienda">Agregar Tienda</button>
         </div> -->
+=======
+        <div class="agregarTienda">
+            <button class="nuevaTienda">Agregar Tienda</button>
+        </div>
+>>>>>>> refs/remotes/origin/facundo
 
         <div class="final">
             <button class="nuevoProducto">Agregar Producto</button>
