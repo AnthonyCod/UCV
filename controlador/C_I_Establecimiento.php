@@ -1,5 +1,5 @@
 <?php
-require_once '../modelo/M_I_Sesion.php';
+require_once '../modelo/M_I_Establecimiento.php';
 
 class LoginController {
     private $usuarioModel;
@@ -17,10 +17,10 @@ class LoginController {
             if ($usuario_id) {
                 session_start();
                 $_SESSION['usuarioID'] = $usuario_id;
-                header("Location: ../vista/V_V_Producto/index.php");
+                header("Location: ../vista/V_A_Menu/index.php");
                 exit();
             } else {
-                header("Location: ../vista/V_I_Sesion/login.php");
+                header("Location: ../vista/V_I_Establecimiento/login.html");
             }
         }
     }
