@@ -1,25 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="styles.css">
         <script src="https://kit.fontawesome.com/a91f4172e9.js" crossorigin="anonymous"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>login</title>
-        
+        <title>Iniciar sesión</title>
     </head>
     <body>
         <section>
             <div class="formulario">
                 <img src="../images/iconoPrincipal.png">
-                    <h4>¿No tienes una cuenta? <a class="regi" href="../V_R_Cliente/register.html">Registrate</a></h4>
-                    <br>
-                    <h4>¿Eres empresa?</h4><a class="regi" href="../V_R_Establecimiento/register.html">Trabaja con Nosotros</a>
-
-                    <h4>¿No tienes una cuenta? <a class="regi" href="../V_R_Establecimiento/register.php">Registrate</a></h4>
-                    <br>
-
-                </div>
                 <h1>Inicio de Sesión</h1>
                 <form action="../../controlador/C_I_Sesion.php" method="POST" id='formInicio'>
                     <h4>Nombre de Usuario <i class="fa-regular fa-envelope"></i></h4>
@@ -36,7 +27,7 @@
                 </form>
                 <h4>¿No tienes una cuenta? <a class="regi" href="../V_R_Cliente/register.php">Regístrate</a></h4>
                 <br>
-                <h4>¿Eres empresa?</h4><a class="regi" href="../RegistrarEmpresa/register.php">Trabaja con Nosotros</a>
+                <h4>¿Eres empresa?</h4><a class="regi" href="../V_R_Establecimiento/register.php">Trabaja con Nosotros</a>
             </div>
         </section>
     </body>

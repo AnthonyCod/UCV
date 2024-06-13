@@ -59,11 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     productCard.className = "tarjetaProducto";
                     productCard.innerHTML = `
                         <button class="delete-btn" data-nombre="${product.nombre}">&times;</button>
+                        <button class="edit-btn" data-nombre="${product.nombre}" data-product='${JSON.stringify(product)}'>Editar</button>
                         <h2>${product.nombre}</h2>
                         <p>${product.descripcion}</p>
                         <p class="price">$${product.precio}</p>
-                        <img src="../../fotos/${product.foto}" alt="${product.nombre}";"><br>
-                        <button class="edit-btn" data-nombre="${product.nombre}" data-product='${JSON.stringify(product)}'>Editar</button>`;
+                        <img src="../../fotos/${product.foto}" alt="${product.nombre}" style="width:300px;height:300px;margin-top:20px;">
+                        `;
                     targetContainer.appendChild(productCard);
 
                     // Clear form inputs
@@ -141,14 +142,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 const productCard = document.createElement("div");
                 productCard.className = "tarjetaProducto";
                 productCard.innerHTML = `
-                <button class="delete-btn" data-nombre="${product.nombre}">&times;</button>
-                <h2>${product.nombre}</h2>
-                <p>${product.descripcion}</p>
-                <p class="price">$${product.precio}</p>
-                <img src="../../fotos/${product.foto}" alt="${product.nombre}";"><br>
-                <button class="edit-btn" data-nombre="${product.nombre}" data-product='${JSON.stringify(product)}'>Editar</button>`;
-                
-            targetContainer.appendChild(productCard);
+                    <button class="delete-btn" data-nombre="${product.nombre}">&times;</button>
+                    <button class="edit-btn" data-nombre="${product.nombre}" data-product='${JSON.stringify(product)}'>Editar</button>
+                    <h2>${product.nombre}</h2>
+                    <p>${product.descripcion}</p>
+                    <p class="price">$${product.precio}</p>
+                    <img src="../../fotos/${product.foto}" alt="${product.nombre}" style="width:100px;height:100px;margin-top:10px;">
+                `;
                 targetContainer.appendChild(productCard);
 
                 // Add delete functionality

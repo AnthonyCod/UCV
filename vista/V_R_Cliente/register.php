@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -66,6 +67,8 @@
         </section>
     </body>
 =======
+=======
+>>>>>>> 39346467785b006cd3d424e310382bbff98556fd
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -130,5 +133,8 @@
         </div>
     </section>
 </body>
+<<<<<<< HEAD
 >>>>>>> 499a11045bf18ca573b82c49dce0fb002fdc7653
+=======
+>>>>>>> 39346467785b006cd3d424e310382bbff98556fd
 </html>
