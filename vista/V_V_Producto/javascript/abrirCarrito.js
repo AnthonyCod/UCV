@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const addToCartButton = document.getElementById('addToCartButton');
+    const addToCartButton = document.querySelector('[data-btn-action="add-btn-cart"]');
     const closeModalButton = document.querySelector('.jsModalClose');
     const modal = document.getElementById('jsModalCarrito');
 
-    addToCartButton.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+    addToCartButton.addEventListener('click', () => {
         modal.classList.add('active');
     });
 
@@ -17,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.classList.remove('active');
         }
     });
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -31,4 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('No se encontró el botón "Comprar Ahora".');
     }
 >>>>>>> 91f8095 (boton carrito funciona)
+=======
+>>>>>>> 39d1c8f (continuar)
 });

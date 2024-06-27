@@ -53,6 +53,7 @@
                         <option value="retiro">Retiro en Tienda</option>
                     </select>
                 </div>
+<<<<<<< HEAD
 
                 <div id="direccionContainer" style="display: none;">
                     <label for="direccion">Dirección de Entrega</label>
@@ -66,6 +67,12 @@
                 <div class="botonPago">
                     <button id="procesarPagoBtn">Procesar Pago</button>
                 </div>
+=======
+    
+                <div class="productos" id="carritoProductos">
+                    <!-- Productos cargados dinámicamente -->
+                </div>
+>>>>>>> 39d1c8f (continuar)
             </div>
         </div>
 <<<<<<< HEAD
@@ -84,12 +91,12 @@
     
                     <div class="subTotal">
                         <h3>Subtotal:</h3>
-                        <h3>$50</h3>
+                        <h3 id="subtotal">$0</h3>
                     </div>
     
                     <div class="total">
                         <h3>Total:</h3>
-                        <h3>$60</h3>
+                        <h3 id="total">$0</h3>
                     </div>
     
                     <div class="terminos">
@@ -106,12 +113,7 @@
 
 </section>
 
-<script>
-    document.getElementById('procesarPagoBtn').addEventListener('click', function() {
-        window.location.href = "../V_R_Pago/pago.html"; // Reemplaza con la URL de la página de pago
-    });
-</script>
-
+<script src="javascript/carrito.js"></script>
 </body>
 >>>>>>> b6f422b (falta carrito para adelante)
 </html>

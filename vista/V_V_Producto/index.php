@@ -14,7 +14,7 @@
             <span class="fa fa-bars" id="bars"></span>
             <span>UCV FOOD</span>
             <img src="../images/iconoPrincipal.png">
-            <a href="#" id="addToCartButton"><i class="fas fa-shopping-cart"></i><span id="cuentaPedido">0</span></a>
+            <a data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fas fa-shopping-cart"></i><span id="cuentaPedido">0</span></a>
         </div>
         <div class="search-container">
             <input type="search" placeholder="Buscar...">
@@ -22,21 +22,24 @@
         </div>
     </header>
 
-    <!-- Carrito Menu -->
-    <div class="modal" id="jsModalCarrito">
-        <div class="modal__container">
-            <button type="button" class="modal__close jsModalClose">X</button>
-            <div class="modal__info">
-                <div class="modal__header">
-                    <h2><i class="fas fa-shopping-cart"></i> Carrito de Compras</h2>
-                </div>
-                <div class="modal__body">
-                    <!-- Aquí se añadirán los productos del carrito dinámicamente -->
-                    <div class="modal__list" id="carritoProductos">
-                        <!-- Productos cargados dinámicamente -->
+    <!--Carrito Menu-->
+    <div class="modal-grande">
+        <div class="modal" id="jsModalCarrito">
+            <div class="modal__container">
+                <button type="button" class="modal__close fa-solid fa-xmark jsModalClose">X</button>
+                <div class="modal__info">
+                    <div class="modal__header">
+                        <h2><i class="fas fa-shopping-cart"></i> Carrito de Compras</h2>
                     </div>
+                    <div class="modal__body">
+                        <!-- Aquí se añadirán los productos del carrito dinámicamente -->
+                        <div class="modal__list" id="carritoProductos">
+                            <!-- Productos cargados dinámicamente -->
+                        </div>
+                    </div>
+                    <!-- Cambia el href a la página a la que deseas redirigir -->
+                    <a href="../V_A_Carrito/carrito.html" class="btn-primary">Comprar Ahora</a>
                 </div>
-                <a href="../V_A_Carrito/carrito.html" id="comprarAhora" class="btn-primary">Comprar Ahora</a>
             </div>
         </div>
     </div>
