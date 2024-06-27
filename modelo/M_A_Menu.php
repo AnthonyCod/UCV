@@ -77,7 +77,7 @@ class Producto
     }
 
     public function obtenerProductosActivos() {
-        $consulta = "SELECT nombreProducto as nombre, descripcionProducto as descripcion, precio, foto FROM producto WHERE disponibilidad = 1";
+        $consulta = "call c_producto()";
         $resultado = $this->conexion->query($consulta);
     
         if (!$resultado) {
@@ -92,7 +92,7 @@ class Producto
         return $productos;
     }
     public function eliminarProducto($nombre) {
-        $consulta = "UPDATE producto SET disponibilidad = 0 WHERE nombreProducto = ?";
+        $consulta = "call a_producto(?)";
         $stmt = $this->conexion->prepare($consulta);
 
         if (!$stmt) {

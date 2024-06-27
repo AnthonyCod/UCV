@@ -59,17 +59,17 @@
 
     <!--============== SECTION ==============-->
     <section id="targetContainer">
-        <div class="productos-container">
-            <!-- Aquí se agregarán los productos dinámicamente -->
-        </div>
-    </section>
+    <div class="productos-container">
+        <!-- Aquí se agregarán los productos dinámicamente -->
+    </div>
+</section>
 
     <!--============== FOOTER ==============-->
     <footer>
         <div class="final">
             <h3>¿Te gustaría formar parte de nuestro equipo de delivery?</h3>
             <img src="../images/delivery.png">
-            <a href="#"><button>Únete Aquí!</button></a>
+            <a href="../V_R_Repartidor/index.php"><button>Únete Aquí!</button></a>
         </div>
     </footer>
 

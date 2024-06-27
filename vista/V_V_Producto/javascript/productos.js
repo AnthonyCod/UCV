@@ -30,27 +30,39 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(productos => {
                 const container = document.querySelector('.productos-container');
-                container.innerHTML = ''; // Limpiar el contenedor antes de añadir productos
-                productos.forEach(producto => {
-                    container.innerHTML += crearProductoHTML(producto);
-                });
-                agregarEventListeners();
+                if (container) {
+                    container.innerHTML = ''; // Limpiar el contenedor antes de añadir productos
+                    productos.forEach(producto => {
+                        container.innerHTML += crearProductoHTML(producto);
+                    });
+                    agregarEventListeners();
+                } else {
+                    console.error('No se encontró el contenedor de productos.');
+                }
             })
             .catch(error => console.error('Error al cargar los productos:', error));
     }
 
     function agregarEventListeners() {
         const botonesAddCart = document.querySelectorAll('.btn-add-cart');
-        botonesAddCart.forEach(boton => {
-            boton.addEventListener('click', agregarAlCarrito);
-        });
+        if (botonesAddCart) {
+            botonesAddCart.forEach(boton => {
+                boton.addEventListener('click', agregarAlCarrito);
+            });
+        } else {
+            console.error('No se encontraron botones de "Añadir al Carrito".');
+        }
 
         // Asegurarse de que el enlace "Comprar Ahora" redirija correctamente
-        const btnComprarAhora = document.getElementById('comprarAhora');
-        btnComprarAhora.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevenir el comportamiento por defecto
-            window.location.href = btnComprarAhora.getAttribute('href');
-        });
+        const btnComprarAhora = document.querySelector('.btn-primary');
+        if (btnComprarAhora) {
+            btnComprarAhora.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevenir el comportamiento por defecto
+                window.location.href = btnComprarAhora.getAttribute('href');
+            });
+        } else {
+            console.error('No se encontró el botón "Comprar Ahora".');
+        }
     }
 
     function agregarAlCarrito(event) {
