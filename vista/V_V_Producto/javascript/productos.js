@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return `
             <div class="producto-card">
                 <div class="producto-image">
-                    <img src="${imagePath}" alt="${producto.nombre}" style="width: 100%; height: 200px; object-fit: cover;">
+                    <img src="${imagePath}" alt="${producto.nombre}">
                 </div>
                 <div class="producto-info">
                     <h2>${producto.nombre}</h2>
@@ -22,47 +22,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function cargarProductos() {
         fetch(urlProductos)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
+            .then(response => response.json())
             .then(productos => {
                 const container = document.querySelector('.productos-container');
-                if (container) {
-                    container.innerHTML = ''; // Limpiar el contenedor antes de añadir productos
-                    productos.forEach(producto => {
-                        container.innerHTML += crearProductoHTML(producto);
-                    });
-                    agregarEventListeners();
-                } else {
-                    console.error('No se encontró el contenedor de productos.');
-                }
+                container.innerHTML = ''; // Limpiar el contenedor antes de añadir productos
+                productos.forEach(producto => {
+                    container.innerHTML += crearProductoHTML(producto);
+                });
+                agregarEventListeners();
             })
             .catch(error => console.error('Error al cargar los productos:', error));
     }
 
     function agregarEventListeners() {
         const botonesAddCart = document.querySelectorAll('.btn-add-cart');
-        if (botonesAddCart) {
-            botonesAddCart.forEach(boton => {
-                boton.addEventListener('click', agregarAlCarrito);
-            });
-        } else {
-            console.error('No se encontraron botones de "Añadir al Carrito".');
-        }
-
-        // Asegurarse de que el enlace "Comprar Ahora" redirija correctamente
-        const btnComprarAhora = document.querySelector('.btn-primary');
-        if (btnComprarAhora) {
-            btnComprarAhora.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevenir el comportamiento por defecto
-                window.location.href = btnComprarAhora.getAttribute('href');
-            });
-        } else {
-            console.error('No se encontró el botón "Comprar Ahora".');
-        }
+        botonesAddCart.forEach(boton => {
+            boton.addEventListener('click', agregarAlCarrito);
+        });
     }
 
     function agregarAlCarrito(event) {
@@ -78,24 +54,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function guardarProductoEnCarrito(producto) {
-        fetch(urlGuardarCarrito, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(producto)
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Producto guardado en el carrito:', data);
-        })
-        .catch(error => console.error('Error al guardar el producto en el carrito:', error));
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        let productoExistente = carrito.find(p => p.productoID == producto.productoID);
+
+        if (productoExistente) {
+            productoExistente.cantidad += 1;
+        } else {
+            producto.cantidad = 1;
+            carrito.push(producto);
+        }
+
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        actualizarContadorCarrito();
+    }
+
+    function actualizarContadorCarrito() {
+        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        const cuentaPedido = document.getElementById('cuentaPedido');
+        cuentaPedido.textContent = carrito.length;
     }
 
     cargarProductos();
+    actualizarContadorCarrito();
 });

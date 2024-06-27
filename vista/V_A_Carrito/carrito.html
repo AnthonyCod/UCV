@@ -57,128 +57,9 @@
                     <div class="vacio"></div>
                 </div>
     
-                <div class="productos">
-                    <div class="producto">
-                        <div class="nombre">
-                            <img src="../images/hamburguesa1.jpg" alt="">
-                            <h2>Hamburguesa</h2>
-                        </div>
-            
-                        <div class="precioUnitario">
-                            <h2>5.00</h2><br>
-                        </div>
-                        
-                        <div class="cantidad">
-                            <input type="number">
-                        </div>
-    
-                        <div class="importe">
-                            <h2>$10</h2>
-                        </div>
-    
-                        <div class="borrarProducto">
-                            <button><i class='bx bx-trash'></i></button>
-                        </div>
-                    </div>
-    
-                    <div class="producto">
-                        <div class="nombre">
-                            <img src="../images/fresa.jpg" alt="">
-                            <h2>Jugo de Fresa</h2><br>
-                        </div>
-            
-                        <div class="precioUnitario">
-                            <h2>10.00</h2><br>
-                        </div>
-                        
-                        <div class="cantidad">
-                            <input type="number">
-                        </div>
-    
-                        <div class="importe">
-                            <h2>$30</h2>
-                        </div>
-    
-                        <div class="borrarProducto">
-                            <button><i class='bx bx-trash'></i></button>
-                        </div>
-                    </div>
-    
-                    <div class="producto">
-                        <div class="nombre">
-                            <img src="../images/panPollo.png">
-                            <h2>Pan con Pollo</h2><br>
-                        </div>
-            
-                        <div class="precioUnitario">
-                            <h2>3.00</h2><br>
-                        </div>
-                        
-                        <div class="cantidad">
-                            <input type="number">
-                        </div>
-    
-                        <div class="importe">
-                            <h2>$50</h2>
-                        </div>
-    
-                        <div class="borrarProducto">
-                            <button><i class='bx bx-trash'></i></button>
-                        </div>
-                    </div>
-
-                        
-                    <div class="producto">
-                        <div class="nombre">
-                            <img src="../images/panPollo.png">
-                            <h2>Pan con Pollo</h2><br>
-                        </div>
-            
-                        <div class="precioUnitario">
-                            <h2>3.00</h2><br>
-                        </div>
-                        
-                        <div class="cantidad">
-                            <input type="number">
-                        </div>
-    
-                        <div class="importe">
-                            <h2>$50</h2>
-                        </div>
-    
-                        <div class="borrarProducto">
-                            <button><i class='bx bx-trash'></i></button>
-                        </div>
-                    </div>
-
-                        
-                    <div class="producto">
-                        <div class="nombre">
-                            <img src="../images/panPollo.png">
-                            <h2>Pan con Pollo</h2><br>
-                        </div>
-            
-                        <div class="precioUnitario">
-                            <h2>3.00</h2><br>
-                        </div>
-                        
-                        <div class="cantidad">
-                            <input type="number">
-                        </div>
-    
-                        <div class="importe">
-                            <h2>$50</h2>
-                        </div>
-    
-                        <div class="borrarProducto">
-                            <button><i class='bx bx-trash'></i></button>
-                        </div>
-                    </div>
-        
+                <div class="productos" id="carritoProductos">
+                    <!-- Productos cargados dinámicamente -->
                 </div>
-    
-                </div>
-    
             </div>
         </div>
         
@@ -191,12 +72,12 @@
     
                     <div class="subTotal">
                         <h3>Subtotal:</h3>
-                        <h3>$50</h3>
+                        <h3 id="subtotal">$0</h3>
                     </div>
     
                     <div class="total">
                         <h3>Total:</h3>
-                        <h3>$60</h3>
+                        <h3 id="total">$0</h3>
                     </div>
     
                     <div class="terminos">
@@ -213,11 +94,6 @@
 
 </section>
 
-<script>
-    document.getElementById('procesarPagoBtn').addEventListener('click', function() {
-        window.location.href = "../V_R_Pago/pago.html"; // Reemplaza con la URL de la página de pago
-    });
-</script>
-
+<script src="javascript/carrito.js"></script>
 </body>
 </html>

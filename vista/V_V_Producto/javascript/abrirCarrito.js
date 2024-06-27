@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const addToCartButton = document.getElementById('addToCartButton');
+    const addToCartButton = document.querySelector('[data-btn-action="add-btn-cart"]');
     const closeModalButton = document.querySelector('.jsModalClose');
     const modal = document.getElementById('jsModalCarrito');
 
-    addToCartButton.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
+    addToCartButton.addEventListener('click', () => {
         modal.classList.add('active');
     });
 
@@ -17,15 +16,4 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.classList.remove('active');
         }
     });
-
-    // Asegurarse de que el enlace "Comprar Ahora" redirija correctamente
-    const btnComprarAhora = document.getElementById('comprarAhora');
-    if (btnComprarAhora) {
-        btnComprarAhora.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevenir el comportamiento por defecto
-            window.location.href = btnComprarAhora.getAttribute('href');
-        });
-    } else {
-        console.error('No se encontró el botón "Comprar Ahora".');
-    }
 });
