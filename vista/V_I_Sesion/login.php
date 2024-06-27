@@ -19,9 +19,6 @@
                     <h4>Contraseña <i class="fa-solid fa-lock"></i></h4>
                     <input type="password" name="contraseña" placeholder="Contraseña..." required>
                     <br><br>
-                    
-                    <a class="pass" href="#">Olvidé la Contraseña</a>
-                    <br><br>
                     <button type="submit" class="boton">Ingresar</button>
                     <br><br>
                 </form>
