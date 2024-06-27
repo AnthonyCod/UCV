@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const productosContainer = document.querySelector('.productos-container');
 
     function cargarProductos() {
+<<<<<<< HEAD
         fetch('../../controlador/C_A_Menu.php')
         .then(response => response.json())
         .then(productos => {
@@ -20,6 +21,61 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     </div>`;
                 productosContainer.innerHTML += productoHTML;
+=======
+        fetch(urlProductos)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(productos => {
+                const container = document.querySelector('.productos-container');
+                if (container) {
+                    container.innerHTML = ''; // Limpiar el contenedor antes de añadir productos
+                    productos.forEach(producto => {
+                        container.innerHTML += crearProductoHTML(producto);
+                    });
+                    agregarEventListeners();
+                } else {
+                    console.error('No se encontró el contenedor de productos.');
+                }
+            })
+            .catch(error => console.error('Error al cargar los productos:', error));
+    }
+
+    function agregarEventListeners() {
+        const botonesAddCart = document.querySelectorAll('.btn-add-cart');
+        if (botonesAddCart) {
+            botonesAddCart.forEach(boton => {
+                boton.addEventListener('click', agregarAlCarrito);
+            });
+        } else {
+            console.error('No se encontraron botones de "Añadir al Carrito".');
+        }
+
+        // Asegurarse de que el enlace "Comprar Ahora" redirija correctamente
+        const btnComprarAhora = document.querySelector('.btn-primary');
+        if (btnComprarAhora) {
+            btnComprarAhora.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevenir el comportamiento por defecto
+                window.location.href = btnComprarAhora.getAttribute('href');
+            });
+        } else {
+            console.error('No se encontró el botón "Comprar Ahora".');
+        }
+    }
+
+    function agregarAlCarrito(event) {
+        const productoID = event.target.dataset.productoId;
+        fetch(urlProductos)
+            .then(response => response.json())
+            .then(productos => {
+                const producto = productos.find(p => p.productoID == productoID);
+                if (producto) {
+                    guardarProductoEnCarrito(producto);
+                }
+>>>>>>> b6f422b (falta carrito para adelante)
             });
 
             agregarEventosDeCarrito();

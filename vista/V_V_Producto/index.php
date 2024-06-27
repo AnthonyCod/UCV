@@ -59,10 +59,10 @@
 
     <!--============== SECTION ==============-->
     <section id="targetContainer">
-        <div class="productos-container">
-            <!-- Aquí se agregarán los productos dinámicamente -->
-        </div>
-    </section>
+    <div class="productos-container">
+        <!-- Aquí se agregarán los productos dinámicamente -->
+    </div>
+</section>
 
     <!--============== FOOTER ==============-->
     <footer>

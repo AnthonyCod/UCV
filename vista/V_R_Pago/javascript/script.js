@@ -1,7 +1,12 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> b6f422b (falta carrito para adelante)
 document.addEventListener("DOMContentLoaded", function() {
     var qrButton = document.getElementById('qrButton');
     var container = document.querySelector('.container');
     var childContainer = document.querySelector('.child-container');
+<<<<<<< HEAD
     const confirmar = document.getElementById('confirmar');
     var metodoEntregaSelect = document.getElementById('metodoEntrega');
     var direccionContainer = document.getElementById('direccionContainer');
@@ -115,14 +120,33 @@ document.addEventListener("DOMContentLoaded", function() {
     if (confirmar) {
         confirmar.addEventListener('click', finalizarCompra);
     }
+=======
+
+    // Ocultar el contenedor hijo inicialmente
+    childContainer.style.display = 'none';
+
+    // Agregar un evento click al botón
+    qrButton.addEventListener('click', function() {
+        // Mostrar el contenedor hijo y ocultar el contenedor principal
+        childContainer.style.display = 'grid';
+        container.style.display = 'none';
+    });
+>>>>>>> b6f422b (falta carrito para adelante)
 });
 
 document.addEventListener("DOMContentLoaded", function() {
     var volverAlCarritoBtn = document.getElementById('volverAlCarritoBtn');
 
+<<<<<<< HEAD
     if (volverAlCarritoBtn) {
         volverAlCarritoBtn.addEventListener('click', function() {
             window.location.href = "../V_A_Carrito/carrito.html";
         });
     }
+=======
+    volverAlCarritoBtn.addEventListener('click', function() {
+        
+        window.location.href = "../../V_A_Carrito/carrito.php";
+    });
+>>>>>>> b6f422b (falta carrito para adelante)
 });
