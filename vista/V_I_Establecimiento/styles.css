@@ -71,8 +71,7 @@ section{
     color: #f83f40;
 }
 
-.formulario .boton{
-    height: 60px;
+.input-group input {
     padding: 10px;
     border-radius: 10px;
     background-color:#f83f40;
