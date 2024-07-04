@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h2>${producto.productoNombre}</h2>
                     </div>
                     <div class="precio-col">
-                        <p>$${producto.productoPrecio}</p>
+                        <p>$${producto.productoPrecio.toFixed(2)}</p>
                     </div>
                     <div class="cantidad-col">
                         <input type="number" id="cantidad-${producto.productoID}" min="1" value="${producto.cantidad}" data-producto-id="${producto.productoID}">

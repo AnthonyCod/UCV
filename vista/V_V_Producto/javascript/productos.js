@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(productos => {
             productosContainer.innerHTML = ''; // Limpiar contenedor antes de agregar productos
-            productos.forEach(producto => {
+            productos.forEach((producto, index) => {
                 const productoHTML = `
                     <div class="producto-card">
                         <div class="producto-image">
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <h2>${producto.nombre}</h2>
                             <p>${producto.descripcion}</p>
                             <p><strong>$${producto.precio}</strong></p>
-                            <button class="btn-add-cart" data-producto-id="${producto.productoID}" data-producto-nombre="${producto.nombre}" data-producto-precio="${producto.precio}" data-producto-foto="${producto.foto}">Añadir al Carrito</button>
+                            <button class="btn-add-cart" data-producto-id="${producto.nombre}-${index}" data-producto-nombre="${producto.nombre}" data-producto-precio="${producto.precio}" data-producto-foto="${producto.foto}">Añadir al Carrito</button>
                         </div>
                     </div>`;
                 productosContainer.innerHTML += productoHTML;
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function actualizarContadorCarrito() {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         const cuentaPedido = document.getElementById('cuentaPedido');
-        cuentaPedido.textContent = carrito.length;
+        cuentaPedido.textContent = carrito.reduce((acc, producto) => acc + producto.cantidad, 0);
     }
 
     cargarProductos();

@@ -116,8 +116,9 @@ section {
 }
 
 .carrito-header, .producto-carrito {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
@@ -239,5 +240,9 @@ section {
 
     .pago {
         width: 100%;
+    }
+
+    .producto-carrito h2 {
+        font-size: 0.8rem; /* Reduce el tamaño del texto del nombre del producto en pantallas pequeñas */
     }
 }
