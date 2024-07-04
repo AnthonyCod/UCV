@@ -1,43 +1,59 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const url = '/ucv/controlador/C_A_Menu.php';
+const products = [
+    
+    {
+        id: 1,
+        img: "../../images/panPollo.png",
+        name: "<br>Pan con Pollo <br><br> 150 gramos de pollo <br> Pan frances<br><br> ",
+        price: "S/ 2.50",
+        button: "Comprar", 
+    },
 
-    function crearProductoHTML(producto) {
-        console.log('Creando HTML para:', producto); // Para depuración
+    {
+        id: 2,
+        img: "../../images/hamburguesa1.jpg",
+        name: "<br> Hamburguesa <br><br> 150 gramos de carne <br> Pan hamburguesa<br><br>",
+        price: "S/ 9.50",
+        button: "Comprar", 
+    },
 
-        const imagePath = `../../fotos/${producto.foto}`;
+    {
+        id: 3,
+        img: "../../images/pizzas.jpg",
+        name: "<br>Pizzas <br><br> 50 gramos de Pepperoni <br>Salsa de Tomate<br><br>",
+        price: "S/ 4.00",
+        button: "Comprar", 
+    },
 
-        return `
-            <div class="producto-card">
-                <div class="producto-image">
-                    <img src="${imagePath}" alt="${producto.nombre}" style="width: 100%; height: 200px; object-fit: cover;">
-                </div>
-                <div class="producto-info">
-                    <h2>${producto.nombre}</h2>
-                    <p>${producto.descripcion}</p>
-                    <p><strong>$${producto.precio}</strong></p>
-                </div>
-            </div>
-        `;
+    {
+        id: 4,
+        img: "../../images/broaster.png",
+        name: "<br>Broaster <br><br> Alita <br>Papas Fritas<br><br>" ,
+        price: "S/ 8.00",
+        button: "Comprar", 
+    },
+
+    {
+        id: 5,
+        img: "../../images/panPollo.png",
+        name: "<br>Pan con Pollo <br><br> 150 gramos de pollo <br> Pan frances<br><br> ",
+        price: "S/ 2.50",
+        button: "Comprar", 
+    },
+
+    {
+        id: 6,
+        img: "../../images/hamburguesa1.jpg",
+        name: "<br> Hamburguesa <br><br> 150 gramos de carne <br> Pan hamburguesa<br><br>",
+        price: "S/ 9.50",
+        button: "Comprar", 
+    },
+
+    {
+        id: 7,
+        img: "../../images/pizzas.jpg",
+        name: "<br> Pizzas <br><br> 50 gramos de Pepperoni <br>Salsa de Tomate<br><br>",
+        price: "S/ 4.00",
+        button: "Comprar", 
     }
 
-    function cargarProductos() {
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(productos => {
-                console.log('Productos recibidos:', productos); // Para depuración
-                const container = document.querySelector('.productos-container');
-                container.innerHTML = ''; // Limpiar el contenedor antes de añadir productos
-                productos.forEach(producto => {
-                    container.innerHTML += crearProductoHTML(producto);
-                });
-            })
-            .catch(error => console.error('Error al cargar los productos:', error));
-    }
-
-    cargarProductos();
-});
+]

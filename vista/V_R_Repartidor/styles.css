@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    margin: auto;
 }
 
 #check {
@@ -14,11 +15,12 @@ body {
     zoom: 90%;
 }
 
-/*HEADER*/
+/* HEADER */
+
 header {
     display: flex;
     width: 100%;
-    background-color: rgba(0,3,70,255);
+    background-color: rgba(0, 3, 70, 255);
     position: relative;
     justify-content: space-between;
     text-align: center;
@@ -43,7 +45,7 @@ header .icon a {
 
 header .icon #cuentaPedido {
     margin-left: 10px;
-    background-color: rgba(254,0,5,255);
+    background-color: rgba(254, 0, 5, 255);
     border-radius: 50%;
     padding: 5px;
     font-size: 80%;
@@ -114,6 +116,48 @@ header button {
     text-align: center;
 }
 
+.nuevoProducto {
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 30px;
+}
+
+/* Agregar Producto */
+
+#formContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none;
+}
+
+.formContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+input[type="checkbox"] {
+    transform: scale(0.55); /* Cambia el tamaño del checkbox */
+    text-align: left;
+}
+.productYes,
+.productNo{
+    font-size: 2px;
+}
+
 @media screen and (max-width: 1350px) {
     header {
         display: block;
@@ -122,7 +166,7 @@ header button {
     }
     header .icon {
         display: grid;
-        grid-template-columns: 10% 55% 20% 10%;
+        grid-template-columns: 10% 50% 20% 10%;
         font-size: 8vw;
         font-weight: 800;
         cursor: pointer;
@@ -141,7 +185,7 @@ header button {
         margin-left: 0px;
     }
 
-    header .icon >a #cuentaPedido {
+    header .icon > a #cuentaPedido {
         width: 30%;
         height: 30%;
         display: flex;
@@ -191,191 +235,7 @@ header button {
     }
 }
 
-/*Menu Carrito*/
-
-.modal {
-    position: fixed;
-    background-color: whitesmoke;
-    width: 100%;
-    max-width: 50%;
-    height: auto;
-    right: 0;
-    top: 20%;
-    border-radius: 3%;
-    box-shadow: 4px 4px 4px 8px rgba(0, 0, 0, 0.2);
-    visibility: hidden;
-    opacity: 0;
-    transform: translateX(100%);
-    transition: all .45s ease-in;
-    z-index: 20000;
-}
-
-.modal::after {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 999;
-    opacity: 0;
-    content: '';
-    pointer-events: none;
-    transition: all .35s ease-in;
-}
-
-.modal.active {
-    visibility: visible;
-    opacity: 1;
-    transform: none;
-}
-
-.modal.active::after {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.modal__container {
-    height: 100%;
-    padding: 30px;
-    position: relative;
-    z-index: 1000;
-}
-
-.modal__close {
-    position: absolute;
-    left: -50px;
-    top: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: white;
-    border: none;
-    font-size: 28px;
-    cursor: pointer;
-    font-weight: 800;
-    background-color: red;
-}
-
-.modal__info {
-    display: flex;
-    flex-flow: column;
-    height: 100%;
-    overflow: hidden;
-}
-
-.modal__header {
-    padding-bottom: 30px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid var(--border);
-}
-
-.modal__header h2 {
-    font-size: 34px;
-    color: red;
-    font-weight: 800;
-}
-
-.modal__header h2 i {
-    margin-right: 10px;
-}
-
-.modal__body {
-    position: relative;
-    overflow-x: hidden;
-    overflow-y: visible;
-    width: 100%;
-    flex-grow: 1;
-}
-
-.modal__item {
-    display: flex;
-    align-items: center;
-}
-
-.modal__item + .modal__item {
-    margin-top: 20px;
-}
-
-.modal__thumb img {
-    width: 30%;
-    height: auto;
-}
-
-.modal__text-product {
-    width: calc(100% - 80px);
-    padding-left: 20px;
-}
-
-.modal__text-product p strong {
-    color: var(--color1);
-    margin-top: 6px;
-}
-
-.modal__footer {
-    padding-top: 30px;
-    margin-top: 30px;
-    width: 80%;
-}
-
-.modal__list-price ul li+li {
-    margin-top: 10px;
-}
-
-.modal__list-price ul li strong {
-    color: var(--color1);
-}
-
-.modal__total-cart {
-    font-size: 20px;
-    color: var(--color1);
-    margin: 20px 0;
-}
-
-.modal__btns {
-    padding-top: 30px;
-    border-top: 1px solid;
-    padding-bottom: 20px;
-    display: flex;
-    align-items: center;
-}
-
-.modal__btns a+a {
-    margin-top: 15px;
-}
-
-/* Botón Comprar Ahora */
-.btn-primary {
-    display: block;
-    width: 80%; /* Ajusta el ancho del botón según tus necesidades */
-    padding: 10px; /* Padding interno del botón */
-    background-color: #ff0000;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    margin: 20px auto; /* Centra el botón horizontalmente */
-    cursor: pointer; /* Asegura que el cursor cambie al pasar sobre el botón */
-    border: none; /* Elimina cualquier borde que pueda interferir */
-    box-sizing: border-box; /* Incluye padding y border en el ancho total */
-}
-
-.btn-primary:hover {
-    background-color: #b30000;
-}
-
-@media screen and (max-width: 1350px) {
-    .modal {
-        max-width: 80%;
-    }
-}
-
-@media screen and (max-width: 1350px){
-    .modal{
-        max-width: 80%;
-    }
-}
-
-/*NAV*/
+/* NAV */
 
 nav {
     width: 90%;
@@ -425,7 +285,7 @@ nav .foods {
 .foods ol img {
     width: 40px;
     height: 40px;
-    color: rgba(0,3,70,255);
+    color: rgba(0, 3, 70, 255);
 }
 
 .foods ol li:hover {
@@ -448,7 +308,7 @@ nav .foods {
     }
 }
 
-/*SECTION*/
+/* SECTION */
 
 section {
     height: auto;
@@ -461,12 +321,26 @@ section {
     padding: 10px;
 }
 
+.tarjetaProducto h2 {
+    font-size: 2.5rem;
+}
+
 #targetContainer .tarjetaProducto img {
     width: 100%;
     height: 45%;
     border-radius: 25px;
-    min-width: 450px;
-    max-width: 250px;
+    height: 250px;
+    width: 300px;
+    padding-bottom: 10px;
+}
+
+#editPreviewImage{
+    width: 100%;
+    height: 45%;
+    border-radius: 25px;
+    height: 250px;
+    width: 300px;
+    padding-bottom: 10px;
 }
 
 #targetContainer .tarjetaProducto {
@@ -476,7 +350,7 @@ section {
     color: black;
     font-size: 18px;
     width: fit-content;
-    height: auto;
+    height: fit-content;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     border-radius: 25px;
     text-align: center;
@@ -489,18 +363,28 @@ section {
     color: rgb(0, 0, 0);
 }
 
-#targetContainer .tarjetaProducto button {
-    margin-bottom: 60px;
-    margin-top: 10px;
-    width: 250px;
-    height: 60px;
+#targetContainer .tarjetaProducto .delete-btn {
+    width: 50px;
+    height: 30px;
     border-radius: 15px;
-    background-color: rgba(254,0,5,255);
+    background-color: rgba(254, 0, 5, 255);
     color: white;
     font-size: 25px;
     font-weight: 700;
     cursor: pointer;
     transition: 200ms;
+    right: 10;
+    transform: translatex(250%);
+}
+
+#targetContainer .tarjetaProducto .edit-btn{
+    width: 250px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: rgba(254, 0, 5, 255);
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
 }
 
 #targetContainer .tarjetaProducto button:hover {
@@ -529,66 +413,166 @@ section {
     }
 }
 
-/*FOOTER*/
+/* FOOTER */
 
 footer {
-    background-color: rgba(0,3,70,255);
+    background-color: rgba(0, 3, 70, 255);
     color: white;
     height: auto;
     margin-top: 50px;
     border-radius: 10px;
     justify-content: space-evenly;
     align-items: center;
+    display: grid;
+    grid-template-columns: 100%;
+    padding: 20px;
 }
 
-footer .final {
+footer .nuevaTienda,
+footer .nuevoProducto {
+    background-color: red;
+    color: white;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     padding: 25px;
     text-align: center;
-}
-
-footer .final h3 {
-    font-size: 40px;
-    padding: 20px;
-}
-
-footer .final img {
-    width: 90px;
-    height: 90px;
-}
-
-footer .final button {
-    border-radius: 5px;
-    background-color: rgba(254,0,5,255);
-    color: white;
-    height: 60px;
-    width: 300px;
-    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1rem;
     font-weight: 600;
+}
+
+/* Formulario Agregar Producto */
+
+.formContent {
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border: solid thin #0c53b3;
+    font-family: 'poppins', sans-serif;
+    text-align: center;
+}
+
+.formContent h2 {
+    color: #f83f40;
+}
+
+.formContent label {
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    padding: 0;
+    margin: 10px;
+    text-align: center;
+}
+
+.formContent input {
+    width: 80%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    color: #333;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .1);
+}
+
+.formContent input:focus {
+    outline: none;
+}
+
+.formContent button {
+    width: 60%;
+    margin: auto;
+    padding: 10px;
+    background-color: #f83f40;
+    color: white;
+    border: none;
+    border-radius: 2px;
     cursor: pointer;
 }
 
-@media screen and (max-width: 1350px) {
-    footer .final h3 {
-        font-size: 30px;
-    }
-
-    footer .final button {
-        height: 50px;
-        width: 280px;
-    }
-
-    footer .final img {
-        display: none;
-    }
+.formContent select{
+    margin: 30px;
 }
 
-@media screen and (max-width: 485px) {
-    footer .final button {
-        height: 60px;
-        width: 120%;
-    }
+.formContent img#previewImage {
+    display: none;
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+/* Añade esto a tu archivo styles.css o en un <style> en tu HTML */
+
+.box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.box .formContent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.box .closeButton {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+body {
+    overflow: hidden; /* Evita que el fondo se desplace cuando se muestra la ventana flotante */
+}
+
+/* Estilos para el modal */
+.modal {
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 500px; 
+    border-radius: 10px;
+}
+
+.close, .closeEdit {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .closeEdit:hover,
+.close:focus, .closeEdit:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input [type="checkbox"]{
+    font-size: 2px;
 }
 

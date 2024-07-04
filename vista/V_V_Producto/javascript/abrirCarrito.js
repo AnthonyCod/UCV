@@ -7,13 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.add('active');
     });
 
-    closeModalButton.addEventListener('click', () => {
-        modal.classList.remove('active');
-    });
+//CERRAR EL MODAL
+closeModal.addEventListener('click',(event)=>{
+    event.target.parentNode.parentNode.classList.remove('active');
+})
 
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.classList.remove('active');
-        }
-    });
-});
+//CERRAMOS MODAL CUANDO HACEMOS CLICK FUERA DEL CONTENDINO DEL MODAL
+window.onclick = (event)=>{
+    const modal=document.querySelector('.modal.active');
+
+    if(event.target == modal){
+        modal.classList.remove('active');
+    }
+}
