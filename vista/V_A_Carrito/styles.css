@@ -11,6 +11,7 @@ body {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 .regresarContainer {
     padding-left: 30px;
@@ -25,6 +26,8 @@ body {
 }
 
 >>>>>>> e6489bf (Funciona carrito)
+=======
+>>>>>>> 10f124d (pago)
 header {
     display: flex;
     justify-content: space-between;
@@ -60,6 +63,7 @@ header .icon #cuentaPedido {
 
 header .icon span {
 <<<<<<< HEAD
+<<<<<<< HEAD
     color: white; /* Asegúrate de que el color del texto sea visible sobre el fondo */
     font-size: 1.5rem; /* Ajusta el tamaño del texto según sea necesario */
     margin-left: 10px; /* Añade espacio entre el ícono y el texto */
@@ -67,6 +71,11 @@ header .icon span {
     flex: 1;
     margin: auto;
 >>>>>>> e6489bf (Funciona carrito)
+=======
+    color: white; /* Asegúrate de que el color del texto sea visible sobre el fondo */
+    font-size: 1.5rem; /* Ajusta el tamaño del texto según sea necesario */
+    margin-left: 10px; /* Añade espacio entre el ícono y el texto */
+>>>>>>> 10f124d (pago)
 }
 
 header .search-container {
@@ -98,6 +107,9 @@ header button {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 10f124d (pago)
 .regresarContainer {
     padding: 10px 20px;
     background-color: white;
