@@ -10,18 +10,6 @@ body {
     zoom: 90%;
 }
 
-.regresarContainer {
-    padding-left: 30px;
-    padding-top: 10px;
-}
-
-.regresar {
-    text-decoration: none;
-    font-size: 1.5rem;
-    color: red;
-    font-weight: 600;
-}
-
 header {
     display: flex;
     justify-content: space-between;
@@ -56,8 +44,9 @@ header .icon #cuentaPedido {
 }
 
 header .icon span {
-    flex: 1;
-    margin: auto;
+    color: white; /* Asegúrate de que el color del texto sea visible sobre el fondo */
+    font-size: 1.5rem; /* Ajusta el tamaño del texto según sea necesario */
+    margin-left: 10px; /* Añade espacio entre el ícono y el texto */
 }
 
 header .search-container {
@@ -86,6 +75,23 @@ header button {
     font-size: 90%;
     cursor: pointer;
     text-align: center;
+}
+
+.regresarContainer {
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: flex-start;
+}
+
+.regresar {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: red;
+    font-weight: 600;
+    display: inline-block;
 }
 
 section {

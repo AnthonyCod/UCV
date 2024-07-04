@@ -13,13 +13,13 @@
             <span class="fa fa-bars" id="bars"></span>
             <span>UCV FOOD</span>
             <img src="../images/iconoPrincipal.png">
-            <a data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fas fa-shopping-cart"></i><span id="cuentaPedido">0</span></a>
         </div>
-        <div class="search-container">
-            <input type="search" placeholder="Buscar...">
-            <span class="fa fa-search"></span>
-        </div>
+        
     </header>
+
+    <div class="regresarContainer">
+        <a class="regresar" href="../V_V_Producto/index.php"> <i class="fas fa-arrow-left"></i> Seguir Comprando</a>
+    </div>
 
     <section>
         <div class="carrito-container">
@@ -48,11 +48,17 @@
                     <input type="checkbox" id="terminos">
                     <label for="terminos">Acepto los <a href="#">Términos y condiciones</a></label>
                 </div>
-                <button>Procesar Pago</button>
+                <div class="botonPago">
+                    <button id="procesarPagoBtn">Procesar Pago</button>
+                </div>
             </div>
         </div>
     </section>
-
+    <script>
+        document.getElementById('procesarPagoBtn').addEventListener('click', function() {
+            window.location.href = "../V_R_Pago/pago.html"; // Reemplaza con la URL de la página de pago
+        });
+    </script>
     <script src="carrito.js"></script>
 </body>
 </html>
