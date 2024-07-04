@@ -10,6 +10,21 @@ body {
     zoom: 90%;
 }
 
+<<<<<<< HEAD
+=======
+.regresarContainer {
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+.regresar {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: red;
+    font-weight: 600;
+}
+
+>>>>>>> e6489bf (Funciona carrito)
 header {
     display: flex;
     justify-content: space-between;
@@ -44,9 +59,14 @@ header .icon #cuentaPedido {
 }
 
 header .icon span {
+<<<<<<< HEAD
     color: white; /* Asegúrate de que el color del texto sea visible sobre el fondo */
     font-size: 1.5rem; /* Ajusta el tamaño del texto según sea necesario */
     margin-left: 10px; /* Añade espacio entre el ícono y el texto */
+=======
+    flex: 1;
+    margin: auto;
+>>>>>>> e6489bf (Funciona carrito)
 }
 
 header .search-container {
@@ -77,6 +97,7 @@ header button {
     text-align: center;
 }
 
+<<<<<<< HEAD
 .regresarContainer {
     padding: 10px 20px;
     background-color: white;
@@ -100,6 +121,14 @@ section {
     padding: 20px;
 }
 
+=======
+section {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+>>>>>>> e6489bf (Funciona carrito)
 .carrito-container {
     display: flex;
     justify-content: space-between;
@@ -116,6 +145,7 @@ section {
 }
 
 .carrito-header, .producto-carrito {
+<<<<<<< HEAD
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
     align-items: center;
@@ -132,6 +162,23 @@ section {
     align-items: center;
 }
 
+=======
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.carrito-header {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.producto-carrito {
+    align-items: center;
+}
+
+>>>>>>> e6489bf (Funciona carrito)
 .producto-carrito img {
     width: 50px;
     height: 50px;
@@ -241,8 +288,11 @@ section {
     .pago {
         width: 100%;
     }
+<<<<<<< HEAD
 
     .producto-carrito h2 {
         font-size: 0.8rem; /* Reduce el tamaño del texto del nombre del producto en pantallas pequeñas */
     }
+=======
+>>>>>>> e6489bf (Funciona carrito)
 }
