@@ -9,22 +9,16 @@ class PersonaModel {
     }
 
     public function registrarCliente($nombreUsuario, $contraseña, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento) {
-        // Obtener fecha actual
-        $fechaRegistro = date('Y-m-d');
+        $fechaRegistro = date('Y-m-d'); // Obtener fecha actual
 
-        // Preparar la consulta sql
         $stmt = $this->conexion->prepare("CALL i_Cliente(?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
-        // Asignar el tipo de cada dato
         $stmt->bind_param("sssssssss", $fechaRegistro, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento, $nombreUsuario, $contraseña);
 
-        // Realizar la ejecución
         if ($stmt->execute()) {
-            return true;
+            return true; // Si la ejecución es exitosa
         } else {
             throw new Exception("Error al insertar cliente: " . $stmt->error);
         }
     }
 }
-
 ?>
