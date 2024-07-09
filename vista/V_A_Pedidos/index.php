@@ -16,9 +16,16 @@
                 <img src="../images/iconoPrincipal.png">
         </div>
     </header>
-    <div class="content"> 
+    <div class="content">
     <?php
-    include '../Modelo/conexion.php';
+    include '../../modelo/m_conexion.php';
+
+    // Llama a la función conectar con las variables de conexión
+    $conexion = conectar($servidor, $user, $pass, $database);
+
+    if (!$conexion) {
+        die("Conexión fallida: " . mysqli_connect_error());
+    }
 
     // Consulta para llamar al stored procedure
     $sql = "CALL ObtenerDetalleCarrito()";
@@ -54,7 +61,8 @@
             }
             echo '</ol>'; // Cierra la lista ordenada
             echo '</div>';
-            echo '<button onclick="aceptarPedido(' . $carritoID . ')">Aceptar</button>';
+            echo '<button>Aceptar</button>';
+            echo '<button>Rechazar</button>';
             echo '</div>';
         }
     } else {
