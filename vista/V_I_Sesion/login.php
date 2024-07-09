@@ -19,15 +19,12 @@
                     <h4>Contraseña <i class="fa-solid fa-lock"></i></h4>
                     <input type="password" name="contraseña" placeholder="Contraseña..." required>
                     <br><br>
-                    
-                    <a class="pass" href="#">Olvidé la Contraseña</a>
-                    <br><br>
                     <button type="submit" class="boton">Ingresar</button>
                     <br><br>
                 </form>
                 <h4>¿No tienes una cuenta? <a class="regi" href="../V_R_Cliente/register.php">Regístrate</a></h4>
                 <br>
-                <h4>¿Eres empresa?</h4><a class="regi" href="../RegistrarEmpresa/register.php">Trabaja con Nosotros</a>
+                <h4>¿Eres empresa?</h4><a class="regi" href="../V_R_Establecimiento/register.php">Trabaja con Nosotros</a>
             </div>
         </section>
     </body>

@@ -12,20 +12,18 @@
         <section>
             <div class="formulario">
                 <img src="../images/iconoPrincipal.png">
-                <h1>Inicio de Sesion</h2>
-                    <h4 class="tipoUsuario">Empresa</h4>
-                    <h4>Correo electronico <i class="fa-regular fa-envelope"></i></h4>
-                    <input type="email" placeholder="  Correo Electronico...">
-                    <br><br>
-                    <h4>Contraseña <i class="fa-solid fa-lock"></i></h4>
-                    <input type="password" placeholder="  Contraseña...">
-                    <br><br>
-                    <a class="pass" href="#">Olvide la Contraseña</a>
-                    <br><br>
-                    <a class="boton" href="../V_A_Menu/index.php"> Ingresar </a>
-                    <br><br>
-                    <h4>¿No tienes una cuenta? <a class="regi" href="../V_R_Establecimiento/register.php">Registrate</a></h4>
-                    <br>
+                <h1>Inicio de Sesion Empresa</h2>
+                    <form action="../../controlador/C_I_Establecimiento.php" method="POST" id='formInicio'>
+                        <h4>Nombre de Usuario <i class="fa-regular fa-envelope"></i></h4>
+                        <input type="text" name="nombreUsuario" placeholder="NombreUsuario..." required>
+                        <br><br>
+                        <h4>Contraseña <i class="fa-solid fa-lock"></i></h4>
+                        <input type="password" name="contraseña" placeholder="Contraseña..." required>
+                        <br><br>
+                        <button type="submit" class="boton">Ingresar</button>
+                        <br><br>
+                    </form>
+                    <h4>¿No tienes una cuenta? <a class="regi" href="../V_R_Establecimiento/register.php">Regístrate</a></h4>
                 </div>
         </section>
     </body>

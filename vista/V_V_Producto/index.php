@@ -74,6 +74,6 @@
     </footer>
 
     <script src="javascript/productos.js"></script>
-    <script src="javascript/abrirCarrito.js"></script>  <!-- Incluyendo el script de productos -->
+    <script src="javascript/abrirCarrito.js"></script>
 </body>
 </html>

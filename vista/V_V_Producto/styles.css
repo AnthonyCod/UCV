@@ -1,25 +1,21 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
-    margin: auto;
 }
-
-
 
 #check {
     display: none;
 }
 
-body{
+body {
     background-color: rgb(255, 255, 255);
     zoom: 90%;
 }
- 
-/*HEADER*/
 
-header{
+/*HEADER*/
+header {
     display: flex;
     width: 100%;
     background-color: rgba(0,3,70,255);
@@ -27,10 +23,10 @@ header{
     justify-content: space-between;
     text-align: center;
     border-bottom: 10px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-header .icon{
+header .icon {
     font-size: 40px;
     font-weight: 800;
     cursor: pointer;
@@ -39,13 +35,13 @@ header .icon{
     padding: 0;
 }
 
-header .icon a{
+header .icon a {
     color: white;
     text-decoration: none;
     margin-left: 40px;
 }
 
-header .icon #cuentaPedido{
+header .icon #cuentaPedido {
     margin-left: 10px;
     background-color: rgba(254,0,5,255);
     border-radius: 50%;
@@ -53,28 +49,28 @@ header .icon #cuentaPedido{
     font-size: 80%;
 }
 
-header .icon span{
+header .icon span {
     flex: 1;
     margin: auto;
 }
 
-header .icon img{
+header .icon img {
     width: 110px;
     height: 80px;
 }
 
-header .icon{
+header .icon {
     margin-left: 10px;
 }
 
-header .search-container{
+header .search-container {
     display: flex;
     margin: auto 0;
     height: 40px;
-    line-height:35px;
+    line-height: 35px;
 }
 
-header .search-container input{
+header .search-container input {
     border: 2.5px solid black;
     border-radius: 10px;
     height: 100%;
@@ -84,7 +80,7 @@ header .search-container input{
     width: auto;
 }
 
-header .search-container span{
+header .search-container span {
     color: rgb(255, 255, 255);
     font-size: 20px;
     height: 100%;
@@ -96,22 +92,21 @@ header .search-container span{
     margin-right: 30px;
 }
 
-
-header .icon #bars{
+header .icon #bars {
     display: none;
 }
 
-header .icon #times{
+header .icon #times {
     display: none;
 }
 
-header .bar span{
+header .bar span {
     position: absolute;
     color: rgb(255, 255, 255);
     font-size: 35px;
 }
 
-header button{
+header button {
     background-color: transparent;
     border: none;
     font-size: 90%;
@@ -120,19 +115,19 @@ header button{
 }
 
 @media screen and (max-width: 1350px) {
-    header{
+    header {
         display: block;
         align-items: center;
         width: 100%;
-    }   
-    header .icon{
+    }
+    header .icon {
         display: grid;
         grid-template-columns: 10% 55% 20% 10%;
         font-size: 8vw;
         font-weight: 800;
         cursor: pointer;
         color: white;
-        span:3;
+        span: 3;
     }
 
     header .icon > a {
@@ -146,7 +141,7 @@ header button{
         margin-left: 0px;
     }
 
-    header .icon >a #cuentaPedido{
+    header .icon >a #cuentaPedido {
         width: 30%;
         height: 30%;
         display: flex;
@@ -156,23 +151,22 @@ header button{
         margin-left: 5px;
     }
 
-    header .icon img{
+    header .icon img {
         width: 90%;
         height: 90%;
     }
 
-    header .icon #bars{
-        display:block;
+    header .icon #bars {
+        display: block;
         width: 20px;
         font-size: 70%;
     }
 
-    
-header .search-container span{
-    font-size: 180%;
+    header .search-container span {
+        font-size: 180%;
     }
 
-    header .search-container{
+    header .search-container {
         width: 95%;
         height: 40px;
         display: inline-flex;
@@ -182,15 +176,15 @@ header .search-container span{
         margin: 10px;
     }
 
-    header .search-container span{
+    header .search-container span {
         margin-left: 5px;
     }
 
-    header .search-container input{
+    header .search-container input {
         width: 90%;
     }
 
-    header button{
+    header button {
         background-color: transparent;
         border: none;
         font-size: 30%;
@@ -199,57 +193,55 @@ header .search-container span{
 
 /*Menu Carrito*/
 
-.modal{
-    position: absolute;
+.modal {
+    position: fixed;
     background-color: whitesmoke;
     width: 100%;
     max-width: 50%;
     height: auto;
     right: 0;
+    top: 20%;
     border-radius: 3%;
     box-shadow: 4px 4px 4px 8px rgba(0, 0, 0, 0.2);
-    
     visibility: hidden;
     opacity: 0;
     transform: translateX(100%);
     transition: all .45s ease-in;
-
     z-index: 20000;
 }
 
-
-.modal::after{
+.modal::after {
     position: fixed;
     top: 0;
-    right: 350px;
+    right: 0;
     width: 100vw;
     height: 100vh;
     z-index: 999;
-
     opacity: 0;
     content: '';
     pointer-events: none;
     transition: all .35s ease-in;
 }
 
-.modal.active{
+.modal.active {
     visibility: visible;
     opacity: 1;
     transform: none;
 }
 
-.modal.active::after{
+.modal.active::after {
     opacity: 1;
     pointer-events: auto;
 }
-.modal__container{
+
+.modal__container {
     height: 100%;
     padding: 30px;
-    position: abso;
+    position: relative;
     z-index: 1000;
 }
 
-.modal__close{
+.modal__close {
     position: absolute;
     left: -50px;
     top: 20px;
@@ -261,33 +253,33 @@ header .search-container span{
     font-size: 28px;
     cursor: pointer;
     font-weight: 800;
-    background-color: red   ;
+    background-color: red;
 }
 
-.modal__info{
+.modal__info {
     display: flex;
     flex-flow: column;
     height: 100%;
     overflow: hidden;
 }
 
-.modal__header{
+.modal__header {
     padding-bottom: 30px;
     margin-bottom: 30px;
     border-bottom: 1px solid var(--border);
 }
 
-.modal__header h2{
+.modal__header h2 {
     font-size: 34px;
     color: red;
     font-weight: 800;
 }
 
-.modal__header h2 i{
+.modal__header h2 i {
     margin-right: 10px;
 }
 
-.modal__body{
+.modal__body {
     position: relative;
     overflow-x: hidden;
     overflow-y: visible;
@@ -295,102 +287,105 @@ header .search-container span{
     flex-grow: 1;
 }
 
-.modal__item{
+.modal__item {
     display: flex;
     align-items: center;
 }
 
-.modal__item + .modal__item{
+.modal__item + .modal__item {
     margin-top: 20px;
 }
 
-.modal__thumb img{
+.modal__thumb img {
     width: 30%;
     height: auto;
 }
 
-.modal__text-product{
+.modal__text-product {
     width: calc(100% - 80px);
     padding-left: 20px;
 }
 
-.modal__text-product p strong{
+.modal__text-product p strong {
     color: var(--color1);
     margin-top: 6px;
 }
 
-.modal__footer{
+.modal__footer {
     padding-top: 30px;
     margin-top: 30px;
     width: 80%;
 }
 
-.modal__list-price ul li+li{
+.modal__list-price ul li+li {
     margin-top: 10px;
 }
 
-.modal__list-price ul li strong{
+.modal__list-price ul li strong {
     color: var(--color1);
 }
 
-.modal__total-cart{
+.modal__total-cart {
     font-size: 20px;
     color: var(--color1);
     margin: 20px 0;
 }
 
-.modal__btns{
+.modal__btns {
     padding-top: 30px;
-    border-top: 1px solid ;
+    border-top: 1px solid;
     padding-bottom: 20px;
     display: flex;
     align-items: center;
 }
 
-.modal__btns a+a{
+.modal__btns a+a {
     margin-top: 15px;
 }
 
+/* Botón Comprar Ahora */
 .btn-primary {
-    background-color: red;
+    display: block;
+    width: 80%; /* Ajusta el ancho del botón según tus necesidades */
+    padding: 10px; /* Padding interno del botón */
+    background-color: #ff0000;
     color: white;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 10px;
-    width: 60%;
     text-align: center;
-    font-size: 1.5rem;
-    font-weight: 600;
-    display: inline-block;
-    cursor: pointer;
-}
-.btn-primary:hover {
-    background-color: darkred;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 20px auto; /* Centra el botón horizontalmente */
+    cursor: pointer; /* Asegura que el cursor cambie al pasar sobre el botón */
+    border: none; /* Elimina cualquier borde que pueda interferir */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
 }
 
-@media screen and (max-width: 1350px){
-    .modal{
+.btn-primary:hover {
+    background-color: #b30000;
+}
+
+@media screen and (max-width: 1350px) {
+    .modal {
         max-width: 80%;
     }
 }
 
 /*NAV*/
 
-nav{
+nav {
     width: 90%;
     background-color: rgb(255, 255, 255);
-    border: 5px solid rgba(0, 0, 0, 0.1);   
+    border: 5px solid rgba(0, 0, 0, 0.1);
     margin: auto;
     border-radius: 25px;
     margin-top: 20px;
 }
 
-nav .foods{
+nav .foods {
     display: flex;
     justify-content: center;
 }
 
-.foods ol{
+.foods ol {
     display: flex;
     list-style: none;
     margin: auto;
@@ -400,49 +395,48 @@ nav .foods{
     color: black;
 }
 
-.foods ol li{
+.foods ol li {
     padding: 10px;
     text-decoration: none;
     margin: 5px;
     transition: 0.8s;
 }
 
-.foods ol li img{
+.foods ol li img {
     display: block;
     margin: auto;
 }
 
-.foods ol li span{
+.foods ol li span {
     display: block;
     padding: 10px;
     text-align: center;
     font-size: 25px;
-    font-weight: 600;   
-    font-family:Verdana, Geneva, Tahoma, sans-serif
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.foods ol img{
+.foods ol img {
     width: 40px;
     height: 40px;
     color: rgba(0,3,70,255);
 }
 
-.foods ol li:hover{
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); 
+.foods ol li:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     border-radius: 15%;
-    transition:ease-in;
+    transition: ease-in;
 }
 
-@media screen and (max-width: 1350px){
-
-    .foods ol li span{
+@media screen and (max-width: 1350px) {
+    .foods ol li span {
         display: block;
         padding: 10px;
         text-align: center;
         font-size: 22px;
     }
 
-    .foods ol img{
+    .foods ol img {
         width: 60px;
         height: 60px;
     }
@@ -450,18 +444,18 @@ nav .foods{
 
 /*SECTION*/
 
-section{
+section {
     height: auto;
 }
 
-#targetContainer{
+#targetContainer {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 10px;
 }
 
-#targetContainer .tarjetaProducto img{
+#targetContainer .tarjetaProducto img {
     width: 100%;
     height: 45%;
     border-radius: 25px;
@@ -469,7 +463,7 @@ section{
     max-width: 250px;
 }
 
-#targetContainer .tarjetaProducto{
+#targetContainer .tarjetaProducto {
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: rgb(255, 255, 255);
@@ -477,19 +471,19 @@ section{
     font-size: 18px;
     width: fit-content;
     height: auto;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     border-radius: 25px;
     text-align: center;
     padding: 10px;
     margin: 10px;
 }
 
-#targetContainer .tarjetaProducto .price{
+#targetContainer .tarjetaProducto .price {
     font-size: 35px;
     color: rgb(0, 0, 0);
 }
 
-#targetContainer .tarjetaProducto button{
+#targetContainer .tarjetaProducto button {
     margin-bottom: 60px;
     margin-top: 10px;
     width: 250px;
@@ -503,37 +497,35 @@ section{
     transition: 200ms;
 }
 
-#targetContainer .tarjetaProducto button:hover{
+#targetContainer .tarjetaProducto button:hover {
     translate: 0 -3px;
-
 }
 
 @media screen and (max-width: 485px) {
-    #targetContainer .tarjetaProducto{
+    #targetContainer .tarjetaProducto {
         width: 90%;
         height: 30%;
         margin: 10px auto;
         font-size: 13px;
         font-weight: 1800;
     }
-    
+
     #targetContainer .tarjetaProducto img {
         width: 80%;
-        height: 50%; 
+        height: 50%;
         border-radius: 25px;
-        max-width: none; 
-        min-width: unset; 
+        max-width: none;
+        min-width: unset;
     }
-    
-    #targetContainer .tarjetaProducto button{
+
+    #targetContainer .tarjetaProducto button {
         width: 60%;
     }
 }
 
-
 /*FOOTER*/
 
-footer{
+footer {
     background-color: rgba(0,3,70,255);
     color: white;
     height: auto;
@@ -543,7 +535,7 @@ footer{
     align-items: center;
 }
 
-footer .final{
+footer .final {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -551,17 +543,17 @@ footer .final{
     text-align: center;
 }
 
-footer .final h3{
+footer .final h3 {
     font-size: 40px;
     padding: 20px;
 }
 
-footer .final img{
+footer .final img {
     width: 90px;
     height: 90px;
 }
 
-footer .final button{
+footer .final button {
     border-radius: 5px;
     background-color: rgba(254,0,5,255);
     color: white;
@@ -572,95 +564,95 @@ footer .final button{
     cursor: pointer;
 }
 
-@media screen and (max-width:1350px) {
-    footer .final h3{
+@media screen and (max-width: 1350px) {
+    footer .final h3 {
         font-size: 30px;
     }
-    footer .final button{
-            height: 50px;
-            width: 280px;
+
+    footer .final button {
+        height: 50px;
+        width: 280px;
     }
 
-    footer .final img{
+    footer .final img {
         display: none;
     }
+}
 
-    }
-
-@media screen and (max-width:485px){
-    footer .final button{
+@media screen and (max-width: 485px) {
+    footer .final button {
         height: 60px;
         width: 120%;
-}
+    }
 }
 
 .producto-card {
+    width: 250px; /* Ajusta el ancho según tus necesidades */
+    margin: 20px auto; /* Centra la tarjeta horizontalmente */
     border: 1px solid #ddd;
     border-radius: 8px;
-    overflow: hidden;
-    width: 200px; /* Ajusta el ancho según tus necesidades */
-    margin: 10px;
-    display: inline-block;
-    vertical-align: top;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: #ffffff;
+    text-align: center;
 }
 
 .producto-image img {
     width: 100%;
-    height: 200px; /* Ajusta la altura según tus necesidades */
+    height: auto; /* Permite que la altura se ajuste automáticamente */
+    max-height: 120px; /* Ajusta la altura máxima según tus necesidades */
     object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsión */
 }
 
 .producto-info {
     padding: 10px;
-    text-align: center;
 }
 
 .producto-info h2 {
-    font-size: 1em; /* Ajusta el tamaño de la fuente */
-    margin: 0;
+    font-size: 1.2em; /* Ajusta el tamaño de la fuente */
+    margin: 10px 0;
 }
 
 .producto-info p {
     margin: 5px 0;
-    font-size: 0.9em; /* Ajusta el tamaño de la fuente */
+    font-size: 1em; /* Ajusta el tamaño de la fuente */
 }
 
-/* Estilos base para los botones */
-button {
-    padding: 10px 20px;
-    font-size: 16px;
+.producto-info button {
+    width: 80%;
+    padding: 10px;
+    font-size: 1em;
     background-color: #ff0000;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-bottom: 10px;
 }
 
-button:hover {
-    background-color: #b30000; 
+.producto-info button:hover {
+    background-color: #b30000;
 }
 
 /* Estilos específicos para los botones dentro de las tarjetas de producto */
 .producto-info button {
-    width: 100%; 
-    margin-top: 10px; 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .producto-card {
-    background: #ffffff; 
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
-    border-radius: 8px; 
-    overflow: hidden; 
-    margin-bottom: 20px; 
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
 
 .producto-image img {
-    display: block; 
-    width: 100%; 
-    height: 200px; 
-    object-fit: cover; 
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
-  

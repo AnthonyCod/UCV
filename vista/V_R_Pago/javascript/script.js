@@ -20,6 +20,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     volverAlCarritoBtn.addEventListener('click', function() {
         
-        window.location.href = "../../V_A_Carrito/carrito.php";
+        window.location.href = "../V_A_Carrito/carrito.html";
     });
 });
