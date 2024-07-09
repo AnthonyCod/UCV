@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCV FOOD</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="icon">
+            <span class="fa fa-bars" id="bars"></span>
+            <span>UCV FOOD</span>
+            <img src="../images/iconoPrincipal.png">
+        </div>
+    </header>
+
+    <div class="regresarContainer">
+        <a class="regresar" href="../V_V_Producto/index.php"> <i class="fas fa-arrow-left"></i> Seguir Comprando</a>
+    </div>
+
+    <section>
+        <div class="carrito-container">
+            <div class="carrito">
+                <div class="carrito-header">
+                    <span>Producto(s)</span>
+                    <span>Precio Unitario</span>
+                    <span>Cantidad</span>
+                    <span>Importe</span>
+                    <span>Eliminar</span>
+                </div>
+                <div class="productos" id="carritoProductos">
+                    <!-- Productos cargados dinámicamente -->
+                </div>
+            </div>
+            <div class="pago">
+                <div class="descuento">
+                    <input type="text" placeholder="Código de descuento">
+                    <button>Aplicar</button>
+                </div>
+                <div class="totales">
+                    <h3>Subtotal: <span id="subtotal">$0.00</span></h3>
+                    <h3>Total: <span id="total">$0.00</span></h3>
+                </div>
+                <div class="terminos">
+                    <input type="checkbox" id="terminos">
+                    <label for="terminos">Acepto los <a href="#">Términos y condiciones</a></label>
+                </div>
+                <div class="botonPago">
+                    <button id="procesarPagoBtn">Procesar Pago</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.getElementById('procesarPagoBtn').addEventListener('click', function() {
+            window.location.href = "../V_R_Pago/pago.html"; // Reemplaza con la URL de la página de pago
+        });
+    </script>
+    <script src="carrito.js"></script>
+</body>
+</html>
