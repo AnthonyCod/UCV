@@ -83,68 +83,28 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('carrito', JSON.stringify(carrito));
         cargarCarrito();
     }
-
-    function finalizarCompra() {
-        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
+    
+    function redirigirPagina() {
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        
         if (carrito.length === 0) {
             alert('El carrito está vacío.');
             return;
         }
-
+    
         if (!document.getElementById('terminos').checked) {
             alert('Debes aceptar los términos y condiciones.');
             return;
         }
-        
-        const datosPedido = {
-            pagoID: 4,  // Ejemplo de pagoID, debe obtenerse según la lógica de tu aplicación
-            estado: 'recibido',
-            fechaEntrega: '2024-07-10 12:00:00',  // Fecha ejemplo, puede ajustarse
-            evidencia: null,  // Ajusta según necesites
-            calificacion: null,  // Ajusta según necesites
-            fechaEnvio: '2024-07-09',
-            ubicacion: 'MZ Calle Falsa',
-            metodoEntrega: 'Delivery',
-            detalles: carrito
-        };
-
-        console.log('Datos del pedido a enviar:', JSON.stringify(datosPedido, null, 2)); // Registrar los datos que se están enviando
-
-        fetch('../../controlador/C_A_Carrito.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(datosPedido)
-        })
-        .then(response => {
-            return response.text(); // Cambia a .text() para ver la respuesta completa
-        })
-        .then(text => {
-            console.log('Response text:', text); // Registra la respuesta completa
-            let data;
-            try {
-                data = JSON.parse(text); // Intenta analizar como JSON
-            } catch (e) {
-                throw new Error('Error al analizar JSON: ' + e.message + '\nRespuesta recibida: ' + text);
-            }
-            if (data.success) {
-                alert('Compra realizada con éxito');
-                localStorage.removeItem('carrito');
-                window.location.href = "../V_R_Pago/pago.html"; // Reemplaza con la URL de la página de pago
-            } else {
-                alert('Error al realizar la compra: ' + data.error);
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+    
+        window.location.href = "../V_R_Pago/pago.html";
     }
+    
+
 
     cargarCarrito();
 
     if (procesarPagoBtn) {
-        procesarPagoBtn.addEventListener('click', finalizarCompra);
+        procesarPagoBtn.addEventListener('click', redirigirPagina);
     }
 });
