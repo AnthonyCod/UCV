@@ -2,13 +2,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const carritoProductosContainer = document.getElementById('carritoProductos');
     const subtotalElement = document.getElementById('subtotal');
     const totalElement = document.getElementById('total');
+    const metodoEntregaSelect = document.getElementById('metodoEntrega');
+    const direccionContainer = document.getElementById('direccionContainer');
+    const direccionInput = document.getElementById('direccion');
+    const procesarPagoBtn = document.getElementById('procesarPagoBtn');
+
+    let aumentoDelivery = 10; // Aumento de $10 para delivery
 
     function cargarCarrito() {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         carritoProductosContainer.innerHTML = '';
 
         let subtotal = 0;
-
         carrito.forEach(producto => {
             subtotal += producto.importe;
             const productoHTML = `
@@ -40,7 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function actualizarSubtotalTotal(subtotal) {
         subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
-        totalElement.textContent = `$${subtotal.toFixed(2)}`;
+        let totalConAumento = subtotal;
+        if (metodoEntregaSelect.value === 'delivery') {
+            totalConAumento += aumentoDelivery;
+        }
+        totalElement.textContent = `$${totalConAumento.toFixed(2)}`;
     }
 
     function agregarEventosDeCantidad() {
@@ -64,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function actualizarCantidadProducto(productoID, nuevaCantidad) {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        let producto = carrito.find(producto => producto.productoID === productoID);
+        let producto = carrito.find(producto => producto.productoID == productoID);
 
         if (producto) {
             producto.cantidad = nuevaCantidad;
@@ -78,10 +87,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function eliminarProductoDelCarrito(productoID) {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        carrito = carrito.filter(producto => producto.productoID !== productoID);
+        carrito = carrito.filter(producto => producto.productoID != productoID);
         localStorage.setItem('carrito', JSON.stringify(carrito));
         cargarCarrito();
     }
 
+    function redirigirPagina() {
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+        if (carrito.length === 0) {
+            alert('El carrito está vacío.');
+            return;
+        }
+
+        if (!document.getElementById('terminos').checked) {
+            alert('Debes aceptar los términos y condiciones.');
+            return;
+        }
+
+        const metodoEntrega = metodoEntregaSelect.value;
+        const direccion = direccionInput.value;
+
+        // Guardar en localStorage
+        localStorage.setItem('metodoEntrega', metodoEntrega);
+        localStorage.setItem('direccion', direccion);
+
+        window.location.href = "../V_R_Pago/pago.html";
+    }
+
     cargarCarrito();
+
+    metodoEntregaSelect.addEventListener('change', function() {
+        let subtotal = parseFloat(subtotalElement.textContent.replace('$', '')) || 0;
+        if (this.value === 'delivery') {
+            direccionContainer.style.display = 'block';
+            subtotal += aumentoDelivery;
+        } else {
+            direccionContainer.style.display = 'none';
+            direccionInput.value = '';
+            subtotal -= aumentoDelivery;
+        }
+        actualizarSubtotalTotal(subtotal); // Actualiza el total cuando se cambia el método de entrega
+    });
+
+    if (procesarPagoBtn) {
+        procesarPagoBtn.addEventListener('click', redirigirPagina);
+    }
+
+    
 });

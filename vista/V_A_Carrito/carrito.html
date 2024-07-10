@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+
 <body>
     <header>
         <div class="icon">
@@ -43,6 +45,20 @@
                     <h3>Subtotal: <span id="subtotal">$0.00</span></h3>
                     <h3>Total: <span id="total">$0.00</span></h3>
                 </div>
+                <div class="gestion">
+                    <label for="metodoEntrega">Método de Entrega</label>
+                    <select id="metodoEntrega" name="metodoEntrega">
+                        <option value="">Seleccione</option>
+                        <option value="delivery">Delivery</option>
+                        <option value="retiro">Retiro en Tienda</option>
+                    </select>
+                </div>
+
+                <div id="direccionContainer" style="display: none;">
+                    <label for="direccion">Dirección de Entrega</label>
+                    <input type="text" id="direccion" name="direccion" placeholder="Ingrese su dirección">
+                </div>
+
                 <div class="terminos">
                     <input type="checkbox" id="terminos">
                     <label for="terminos">Acepto los <a href="#">Términos y condiciones</a></label>
@@ -53,11 +69,7 @@
             </div>
         </div>
     </section>
-    <script>
-        document.getElementById('procesarPagoBtn').addEventListener('click', function() {
-            window.location.href = "../V_R_Pago/pago.html"; // Reemplaza con la URL de la página de pago
-        });
-    </script>
     <script src="carrito.js"></script>
 </body>
+
 </html>
