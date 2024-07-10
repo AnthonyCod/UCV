@@ -31,6 +31,7 @@ try {
             <span class="fa fa-bars" id="bars"></span>
             <span>UCV FOOD </span>
             <img src="../images/iconoPrincipal.png">
+            <a href="../V_A_Pedidos/index.php" class="btn-pedidos">Pedidos</a>
         </div>
 
         <div class="search-container">
@@ -141,10 +142,6 @@ try {
 
     <!--============== FOOTER ==============-->
     <footer>
-        <!-- <div class="agregarTienda" style="display: none">
-            <button class="nuevaTienda">Agregar Tienda</button>
-        </div> -->
-
         <div class="final">
             <button class="nuevoProducto">Agregar Producto</button>
         </div>

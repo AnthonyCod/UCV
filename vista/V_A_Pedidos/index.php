@@ -8,74 +8,116 @@
     <title>Lista de Pedidos</title>
 </head>
 <body>
-     <!--============== HEADER ==============-->
+    <!--============== HEADER ==============-->
     <header>
         <div class="icon">
             <span class="fa fa-bars" id="bars"></span>
             <span>UCV FOOD</span>
-                <img src="../images/iconoPrincipal.png">
+            <img src="../images/iconoPrincipal.png">
         </div>
     </header>
     <div class="content">
-    <?php
-    include '../../modelo/m_conexion.php';
+        <?php
+        include '../../modelo/m_conexion.php';
 
-    // Llama a la función conectar con las variables de conexión
-    $conexion = conectar($servidor, $user, $pass, $database);
+        $conexion = conectar($servidor, $user, $pass, $database);
 
-    if (!$conexion) {
-        die("Conexión fallida: " . mysqli_connect_error());
-    }
-
-    // Consulta para llamar al stored procedure
-    $sql = "CALL ObtenerDetalleCarrito()";
-    $result = $conexion->query($sql);
-
-    $pedidos = [];
-
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            $carritoID = $row["carritoID"];
-            if (!isset($pedidos[$carritoID])) {
-                $pedidos[$carritoID] = [
-                    'nombreCliente' => $row["nombreCliente"], // Guardar el nombre del cliente
-                    'productos' => [] // Inicializar el array de productos
-                ];
-            }
-            $pedidos[$carritoID]['productos'][] = $row;
+        if (!$conexion) {
+            die("Conexión fallida: " . mysqli_connect_error());
         }
 
-        foreach($pedidos as $carritoID => $detalle) {
-            echo '<div class="container" id="pedido_containe">';
-            echo '<h2> Pedido ' . $carritoID . ' </h2>';
-            echo '<div class="pedido">';
-            echo '<h3> Cliente: ' . $detalle['nombreCliente'] . ' </h3>';  // Mostrar el nombre del cliente
-            echo '<ol>'; // Inicia la lista ordenada
-            foreach($detalle['productos'] as $producto) {
-                echo '<li>'; // Cada producto como un ítem de la lista
-                echo '<p>Producto: ' . $producto["nombreProducto"] . '</p>';
-                echo '<p>Cantidad: ' . $producto["cantidad"] . '</p>';
-                echo '<p>Precio: s/.'.$producto["importe"] .'</p>';
-                echo '<p>Importe: s/. ' . $producto["importe"]* $producto["cantidad"] .'.00'. '</p>';
-                echo '</li>'; // Cierra el ítem de la lista
+        // Actualizamos la consulta para reflejar los campos existentes
+        $sql = "SELECT p.pedidoID, p.estado, p.fechaEntrega, p.ubicacion, p.metodoEntrega, d.cantidad, d.importe, pr.nombreProducto 
+                FROM pedido p 
+                INNER JOIN detalle d ON p.pedidoID = d.pedidoID 
+                INNER JOIN producto pr ON d.productoID = pr.productoID 
+                ORDER BY p.pedidoID ASC";
+        $result = $conexion->query($sql);
+
+        $pedidos = [];
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $pedidoID = $row["pedidoID"];
+                if (!isset($pedidos[$pedidoID])) {
+                    $pedidos[$pedidoID] = [
+                        'estado' => $row["estado"],
+                        'fechaEntrega' => $row["fechaEntrega"],
+                        'ubicacion' => $row["ubicacion"],
+                        'metodoEntrega' => $row["metodoEntrega"],
+                        'productos' => []
+                    ];
+                }
+                $pedidos[$pedidoID]['productos'][] = $row;
             }
-            echo '</ol>'; // Cierra la lista ordenada
-            echo '</div>';
-            echo '<button>Aceptar</button>';
-            echo '<button>Rechazar</button>';
-            echo '</div>';
+
+            foreach($pedidos as $pedidoID => $detalle) {
+                echo '<div class="container" id="pedido_container">';
+                echo '<h2> Pedido ' . $pedidoID . ' </h2>';
+                echo '<div class="pedido">';
+                echo '<p>Estado: ' . $detalle['estado'] . '</p>';
+                echo '<p>Fecha de Entrega: ' . $detalle['fechaEntrega'] . '</p>';
+                echo '<p>Ubicación: ' . $detalle['ubicacion'] . '</p>';
+                echo '<p>Método de Entrega: ' . $detalle['metodoEntrega'] . '</p>';
+                echo '<p>Monto Total: $' . array_reduce($detalle['productos'], function($carry, $producto) {
+                    return $carry + ($producto['importe'] * $producto['cantidad']);
+                }, 0) . '</p>';
+                echo '<ol>';
+                foreach($detalle['productos'] as $producto) {
+                    echo '<li>';
+                    echo '<p>Producto: ' . $producto["nombreProducto"] . '</p>';
+                    echo '<p>Cantidad: ' . $producto["cantidad"] . '</p>';
+                    echo '<p>Precio: $' . $producto["importe"] . '</p>';
+                    echo '<p>Importe: $' . ($producto["importe"] * $producto["cantidad"]) . '</p>';
+                    echo '</li>';
+                }
+                echo '</ol>';
+                echo '</div>';
+                echo '<button class="aceptar" data-pedido-id="' . $pedidoID . '">Aceptar</button>';
+                echo '<button class="rechazar" data-pedido-id="' . $pedidoID . '">Rechazar</button>';
+                echo '</div>';
+            }
+        } else {
+            echo "No hay pedidos disponibles.";
         }
-    } else {
-        echo "No hay pedidos disponibles.";
-    }
-    $conexion->close();
-    ?>
+        $conexion->close();
+        ?>
     </div>
 
-    <!--============== FOOTER ==============-->
+    <div class="volver"> 
+        <button onclick="window.location.href='../V_A_Menu/index.php'">Volver al índice de la empresa</button> 
+    
+    </div>
+    
     <footer>
         <div class="final">
+            <a href="../V_A_Empresa/index.php" class="boton-volver">Volver al índice de la empresa</a>
         </div>
-    </footer> 
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.rechazar').forEach(button => {
+                button.addEventListener('click', function() {
+                    const pedidoID = this.getAttribute('data-pedido-id');
+                    if (confirm('¿Estás seguro de que deseas rechazar este pedido?')) {
+                        fetch(`../../controlador/C_A_Carrito.php?accion=eliminar&pedidoID=${pedidoID}`, {
+                            method: 'GET'
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert('Pedido rechazado correctamente.');
+                                location.reload();
+                            } else {
+                                alert('Error al rechazar el pedido: ' + data.error);
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
