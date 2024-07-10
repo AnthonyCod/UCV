@@ -11,23 +11,42 @@ if (!$conexion) {
 if (isset($_GET['pedidoID'])) {
     $pedidoID = $_GET['pedidoID'];
 
-    // Actualizar el estado del pedido a 'rechazado'
-    $sql = "UPDATE pedido SET estado = 'rechazado' WHERE pedidoID = ?";
-    $stmt = $conexion->prepare($sql);
+    // Eliminar el pedido de la tabla 'detalle' primero debido a la relación de clave foránea
+    $sqlDetalle = "DELETE FROM detalle WHERE pedidoID = ?";
+    $stmtDetalle = $conexion->prepare($sqlDetalle);
 
-    if ($stmt === false) {
+    if ($stmtDetalle === false) {
         die("Error al preparar la consulta: " . $conexion->error);
     }
 
-    $stmt->bind_param("i", $pedidoID);
+    $stmtDetalle->bind_param("i", $pedidoID);
 
-    if ($stmt->execute()) {
-        echo "Pedido rechazado correctamente.";
-    } else {
-        echo "Error al rechazar el pedido: " . $stmt->error;
+    if (!$stmtDetalle->execute()) {
+        echo "Error al eliminar el detalle del pedido: " . $stmtDetalle->error;
+        $stmtDetalle->close();
+        $conexion->close();
+        exit;
     }
 
-    $stmt->close();
+    $stmtDetalle->close();
+
+    // Luego eliminar el pedido de la tabla 'pedido'
+    $sqlPedido = "DELETE FROM pedido WHERE pedidoID = ?";
+    $stmtPedido = $conexion->prepare($sqlPedido);
+
+    if ($stmtPedido === false) {
+        die("Error al preparar la consulta: " . $conexion->error);
+    }
+
+    $stmtPedido->bind_param("i", $pedidoID);
+
+    if ($stmtPedido->execute()) {
+        echo "Pedido eliminado correctamente.";
+    } else {
+        echo "Error al eliminar el pedido: " . $stmtPedido->error;
+    }
+
+    $stmtPedido->close();
 } else {
     echo "No se proporcionó un ID de pedido.";
 }
