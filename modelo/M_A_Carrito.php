@@ -13,8 +13,8 @@ class Carrito {
         }
     }
 
-    public function insertarPedidoConDetalles($pagoID, $estado, $fechaEntrega, $evidencia, $calificacion, $fechaEnvio, $ubicacion, $metodoEntrega, $detalles) {
-        $consulta = "CALL insertarPedidoConDetalles(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public function insertarPedidoConDetalles($pagoID, $estado, $fechaEntrega, $evidencia, $calificacion, $fechaEnvio, $ubicacion, $metodoEntrega, $clienteID,$detalles) {
+        $consulta = "CALL insertarPedidoConDetalles(?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
         $stmt = $this->conexion->prepare($consulta);
 
         if (!$stmt) {
@@ -23,10 +23,10 @@ class Carrito {
         }
 
         // Agregar registros de depuración
-        error_log("Parámetros de la consulta: pagoID=$pagoID, estado=$estado, fechaEntrega=$fechaEntrega, evidencia=$evidencia, calificacion=$calificacion, fechaEnvio=$fechaEnvio, ubicacion=$ubicacion, metodoEntrega=$metodoEntrega, detalles=$detalles");
+        error_log("Parámetros de la consulta: pagoID=$pagoID, estado=$estado, fechaEntrega=$fechaEntrega, evidencia=$evidencia, calificacion=$calificacion, fechaEnvio=$fechaEnvio, ubicacion=$ubicacion, metodoEntrega=$metodoEntrega, clienteID = $clienteID,detalles=$detalles");
 
         $stmt->bind_param(
-            'isssissss', 
+            'isssisssis', 
             $pagoID, 
             $estado, 
             $fechaEntrega, 
@@ -35,6 +35,7 @@ class Carrito {
             $fechaEnvio, 
             $ubicacion, 
             $metodoEntrega, 
+            $clienteID,
             $detalles
         );
 
