@@ -33,6 +33,7 @@ try {
         $data['fechaEnvio'], 
         $data['ubicacion'], 
         $data['metodoEntrega'], 
+        $data['clienteID'],
         $detalles_json
     );
 
@@ -46,6 +47,7 @@ try {
         "fechaEnvio" => $data['fechaEnvio'],
         "ubicacion" => $data['ubicacion'],
         "metodoEntrega" => $data['metodoEntrega'],
+        "clienteID"=> $data['clienteID'],
         "detalles" => $detalles_json
     );
 

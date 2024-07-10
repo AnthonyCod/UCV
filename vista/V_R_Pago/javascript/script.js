@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 fechaEnvio: null,
                 ubicacion: localStorage.getItem('direccion'),
                 metodoEntrega: localStorage.getItem('metodoEntrega'),
+                clienteID: 1,
                 detalles: carrito
             };
 
@@ -86,19 +87,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 body: JSON.stringify(datosPedido)
             });
         })
-        .then(response => response.text()) // Cambia a .text() para ver la respuesta completa
+        .then(response => response.text()) 
         .then(text => {
-            console.log('Response text:', text); // Registra la respuesta completa
+            console.log('Response text:', text); 
             let data;
             try {
-                data = JSON.parse(text); // Intenta analizar como JSON
+                data = JSON.parse(text); 
             } catch (e) {
                 throw new Error('Error al analizar JSON: ' + e.message + '\nRespuesta recibida: ' + text);
             }
             if (data.success) {
                 alert('Compra realizada con éxito');
                 localStorage.removeItem('carrito');
-                // Eliminar datos de localStorage después de la confirmación
+                // Eliminamos datos de localStorage 
                 localStorage.removeItem('metodoEntrega');
                 localStorage.removeItem('direccion');
                 window.location.href = "../V_R_Pago/pago.html"; 
