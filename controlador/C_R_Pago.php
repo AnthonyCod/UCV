@@ -5,16 +5,17 @@ require '../modelo/M_R_Pago.php';
 $pagoModel = new PagoModel($conexion);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $tipoPagoID = 1; // Tipo de pago siempre es 1
     $fechaPago = date("Y-m-d"); // Obtener la fecha actual
     $montoTotal = 12; // Monto total fijo
 
     // Guardar el pago con tipoPagoID siempre 1
-    $resultado = $pagoModel->guardarPago($fechaPago, $montoTotal);
+    $pagoID = $pagoModel->guardarPago($tipoPagoID, $fechaPago, $montoTotal);
 
-    if ($resultado) {
-        echo "Pago procesado exitosamente.";
+    if ($pagoID) {
+        echo json_encode(["success" => true, "pagoID" => $pagoID]);
     } else {
-        echo "Error al procesar el pago.";
+        echo json_encode(["success" => false, "error" => "Error al procesar el pago."]);
     }
 }
 ?>
