@@ -13,8 +13,8 @@ class Carrito {
         }
     }
 
-    public function insertarPedidoConDetalles($pagoID, $estado, $fechaEntrega, $evidencia, $calificacion, $fechaEnvio, $ubicacion, $metodoEntrega, $detalles) {
-        $consulta = "CALL insertarPedidoConDetalles(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public function insertarPedidoConDetalles($pagoID, $estado, $fechaEntrega, $evidencia, $calificacion, $fechaEnvio, $ubicacion, $metodoEntrega, $clienteID,$detalles) {
+        $consulta = "CALL insertarPedidoConDetalles(?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
         $stmt = $this->conexion->prepare($consulta);
 
         if (!$stmt) {
@@ -23,10 +23,10 @@ class Carrito {
         }
 
         // Agregar registros de depuración
-        error_log("Parámetros de la consulta: pagoID=$pagoID, estado=$estado, fechaEntrega=$fechaEntrega, evidencia=$evidencia, calificacion=$calificacion, fechaEnvio=$fechaEnvio, ubicacion=$ubicacion, metodoEntrega=$metodoEntrega, detalles=$detalles");
+        error_log("Parámetros de la consulta: pagoID=$pagoID, estado=$estado, fechaEntrega=$fechaEntrega, evidencia=$evidencia, calificacion=$calificacion, fechaEnvio=$fechaEnvio, ubicacion=$ubicacion, metodoEntrega=$metodoEntrega, clienteID = $clienteID,detalles=$detalles");
 
         $stmt->bind_param(
-            'isssissss', 
+            'isssisssis', 
             $pagoID, 
             $estado, 
             $fechaEntrega, 
@@ -35,6 +35,7 @@ class Carrito {
             $fechaEnvio, 
             $ubicacion, 
             $metodoEntrega, 
+            $clienteID,
             $detalles
         );
 
@@ -56,35 +57,7 @@ class Carrito {
         $stmt->close();
         $this->conexion->close();
     }
-
-    public function eliminarPedido($pedidoID) {
-        // Eliminar los detalles del pedido primero
-        $consultaDetalles = "DELETE FROM detalle WHERE pedidoID = ?";
-        $stmtDetalles = $this->conexion->prepare($consultaDetalles);
-        if (!$stmtDetalles) {
-            error_log("Error al preparar la consulta de eliminación de detalles: " . $this->conexion->error);
-            throw new Exception("Error al preparar la consulta de eliminación de detalles: " . $this->conexion->error);
-        }
-        $stmtDetalles->bind_param('i', $pedidoID);
-        if (!$stmtDetalles->execute()) {
-            error_log("Error al ejecutar la consulta de eliminación de detalles: " . $stmtDetalles->error);
-            throw new Exception("Error al ejecutar la consulta de eliminación de detalles: " . $stmtDetalles->error);
-        }
-        $stmtDetalles->close();
-
-        // Luego, eliminar el pedido
-        $consultaPedido = "DELETE FROM pedido WHERE pedidoID = ?";
-        $stmtPedido = $this->conexion->prepare($consultaPedido);
-        if (!$stmtPedido) {
-            error_log("Error al preparar la consulta de eliminación de pedido: " . $this->conexion->error);
-            throw new Exception("Error al preparar la consulta de eliminación de pedido: " . $this->conexion->error);
-        }
-        $stmtPedido->bind_param('i', $pedidoID);
-        if (!$stmtPedido->execute()) {
-            error_log("Error al ejecutar la consulta de eliminación de pedido: " . $stmtPedido->error);
-            throw new Exception("Error al ejecutar la consulta de eliminación de pedido: " . $stmtPedido->error);
-        }
-        $stmtPedido->close();
-    }
 }
 ?>
+
+

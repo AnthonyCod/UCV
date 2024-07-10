@@ -17,43 +17,40 @@ try {
 
     $carritoModelo = new Carrito();
 
-    if (isset($data['action']) && $data['action'] === 'rechazar') {
-        // Llamar al método para eliminar el pedido
-        $carritoModelo->eliminarPedido($data['pedidoID']);
-        $response["success"] = true;
-    } else {
-        // Verificar que detalles es un array y codificarlo como JSON
-        if (!is_array($data['detalles'])) {
-            throw new Exception("Detalles no es un array.");
-        }
-        $detalles_json = json_encode($data['detalles']);
-
-        // Llamar al método del modelo y capturar posibles excepciones
-        $carritoModelo->insertarPedidoConDetalles(
-            $data['pagoID'], 
-            $data['estado'], 
-            $data['fechaEntrega'], 
-            $data['evidencia'], 
-            $data['calificacion'], 
-            $data['fechaEnvio'], 
-            $data['ubicacion'], 
-            $data['metodoEntrega'], 
-            $detalles_json
-        );
-
-        $response["success"] = true;
-        $response["params"] = array(
-            "pagoID" => $data['pagoID'],
-            "estado" => $data['estado'],
-            "fechaEntrega" => $data['fechaEntrega'],
-            "evidencia" => $data['evidencia'],
-            "calificacion" => $data['calificacion'],
-            "fechaEnvio" => $data['fechaEnvio'],
-            "ubicacion" => $data['ubicacion'],
-            "metodoEntrega" => $data['metodoEntrega'],
-            "detalles" => $detalles_json
-        );
+    // Verificar que detalles es un array y codificarlo como JSON
+    if (!is_array($data['detalles'])) {
+        throw new Exception("Detalles no es un array.");
     }
+    $detalles_json = json_encode($data['detalles']);
+
+    // Llamar al método del modelo y capturar posibles excepciones
+    $carritoModelo->insertarPedidoConDetalles(
+        $data['pagoID'], 
+        $data['estado'], 
+        $data['fechaEntrega'], 
+        $data['evidencia'], 
+        $data['calificacion'], 
+        $data['fechaEnvio'], 
+        $data['ubicacion'], 
+        $data['metodoEntrega'], 
+        $data['clienteID'],
+        $detalles_json
+    );
+
+    $response["success"] = true;
+    $response["params"] = array(
+        "pagoID" => $data['pagoID'],
+        "estado" => $data['estado'],
+        "fechaEntrega" => $data['fechaEntrega'],
+        "evidencia" => $data['evidencia'],
+        "calificacion" => $data['calificacion'],
+        "fechaEnvio" => $data['fechaEnvio'],
+        "ubicacion" => $data['ubicacion'],
+        "metodoEntrega" => $data['metodoEntrega'],
+        "clienteID"=> $data['clienteID'],
+        "detalles" => $detalles_json
+    );
+
 } catch (Exception $e) {
     $response["error"] = $e->getMessage();
     echo("Error al procesar el pedido: " . $e->getMessage());
