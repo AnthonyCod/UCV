@@ -6,6 +6,7 @@ class PagoModel {
         $this->conexion = $conexion;
     }
 
+<<<<<<< HEAD
     public function guardarPago($tipoPagoID,$fechaPago, $montoTotal) {
         
         $query = "CALL i_pago(?, ?, ?)";
@@ -19,6 +20,14 @@ class PagoModel {
         } else {
             return false;
         }
+=======
+    public function guardarPago($fechaPago, $montoTotal) {
+        $tipoPagoID = 1; // Tipo de pago siempre es 1
+        $query = "call i_pago(?,?)";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bind_param("isd", $tipoPagoID, $fechaPago, $montoTotal);
+        return $stmt->execute();
+>>>>>>> facundo
     }
 }
 ?>

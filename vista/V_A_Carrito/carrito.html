@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
+<<<<<<< HEAD
 
+=======
+>>>>>>> facundo
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +19,10 @@
             <span>UCV FOOD</span>
             <img src="../images/iconoPrincipal.png">
         </div>
+<<<<<<< HEAD
+=======
+        
+>>>>>>> facundo
     </header>
 
     <div class="regresarContainer">
@@ -31,6 +38,7 @@
                     <span>Cantidad</span>
                     <span>Importe</span>
                     <span>Eliminar</span>
+<<<<<<< HEAD
                 </div>
                 <div class="productos" id="carritoProductos">
                     <!-- Productos cargados dinámicamente -->
@@ -63,13 +71,43 @@
                     <input type="checkbox" id="terminos">
                     <label for="terminos">Acepto los <a href="#">Términos y condiciones</a></label>
                 </div>
+=======
+                </div>
+                <div class="productos" id="carritoProductos">
+                    <!-- Productos cargados dinámicamente -->
+                </div>
+            </div>
+            <div class="pago">
+                <div class="descuento">
+                    <input type="text" placeholder="Código de descuento">
+                    <button>Aplicar</button>
+                </div>
+                <div class="totales">
+                    <h3>Subtotal: <span id="subtotal">$0.00</span></h3>
+                    <h3>Total: <span id="total">$0.00</span></h3>
+                </div>
+                <div class="terminos">
+                    <input type="checkbox" id="terminos">
+                    <label for="terminos">Acepto los <a href="#">Términos y condiciones</a></label>
+                </div>
+>>>>>>> facundo
                 <div class="botonPago">
                     <button id="procesarPagoBtn">Procesar Pago</button>
                 </div>
             </div>
         </div>
     </section>
+<<<<<<< HEAD
     <script src="carrito.js"></script>
 </body>
 
+=======
+    <script>
+        document.getElementById('procesarPagoBtn').addEventListener('click', function() {
+            window.location.href = "../V_R_Pago/pago.html"; // Reemplaza con la URL de la página de pago
+        });
+    </script>
+    <script src="carrito.js"></script>
+</body>
+>>>>>>> facundo
 </html>

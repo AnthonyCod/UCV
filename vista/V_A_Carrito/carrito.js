@@ -2,18 +2,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const carritoProductosContainer = document.getElementById('carritoProductos');
     const subtotalElement = document.getElementById('subtotal');
     const totalElement = document.getElementById('total');
+<<<<<<< HEAD
     const metodoEntregaSelect = document.getElementById('metodoEntrega');
     const direccionContainer = document.getElementById('direccionContainer');
     const direccionInput = document.getElementById('direccion');
     const procesarPagoBtn = document.getElementById('procesarPagoBtn');
 
     let aumentoDelivery = 10; // Aumento de $10 para delivery
+=======
+>>>>>>> facundo
 
     function cargarCarrito() {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         carritoProductosContainer.innerHTML = '';
 
         let subtotal = 0;
+<<<<<<< HEAD
+=======
+
+>>>>>>> facundo
         carrito.forEach(producto => {
             subtotal += producto.importe;
             const productoHTML = `
@@ -23,7 +30,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h2>${producto.productoNombre}</h2>
                     </div>
                     <div class="precio-col">
+<<<<<<< HEAD
                         <p>$${producto.productoPrecio.toFixed(2)}</p>
+=======
+                        <p>$${producto.productoPrecio}</p>
+>>>>>>> facundo
                     </div>
                     <div class="cantidad-col">
                         <input type="number" id="cantidad-${producto.productoID}" min="1" value="${producto.cantidad}" data-producto-id="${producto.productoID}">
@@ -45,11 +56,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function actualizarSubtotalTotal(subtotal) {
         subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+<<<<<<< HEAD
         let totalConAumento = subtotal;
         if (metodoEntregaSelect.value === 'delivery') {
             totalConAumento += aumentoDelivery;
         }
         totalElement.textContent = `$${totalConAumento.toFixed(2)}`;
+=======
+        totalElement.textContent = `$${subtotal.toFixed(2)}`;
+>>>>>>> facundo
     }
 
     function agregarEventosDeCantidad() {
@@ -73,7 +88,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function actualizarCantidadProducto(productoID, nuevaCantidad) {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+<<<<<<< HEAD
         let producto = carrito.find(producto => producto.productoID == productoID);
+=======
+        let producto = carrito.find(producto => producto.productoID === productoID);
+>>>>>>> facundo
 
         if (producto) {
             producto.cantidad = nuevaCantidad;
@@ -87,11 +106,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function eliminarProductoDelCarrito(productoID) {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+<<<<<<< HEAD
         carrito = carrito.filter(producto => producto.productoID != productoID);
+=======
+        carrito = carrito.filter(producto => producto.productoID !== productoID);
+>>>>>>> facundo
         localStorage.setItem('carrito', JSON.stringify(carrito));
         cargarCarrito();
     }
 
+<<<<<<< HEAD
     function redirigirPagina() {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
@@ -135,4 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     
+=======
+    cargarCarrito();
+>>>>>>> facundo
 });

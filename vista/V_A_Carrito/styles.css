@@ -116,6 +116,7 @@ section {
 }
 
 .carrito-header, .producto-carrito {
+<<<<<<< HEAD
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
     align-items: center;
@@ -132,6 +133,23 @@ section {
     align-items: center;
 }
 
+=======
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.carrito-header {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.producto-carrito {
+    align-items: center;
+}
+
+>>>>>>> facundo
 .producto-carrito img {
     width: 50px;
     height: 50px;
@@ -241,8 +259,11 @@ section {
     .pago {
         width: 100%;
     }
+<<<<<<< HEAD
 
     .producto-carrito h2 {
         font-size: 0.8rem; /* Reduce el tamaño del texto del nombre del producto en pantallas pequeñas */
     }
+=======
+>>>>>>> facundo
 }
