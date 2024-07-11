@@ -116,16 +116,6 @@ header button {
     text-align: center;
 }
 
-.nuevoProducto {
-    border-radius: 5px;
-    background-color: red;
-    color: white;
-    padding: 10px;
-    font-size: 20px;
-    font-weight: 600;
-    margin-left: 30px;
-}
-
 /* Agregar Producto */
 
 #formContainer {
@@ -418,7 +408,7 @@ section {
 footer {
     background-color: rgba(0, 3, 70, 255);
     color: white;
-    height: auto;
+    height: 100px;
     margin-top: 50px;
     border-radius: 10px;
     justify-content: space-evenly;
@@ -428,8 +418,7 @@ footer {
     padding: 20px;
 }
 
-footer .nuevaTienda,
-footer .nuevoProducto {
+footer .nuevaTienda{
     background-color: red;
     color: white;
     display: flex;
