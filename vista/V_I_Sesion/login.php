@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
         <script src="https://kit.fontawesome.com/a91f4172e9.js" crossorigin="anonymous"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Iniciar sesión</title>
@@ -18,9 +18,6 @@
                     <br><br>
                     <h4>Contraseña <i class="fa-solid fa-lock"></i></h4>
                     <input type="password" name="contraseña" placeholder="Contraseña..." required>
-                    <br><br>
-                    
-                    <a class="pass" href="#">Olvidé la Contraseña</a>
                     <br><br>
                     <button type="submit" class="boton">Ingresar</button>
                     <br><br>

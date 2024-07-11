@@ -69,11 +69,11 @@
         <div class="final">
             <h3>¿Te gustaría formar parte de nuestro equipo de delivery?</h3>
             <img src="../images/delivery.png">
-            <a href="#"><button>Únete Aquí!</button></a>
+            <a href="../V_R_Repartidor/index.php"><button>Únete Aquí!</button></a>
         </div>
     </footer>
 
     <script src="javascript/productos.js"></script>
-    <script src="javascript/abrirCarrito.js"></script>  <!-- Incluyendo el script de productos -->
+    <script src="javascript/abrirCarrito.js"></script>
 </body>
 </html>

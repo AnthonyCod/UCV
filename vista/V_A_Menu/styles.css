@@ -572,3 +572,18 @@ body {
     cursor: pointer;
 }
 
+.btn-pedidos {
+    background-color: red;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 1rem;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.btn-pedidos:hover {
+    background-color: darkred;
+}
