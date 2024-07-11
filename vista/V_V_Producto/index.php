@@ -18,6 +18,12 @@
             <img src="../images/iconoPrincipal.png">
             <a data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fas fa-shopping-cart"></i><span id="cuentaPedido">0</span></a>
         </div>
+        <nav class="navbar">
+            <ul>
+                <li> <a href="../V_A_Estado/envio.html" class="btn-estado">Seguimiento de Pedido</a></li>
+            </ul>
+
+        </nav>
         <div class="search-container">
             <input type="search" placeholder="Buscar...">
             <span class="fa fa-search"></span>

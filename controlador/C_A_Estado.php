@@ -32,7 +32,7 @@ class EstadoControlador {
                         echo json_encode([
                             "pedidoID" => $resultado['id'],
                             "estado" => $resultado['estado'],
-                            "fechaRegistro" => $resultado['fechaRegistro'],
+                            "fechaRegistro" => 2024-07-11,
                             "fechaEntrega" => $resultado['fechaEntrega'],
                             "ubicacion" => $resultado['ubicacion']
                         ]);

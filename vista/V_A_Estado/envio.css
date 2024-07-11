@@ -24,8 +24,9 @@ header{
     width: 100%;
     background-color: rgba(0,3,70,255);
     position: relative;
-    justify-content: space-between;
+  
     text-align: center;
+    justify-content: center;
     border-bottom: 10px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
@@ -71,7 +72,13 @@ header .search-container{
     display: flex;
     margin: auto 0;
     height: 40px;
-    line-height:35px;
+    line-height: 35px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    margin-right: 40px;
 }
 
 header .search-container input{
@@ -112,9 +119,11 @@ header .bar span{
 }
 
 header button{
-    background-color: transparent;
+    background-color: white;
+    width: 80px;
     border: none;
-    font-size: 90%;
+    border-radius: 20px;
+    font-size: 20px;
     cursor: pointer;
     text-align: center;
 }
