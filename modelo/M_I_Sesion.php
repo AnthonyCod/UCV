@@ -10,20 +10,17 @@ class UsuarioModel
         $this->conexion = $GLOBALS['conexion'];
     }
 
-    public function verificarUsuario($nombreUsuario, $contraseña) {
-        $contraseñaHasheada = hash('sha256', $contraseña);
-        $stmt = $this->conexion->prepare("SELECT u.usuarioID, c.clienteID FROM usuario u INNER JOIN cliente c ON u.usuarioID = c.usuarioID WHERE u.nombreUsuario = ? AND u.contraseña = ?");
-        $stmt->bind_param("ss", $nombreUsuario, $contraseñaHasheada);
+    public function obtenerUsuarioPorNombre($nombreUsuario) {
+        $stmt = $this->conexion->prepare("CALL verificar_usuario(?, @p_usuarioID, @p_clienteID, @p_contraseña)");
+        $stmt->bind_param("s", $nombreUsuario);
         $stmt->execute();
-        $result = $stmt->get_result();
-    
+
+        // Obtener los resultados de las variables de salida
+        $result = $this->conexion->query("SELECT @p_usuarioID AS usuarioID, @p_clienteID AS clienteID, @p_contraseña AS contraseña");
         if ($result && $data = $result->fetch_assoc()) {
-            if ($data['usuarioID']) {
-                // Retorna ambos ID si la autenticación es correcta
-                return $data; // Este será un array con 'usuarioID' y 'clienteID'
-            }
+            return $data; 
         }
-        return null;  // Retorna null si no hay resultados o si ocurre un error
+        return null;  
     }
-    
 }
+?>

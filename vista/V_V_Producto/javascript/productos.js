@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const productosContainer = document.querySelector('.productos-container');
+    const botonBorrarCarrito = document.getElementById('borrarCarrito');
 
     function cargarProductos() {
         fetch('../../controlador/C_A_Menu.php')
         .then(response => response.json())
         .then(productos => {
             productosContainer.innerHTML = ''; // Limpiar contenedor antes de agregar productos
-            productos.forEach((producto) => {
+            productos.forEach(producto => {
                 const productoHTML = `
                     <div class="producto-card">
                         <div class="producto-image">
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <h2>${producto.nombre}</h2>
                             <p>${producto.descripcion}</p>
                             <p><strong>$${producto.precio}</strong></p>
-                            <button class="btn-add-cart" data-producto-id="${producto.id}" data-producto-nombre="${producto.nombre}" data-producto-precio="${producto.precio}" data-producto-foto="${producto.foto}">Añadir al Carrito</button>
+                            <button class="btn-add-cart" data-producto-id="${producto.productoID}" data-producto-nombre="${producto.nombre}" data-producto-precio="${producto.precio}" data-producto-foto="${producto.foto}">Añadir al Carrito</button>
                         </div>
                     </div>`;
                 productosContainer.innerHTML += productoHTML;
@@ -58,9 +59,20 @@ document.addEventListener('DOMContentLoaded', function() {
     function actualizarContadorCarrito() {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         const cuentaPedido = document.getElementById('cuentaPedido');
-        cuentaPedido.textContent = carrito.reduce((acc, producto) => acc + producto.cantidad, 0);
+        cuentaPedido.textContent = carrito.length;
+    }
+
+    function borrarCarrito() {
+        localStorage.removeItem('carrito');
+        actualizarContadorCarrito();
+        productosContainer.innerHTML = ''; // Opcional: limpiar el contenedor de productos también
+        console.log('Carrito borrado');
     }
 
     cargarProductos();
     actualizarContadorCarrito();
+
+    if (botonBorrarCarrito) {
+        botonBorrarCarrito.addEventListener('click', borrarCarrito);
+    }
 });

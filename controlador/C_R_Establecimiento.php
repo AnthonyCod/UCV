@@ -21,10 +21,10 @@ class RegistroController {
                 $correo = $_POST['correo'];
 
                 // Llamar al método del modelo para registrar la empresa
-                $resultado = $this->empresaModel->registrarEmpresa($nombreUsuario, $contraseña, $RUC, $nombreEmpresa, $telefono, $direccion, $correo);
+                $usuarioID = $this->empresaModel->registrarEmpresa($nombreUsuario, $contraseña, $RUC, $nombreEmpresa, $telefono, $direccion, $correo);
 
-                if ($resultado) {
-                    header("Location: ../vista/V_I_Establecimiento/login.html");
+                if ($usuarioID) {
+                    header("Location: ../vista/V_I_Establecimiento/login.php");
                     exit();
                 } else {
                     echo "Error al registrar la empresa.";
@@ -40,5 +40,4 @@ class RegistroController {
 
 $controller = new RegistroController();
 $controller->registrarEmpresa();
-
 ?>
