@@ -1,5 +1,5 @@
 <?php
-require_once '../modelo/M_I_Sesion.php';  // Asegúrate de que la ruta al archivo del modelo es correcta
+require_once '../modelo/M_I_Sesion.php';
 
 class LoginController {
     private $usuarioModel;
@@ -13,20 +13,18 @@ class LoginController {
             $nombreUsuario = $_POST['nombreUsuario'];
             $contraseña = $_POST['contraseña'];
 
-            $ids = $this->usuarioModel->verificarUsuario($nombreUsuario, $contraseña);
-            if ($ids) {
+            $usuario_id = $this->usuarioModel->verificarUsuario($nombreUsuario, $contraseña);
+            if ($usuario_id) {
                 session_start();
-                $_SESSION['usuarioID'] = $ids['usuarioID'];
-                $_SESSION['clienteID'] = $ids['clienteID'];  // También almacena el clienteID en la sesión
+                $_SESSION['usuarioID'] = $usuario_id;
                 header("Location: ../vista/V_V_Producto/index.php");
                 exit();
             } else {
-                header("Location: ../vista/V_I_Sesion/login.php?error=credenciales");
+                header("Location: ../vista/V_I_Sesion/login.php");
             }
         }
     }
 }
-
 $controller = new LoginController();
 $controller->login();
 ?>

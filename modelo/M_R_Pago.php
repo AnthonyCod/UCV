@@ -6,19 +6,12 @@ class PagoModel {
         $this->conexion = $conexion;
     }
 
-    public function guardarPago($tipoPagoID,$fechaPago, $montoTotal) {
-        
-        $query = "CALL i_pago(?, ?, ?)";
+    public function guardarPago($fechaPago, $montoTotal) {
+        $tipoPagoID = 1; // Tipo de pago siempre es 1
+        $query = "call i_pago(?,?)";
         $stmt = $this->conexion->prepare($query);
         $stmt->bind_param("isd", $tipoPagoID, $fechaPago, $montoTotal);
-
-        if ($stmt->execute()) {
-            $result = $stmt->get_result();
-            $pago = $result->fetch_assoc();
-            return $pago['pagoID'];
-        } else {
-            return false;
-        }
+        return $stmt->execute();
     }
 }
 ?>
