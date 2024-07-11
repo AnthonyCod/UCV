@@ -17,6 +17,22 @@ body{
     zoom: 90%;
 }
 
+.regresarContainer{
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+.regresar{
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: red;
+    font-weight: 600;
+}
+
+.regresar i{
+    font-weight: 600; 
+}
+
 /*HEADER*/
 
 header{
@@ -197,66 +213,24 @@ header .search-container span{
         font-size: 30%;
     }
 }
-
-
-.historialContainer {
-    padding-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.blanco{
-    background-color: white;
-    height: 40px;
-}
-
-.historialContainer .titulo {
-    font-size: 3rem;
-    text-align: center;
-    background-color: #e03a3a;
-    color: white;
-    width: 100%;
+section{
     display: grid;
-    grid-template-columns: 80% 1%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "carro pago";
+    border: 2px solid black;
 }
 
-.titulo img{
-    width: 7rem;
-    height: 7rem;
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0); 
-}
-
-.titulo img:hover{
-    transform: translateX(45px); /* Elevación suave */
-}
-
-.historial {
+.carro{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px; 
-    width: 100%;
-    max-width: 1600px;
-    border: 15px solid #e03a3a;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(auto,1fr);
 }
 
-.primeraFila, .nuevasFilas {
-    display: contents;
-    border: 15px solid #e03a3a;
-}
-
-.primeraFila{
-    border: 15px solid #e03a3a;
-}
-
-.codigoHistorial, .fecha, .precio, .estadoHistorial {
+.carritoHeader{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
+    gap: 10rem;
 }
 
-.primeraFila h2{
-    font-size: 2rem;
+.productos{
+    display: grid;
 }

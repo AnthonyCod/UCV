@@ -19,5 +19,9 @@
 
     // Llama a la función con las variables de conexión
     $conexion = conectar($servidor, $user, $pass,$database);
+<<<<<<<<< Temporary merge branch 1
+?>
+=========
 ?>
 
+>>>>>>>>> Temporary merge branch 2
