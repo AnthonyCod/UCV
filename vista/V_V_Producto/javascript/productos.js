@@ -1,115 +1,66 @@
 document.addEventListener('DOMContentLoaded', function() {
-<<<<<<<<< Temporary merge branch 1
-    const url = '/ucv/controlador/C_A_Menu.php';
-
-    function crearProductoHTML(producto) {
-        console.log('Creando HTML para:', producto); // Para depuración
-
-        const imagePath = `../../fotos/${producto.foto}`;
-
-        return `
-            <div class="producto-card">
-                <div class="producto-image">
-                    <img src="${imagePath}" alt="${producto.nombre}" style="width: 100%; height: 200px; object-fit: cover;">
-=========
-    const urlProductos = '../../controlador/C_A_Menu.php';
-    const urlGuardarCarrito = '../../controlador/guardar_carrito.php'; // Ruta al script PHP para guardar el carrito
-
-    function crearProductoHTML(producto) {
-        const imagePath = `../../fotos/${producto.foto}`;
-
-        return `
-            <div class="producto-card">
-                <div class="producto-image">
-                    <img src="${imagePath}" alt="${producto.nombre}">
->>>>>>>>> Temporary merge branch 2
-                </div>
-                <div class="producto-info">
-                    <h2>${producto.nombre}</h2>
-                    <p>${producto.descripcion}</p>
-                    <p><strong>$${producto.precio}</strong></p>
-<<<<<<<<< Temporary merge branch 1
-=========
-                    <button class="btn-add-cart" data-producto-id="${producto.productoID}">Añadir al Carrito</button>
->>>>>>>>> Temporary merge branch 2
-                </div>
-            </div>
-        `;
-    }
+    const productosContainer = document.querySelector('.productos-container');
 
     function cargarProductos() {
-<<<<<<<<< Temporary merge branch 1
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(productos => {
-                console.log('Productos recibidos:', productos); // Para depuración
-=========
-        fetch(urlProductos)
-            .then(response => response.json())
-            .then(productos => {
->>>>>>>>> Temporary merge branch 2
-                const container = document.querySelector('.productos-container');
-                container.innerHTML = ''; // Limpiar el contenedor antes de añadir productos
-                productos.forEach(producto => {
-                    container.innerHTML += crearProductoHTML(producto);
-                });
-<<<<<<<<< Temporary merge branch 1
-=========
-                agregarEventListeners();
->>>>>>>>> Temporary merge branch 2
-            })
-            .catch(error => console.error('Error al cargar los productos:', error));
+        fetch('../../controlador/C_A_Menu.php')
+        .then(response => response.json())
+        .then(productos => {
+            productosContainer.innerHTML = ''; // Limpiar contenedor antes de agregar productos
+            productos.forEach((producto) => {
+                const productoHTML = `
+                    <div class="producto-card">
+                        <div class="producto-image">
+                            <img src="../../fotos/${producto.foto}" alt="${producto.nombre}">
+                        </div>
+                        <div class="producto-info">
+                            <h2>${producto.nombre}</h2>
+                            <p>${producto.descripcion}</p>
+                            <p><strong>$${producto.precio}</strong></p>
+                            <button class="btn-add-cart" data-producto-id="${producto.id}" data-producto-nombre="${producto.nombre}" data-producto-precio="${producto.precio}" data-producto-foto="${producto.foto}">Añadir al Carrito</button>
+                        </div>
+                    </div>`;
+                productosContainer.innerHTML += productoHTML;
+            });
+
+            agregarEventosDeCarrito();
+        })
+        .catch(error => console.error('Error al cargar los productos:', error));
     }
 
-<<<<<<<<< Temporary merge branch 1
-    cargarProductos();
-=========
-    function agregarEventListeners() {
-        const botonesAddCart = document.querySelectorAll('.btn-add-cart');
-        botonesAddCart.forEach(boton => {
-            boton.addEventListener('click', agregarAlCarrito);
+    function agregarEventosDeCarrito() {
+        document.querySelectorAll('.btn-add-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const productoID = this.getAttribute('data-producto-id');
+                const productoNombre = this.getAttribute('data-producto-nombre');
+                const productoPrecio = parseFloat(this.getAttribute('data-producto-precio'));
+                const productoFoto = this.getAttribute('data-producto-foto');
+                añadirProductoAlCarrito(productoID, productoNombre, productoPrecio, productoFoto);
+            });
         });
     }
 
-    function agregarAlCarrito(event) {
-        const productoID = event.target.dataset.productoId;
-        fetch(urlProductos)
-            .then(response => response.json())
-            .then(productos => {
-                const producto = productos.find(p => p.productoID == productoID);
-                if (producto) {
-                    guardarProductoEnCarrito(producto);
-                }
-            });
-    }
-
-    function guardarProductoEnCarrito(producto) {
+    function añadirProductoAlCarrito(productoID, productoNombre, productoPrecio, productoFoto) {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-        let productoExistente = carrito.find(p => p.productoID == producto.productoID);
+        let productoEnCarrito = carrito.find(producto => producto.productoID === productoID);
 
-        if (productoExistente) {
-            productoExistente.cantidad += 1;
+        if (productoEnCarrito) {
+            productoEnCarrito.cantidad += 1;
+            productoEnCarrito.importe += productoPrecio;
         } else {
-            producto.cantidad = 1;
-            carrito.push(producto);
+            carrito.push({ productoID, productoNombre, productoPrecio, productoFoto, cantidad: 1, importe: productoPrecio });
         }
 
         localStorage.setItem('carrito', JSON.stringify(carrito));
         actualizarContadorCarrito();
+        console.log('Producto añadido al carrito:', carrito);
     }
 
     function actualizarContadorCarrito() {
-        const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         const cuentaPedido = document.getElementById('cuentaPedido');
-        cuentaPedido.textContent = carrito.length;
+        cuentaPedido.textContent = carrito.reduce((acc, producto) => acc + producto.cantidad, 0);
     }
 
     cargarProductos();
     actualizarContadorCarrito();
->>>>>>>>> Temporary merge branch 2
 });
