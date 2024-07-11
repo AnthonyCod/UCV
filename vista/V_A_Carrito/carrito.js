@@ -44,12 +44,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function actualizarSubtotalTotal(subtotal) {
-        subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+        subtotalElement.textContent = `${subtotal.toFixed(2)}`;
         let totalConAumento = subtotal;
         if (metodoEntregaSelect.value === 'delivery') {
             totalConAumento += aumentoDelivery;
         }
-        totalElement.textContent = `$${totalConAumento.toFixed(2)}`;
+        totalElement.textContent = `${totalConAumento.toFixed(2)}`;
     }
 
     function agregarEventosDeCantidad() {
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function actualizarCantidadProducto(productoID, nuevaCantidad) {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         let producto = carrito.find(producto => producto.productoID == productoID);
-
+    
         if (producto) {
             producto.cantidad = nuevaCantidad;
             producto.importe = producto.productoPrecio * nuevaCantidad;
@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
             actualizarSubtotalTotal(subtotal);
         }
     }
+    
 
     function eliminarProductoDelCarrito(productoID) {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -121,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let subtotal = parseFloat(subtotalElement.textContent.replace('$', '')) || 0;
         if (this.value === 'delivery') {
             direccionContainer.style.display = 'block';
-            subtotal += aumentoDelivery;
+            
         } else {
             direccionContainer.style.display = 'none';
             direccionInput.value = '';
