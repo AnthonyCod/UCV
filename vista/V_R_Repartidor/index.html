@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Establecimiento</title>
-    <link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="javascript/script.js" defer></script>
     <script src="javascript/agregarProducto.js" defer></script>
-    <script src="../V_R_Repartidor/javasacript/redireccion.js" defer></script>
 </head>
 <body>
 
@@ -18,7 +17,7 @@
         <div class="icon">
             <span class="fa fa-bars" id="bars"></span>
             <span>UCV FOOD </span>
-            <img id="iconoPrincipal" src="../images/iconoPrincipal.png" alt="Icono Principal">
+            <img src="../images/iconoPrincipal.png">
         </div>
 
         <div class="search-container">
@@ -26,23 +25,23 @@
             <span class="fa fa-search"></span>
         </div>
     </header>
-
-    <!--============== FORMULARIO ==============-->
 <br><br>
-    <div class="formContent">
-        <h2>¿Estas Seguro de ser repartidor? <i class="fas fa-box-open"></i></h2>
-        
-        <label for="productYes">
-           <h4>Si estoy Seguro</h4><input type="checkbox" id="productYes" name="productName" placeholder="" required>
-        </label>
-
-        <label for="productNo">
-            <h4>No estoy seguro</h4><input type="checkbox" id="productNo" name="productName" placeholder="No estoy Seguro" required>
-        </label>
-
-        <button id="saveProduct" name="saveProduct">Enviar Respuesta</button>
+    <div class="container">
+        <h1>¿Quieres ser repartidor?</h1>
+        <p>Los requisitos y la información necesaria se detallan a continuación:</p>
+        <ul><br>
+            <lo>Ser estudiante de la Cesar Vallejo</lo><br><br>
+            <lo>No contar con clases en los horarios de trabajo</lo><br><br>
+            <lo>Estar disponible para trabajar en horarios flexibles.</lo>
+        </ul>
+        <div>
+            <label><br>
+                <input type="checkbox"> Acepto los <a class="term" href="">Terminos y condiciones</a>
+            </label><br><br>
+            <button type="button">Bienvenido</button>
+        </div>
     </div>
-
+  
     <!--============== SECTION ==============-->
     <section id="targetContainer"></section>
 
@@ -51,6 +50,8 @@
         <!-- <div class="agregarTienda" style="display: none">
             <button class="nuevaTienda">Agregar Tienda</button>
         </div> -->
+
     </footer>
+    
 </body>
 </html>

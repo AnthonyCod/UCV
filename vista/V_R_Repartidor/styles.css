@@ -15,6 +15,54 @@ body {
     zoom: 90%;
 }
 
+.container h1{
+    font-size: 40px;
+    color: red;
+    padding-bottom: 20px;
+}
+
+.container {
+    max-width: 620px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
+    border: #333;
+}
+
+.container p{
+    color: #aaa;
+}
+
+.term{
+    color: #0c53b3;
+    transition: color 0.3s ease-in-out;
+}
+
+.term:hover{
+    color: #f83f40;
+}
+
+.container input[type="checkbox"] {
+    transform: scale(1.5);
+}
+
+button {
+    padding: 10px 20px;
+    background-color:red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 2rem;
+    margin-top: 10px;
+}
+button:hover {
+    background-color: rgb(250, 95, 95);
+}
+
 /* HEADER */
 
 header {
@@ -114,16 +162,6 @@ header button {
     font-size: 90%;
     cursor: pointer;
     text-align: center;
-}
-
-.nuevoProducto {
-    border-radius: 5px;
-    background-color: red;
-    color: white;
-    padding: 10px;
-    font-size: 20px;
-    font-weight: 600;
-    margin-left: 30px;
 }
 
 /* Agregar Producto */
@@ -418,7 +456,7 @@ section {
 footer {
     background-color: rgba(0, 3, 70, 255);
     color: white;
-    height: auto;
+    height: 100px;
     margin-top: 50px;
     border-radius: 10px;
     justify-content: space-evenly;
@@ -428,8 +466,7 @@ footer {
     padding: 20px;
 }
 
-footer .nuevaTienda,
-footer .nuevoProducto {
+footer .nuevaTienda{
     background-color: red;
     color: white;
     display: flex;

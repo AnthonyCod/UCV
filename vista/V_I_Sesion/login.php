@@ -24,7 +24,7 @@
                 </form>
                 <h4>¿No tienes una cuenta? <a class="regi" href="../V_R_Cliente/register.php">Regístrate</a></h4>
                 <br>
-                <h4>¿Eres empresa?</h4><a class="regi" href="../V_R_Establecimiento/register.php">Trabaja con Nosotros</a>
+                <h4>¿Eres empresa?</h4><a class="regi" href="../V_I_Establecimiento/login.php">Trabaja con Nosotros</a>
             </div>
         </section>
     </body>
