@@ -598,50 +598,35 @@ footer .final button {
     padding: 10px;
 }
 .producto-card {
-    width: 250px; /* Ajusta el ancho según tus necesidades */
-    margin: 20px auto; /* Centra la tarjeta horizontalmente */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    background: #ffffff;
+    margin: 10px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 18px;
+    width: 250px; /* Ajusta el ancho de las tarjetas según tus necesidades */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
     text-align: center;
+    padding: 10px;
 }
 
 .producto-image img {
     width: 100%;
-
-    height: 200px; /* Ajusta la altura según tus necesidades */
-
     height: auto; /* Permite que la altura se ajuste automáticamente */
     max-height: 120px; /* Ajusta la altura máxima según tus necesidades */
-
     object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsión */
 }
 
 .producto-info {
     padding: 10px;
-
-    text-align: center;
-}
-
-.producto-info h2 {
-    font-size: 1em; /* Ajusta el tamaño de la fuente */
-    margin: 0;
-
 }
 
 .producto-info h2 {
     font-size: 1.2em; /* Ajusta el tamaño de la fuente */
     margin: 10px 0;
-
 }
 
 .producto-info p {
     margin: 5px 0;
-
-    font-size: 0.9em; /* Ajusta el tamaño de la fuente */
-
     font-size: 1em; /* Ajusta el tamaño de la fuente */
 }
 
@@ -682,5 +667,4 @@ footer .final button {
     width: 100%;
     height: 200px;
     object-fit: cover;
-
 }

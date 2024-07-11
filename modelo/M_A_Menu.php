@@ -77,11 +77,7 @@ class Producto
     }
 
     public function obtenerProductosActivos() {
-<<<<<<<<< Temporary merge branch 1
-        $consulta = "SELECT nombreProducto as nombre, descripcionProducto as descripcion, precio, foto FROM producto WHERE disponibilidad = 1";
-=========
         $consulta = "call c_producto()";
->>>>>>>>> Temporary merge branch 2
         $resultado = $this->conexion->query($consulta);
     
         if (!$resultado) {
@@ -96,11 +92,7 @@ class Producto
         return $productos;
     }
     public function eliminarProducto($nombre) {
-<<<<<<<<< Temporary merge branch 1
-        $consulta = "UPDATE producto SET disponibilidad = 0 WHERE nombreProducto = ?";
-=========
         $consulta = "call a_producto(?)";
->>>>>>>>> Temporary merge branch 2
         $stmt = $this->conexion->prepare($consulta);
 
         if (!$stmt) {
@@ -115,7 +107,6 @@ class Producto
 
         return true;
     }
-
     
 }
 ?>
