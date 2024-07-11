@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <?php include '../../modelo/verificar_repartidor.php'; ?>
+
     <!--============== HEADER ==============-->
     <header>
         <div class="icon">
@@ -71,9 +73,20 @@
             <img src="../images/delivery.png">
             <a href="../V_R_Repartidor/index.php"><button>Únete Aquí!</button></a>
         </div>
+        <!-- Botón de Delivery -->
+        <?php if ($isRepartidor): ?>
+        <div class="delivery-container">
+            <button id="deliveryButton">Modo Delivery</button>
+        </div>
+        <?php endif; ?>
     </footer>
 
     <script src="javascript/productos.js"></script>
     <script src="javascript/abrirCarrito.js"></script>
+    <script>
+        document.getElementById('deliveryButton')?.addEventListener('click', function() {
+            window.location.href = "../V_R_Repartidor/pedidos.php";
+        });
+    </script>
 </body>
 </html>
