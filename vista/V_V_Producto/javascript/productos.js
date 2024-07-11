@@ -36,11 +36,13 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(productos => {
             productosContainer.innerHTML = ''; // Limpiar contenedor antes de agregar productos
-<<<<<<< HEAD
             productos.forEach((producto) => {
+<<<<<<< HEAD
 =======
             productos.forEach(producto => {
 >>>>>>> e6489bf (Funciona carrito)
+=======
+>>>>>>> 052577c (olviden esto)
                 const productoHTML = `
                     <div class="producto-card">
                         <div class="producto-image">
@@ -50,8 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
                             <h2>${producto.nombre}</h2>
                             <p>${producto.descripcion}</p>
                             <p><strong>$${producto.precio}</strong></p>
-<<<<<<< HEAD
                             <button class="btn-add-cart" data-producto-id="${producto.id}" data-producto-nombre="${producto.nombre}" data-producto-precio="${producto.precio}" data-producto-foto="${producto.foto}">Añadir al Carrito</button>
+<<<<<<< HEAD
                         </div>
                     </div>`;
                 productosContainer.innerHTML += productoHTML;
@@ -69,6 +71,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => console.error('Error al cargar los productos:', error));
 =======
                             <button class="btn-add-cart" data-producto-id="${producto.productoID}" data-producto-nombre="${producto.nombre}" data-producto-precio="${producto.precio}" data-producto-foto="${producto.foto}">Añadir al Carrito</button>
+=======
+>>>>>>> 052577c (olviden esto)
                         </div>
                     </div>`;
                 productosContainer.innerHTML += productoHTML;
@@ -164,6 +168,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         const cuentaPedido = document.getElementById('cuentaPedido');
         cuentaPedido.textContent = carrito.reduce((acc, producto) => acc + producto.cantidad, 0);
+<<<<<<< HEAD
 =======
 =======
         console.log('Producto añadido al carrito:', carrito);
@@ -175,6 +180,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const cuentaPedido = document.getElementById('cuentaPedido');
         cuentaPedido.textContent = carrito.length;
 >>>>>>> 39d1c8f (continuar)
+=======
+>>>>>>> 052577c (olviden esto)
     }
 
     cargarProductos();
