@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let subtotal = parseFloat(subtotalElement.textContent.replace('$', '')) || 0;
         if (this.value === 'delivery') {
             direccionContainer.style.display = 'block';
-            
+            subtotal += aumentoDelivery;
         } else {
             direccionContainer.style.display = 'none';
             direccionInput.value = '';
