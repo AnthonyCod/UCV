@@ -7,16 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.add('active');
     });
 
-//CERRAR EL MODAL
-closeModal.addEventListener('click',(event)=>{
-    event.target.parentNode.parentNode.classList.remove('active');
-})
-
-//CERRAMOS MODAL CUANDO HACEMOS CLICK FUERA DEL CONTENDINO DEL MODAL
-window.onclick = (event)=>{
-    const modal=document.querySelector('.modal.active');
-
-    if(event.target == modal){
+    closeModalButton.addEventListener('click', () => {
         modal.classList.remove('active');
     });
 
@@ -25,8 +16,4 @@ window.onclick = (event)=>{
             modal.classList.remove('active');
         }
     });
-<<<<<<<<< Temporary merge branch 1
 });
-=========
-});
->>>>>>>>> Temporary merge branch 2
