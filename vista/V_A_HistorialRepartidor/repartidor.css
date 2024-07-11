@@ -224,6 +224,12 @@ header .search-container span{
 .titulo img{
     width: 7rem;
     height: 7rem;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0); 
+}
+
+.titulo img:hover{
+    transform: translateX(45px); /* Elevación suave */
 }
 
 .historial {
