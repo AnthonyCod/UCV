@@ -7,11 +7,14 @@ $pagoModel = new PagoModel($conexion);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     $tipoPagoID = 1; // Tipo de pago siempre es 1
 =======
 >>>>>>> b6f422b (falta carrito para adelante)
 =======
 >>>>>>> 052577c (olviden esto)
+=======
+>>>>>>> 052577c153457fcb614cc4cf469c0867b7a71aeb
     $fechaPago = date("Y-m-d"); // Obtener la fecha actual
     $montoTotal = 12; // Monto total fijo
 
@@ -23,9 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo "Error al procesar el pago.";
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> b6f422b (falta carrito para adelante)
 =======
 >>>>>>> 052577c (olviden esto)
+=======
+>>>>>>> 052577c153457fcb614cc4cf469c0867b7a71aeb
     }
 }
 ?>

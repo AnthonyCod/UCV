@@ -71,7 +71,16 @@ section{
     color: #f83f40;
 }
 
+<<<<<<< HEAD
 .input-group input {
+=======
+.formulario .boton{
+<<<<<<< HEAD
+    height: 60px;
+=======
+    height: 120px;
+>>>>>>> facundo
+>>>>>>> 052577c153457fcb614cc4cf469c0867b7a71aeb
     padding: 10px;
     border-radius: 10px;
     background-color:#f83f40;
