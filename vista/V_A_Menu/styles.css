@@ -312,16 +312,16 @@ section {
     padding: 10px;
 }
 
-.tarjetaProducto h2 {
-    font-size: 2.5rem;
-}
-
-#targetContainer .tarjetaProducto img {
+#targetContainer .tarjetaProducto img{
     width: 100%;
     height: 45%;
     border-radius: 25px;
     height: 250px;
     width: 300px;
+<<<<<<<<< Temporary merge branch 1
+}
+
+=========
     padding-bottom: 10px;
 }
 
@@ -354,9 +354,17 @@ section {
     color: rgb(0, 0, 0);
 }
 
+<<<<<<<<< Temporary merge branch 1
+#targetContainer .tarjetaProducto button {
+    margin-bottom: 60px;
+    margin-top: 10px;
+    width: 250px;
+    height: 60px;
+=========
 #targetContainer .tarjetaProducto .delete-btn {
     width: 50px;
     height: 30px;
+>>>>>>>>> Temporary merge branch 2
     border-radius: 15px;
     background-color: rgba(254, 0, 5, 255);
     color: white;
@@ -414,8 +422,14 @@ footer {
     border-radius: 10px;
     justify-content: space-evenly;
     align-items: center;
+<<<<<<<<< Temporary merge branch 1
+    position: sticky;
+    display: grid;
+    grid-template-columns: 50% 50%;
+=========
     display: grid;
     grid-template-columns: 100%;
+>>>>>>>>> Temporary merge branch 2
     padding: 20px;
 }
 
@@ -458,7 +472,12 @@ footer .nuevoProducto {
     text-align: center;
 }
 
+<<<<<<<<< Temporary merge branch 1
+.formContent input,
+.formContent select {
+=========
 .formContent input {
+>>>>>>>>> Temporary merge branch 2
     width: 80%;
     height: 40px;
     border-radius: 5px;
@@ -482,10 +501,13 @@ footer .nuevoProducto {
     cursor: pointer;
 }
 
+<<<<<<<<< Temporary merge branch 1
+=========
 .formContent select{
     margin: 30px;
 }
 
+>>>>>>>>> Temporary merge branch 2
 .formContent img#previewImage {
     display: none;
     width: 100px;
@@ -572,18 +594,3 @@ body {
     cursor: pointer;
 }
 
-.btn-pedidos {
-    background-color: red;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    margin-left: 15px;
-    font-size: 1rem;
-    display: inline-block;
-    transition: background-color 0.3s;
-}
-
-.btn-pedidos:hover {
-    background-color: darkred;
-}

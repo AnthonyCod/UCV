@@ -21,17 +21,23 @@ document.addEventListener("DOMContentLoaded", () => {
         formContainer.style.display = "none";
     });
 
-    productImageInput.addEventListener("change", (event) => {
-        const file = event.target.files[0];
-        const reader = new FileReader();
+    saveProductButton.addEventListener("click", () => {
+        const img = document.getElementById("productImage").files[0];
+        const name = document.getElementById("productName").value;
+        const desp = document.getElementById("productDescription").value;
+        const price = document.getElementById("productPrice").value;
 
-        reader.onload = (e) => {
-            previewImage.src = e.target.result;
-            previewImage.style.display = "block";
-        };
+        if (img && name && price && desp ) {
+            const newProduct = {
+                img: img,
+                name: name,
+                price: price,
+                desp:desp,
+                button: "Comprar"
+            };
 
-        if (file) {
-            reader.readAsDataURL(file);
+            createProducts([newProduct]);
+            formContainer.classList.add("hidden");
         } else {
             previewImage.src = "";
             previewImage.style.display = "none";
@@ -59,11 +65,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     productCard.className = "tarjetaProducto";
                     productCard.innerHTML = `
                         <button class="delete-btn" data-nombre="${product.nombre}">&times;</button>
+<<<<<<<<< Temporary merge branch 1
+                        <button class="edit-btn" data-nombre="${product.nombre}" data-product='${JSON.stringify(product)}'>Editar</button>
+                        <h2>${product.nombre}</h2>
+                        <p>${product.descripcion}</p>
+                        <p class="price">$${product.precio}</p>
+                        <img src="../../fotos/${product.foto}" alt="${product.nombre}" style="width:300px;height:300px;margin-top:20px;">
+                        `;
+=========
                         <h2>${product.nombre}</h2>
                         <p>${product.descripcion}</p>
                         <p class="price">$${product.precio}</p>
                         <img src="../../fotos/${product.foto}" alt="${product.nombre}";"><br>
                         <button class="edit-btn" data-nombre="${product.nombre}" data-product='${JSON.stringify(product)}'>Editar</button>`;
+>>>>>>>>> Temporary merge branch 2
                     targetContainer.appendChild(productCard);
 
                     // Clear form inputs
@@ -141,6 +156,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 const productCard = document.createElement("div");
                 productCard.className = "tarjetaProducto";
                 productCard.innerHTML = `
+<<<<<<<<< Temporary merge branch 1
+                    <button class="delete-btn" data-nombre="${product.nombre}">&times;</button>
+                    <button class="edit-btn" data-nombre="${product.nombre}" data-product='${JSON.stringify(product)}'>Editar</button>
+                    <h2>${product.nombre}</h2>
+                    <p>${product.descripcion}</p>
+                    <p class="price">$${product.precio}</p>
+                    <img src="../../fotos/${product.foto}" alt="${product.nombre}" style="width:100px;height:100px;margin-top:10px;">
+                `;
+=========
                 <button class="delete-btn" data-nombre="${product.nombre}">&times;</button>
                 <h2>${product.nombre}</h2>
                 <p>${product.descripcion}</p>
@@ -149,6 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <button class="edit-btn" data-nombre="${product.nombre}" data-product='${JSON.stringify(product)}'>Editar</button>`;
                 
             targetContainer.appendChild(productCard);
+>>>>>>>>> Temporary merge branch 2
                 targetContainer.appendChild(productCard);
 
                 // Add delete functionality
