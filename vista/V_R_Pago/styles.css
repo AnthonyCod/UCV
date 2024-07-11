@@ -66,7 +66,24 @@ header .bar span{
     font-size: 35px;
 }
 
+#confirmar{
+    background-color: red;
+    color: white;
+    padding: 20px;
+    margin-left: 160px;
+    margin-top: 80px;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0); 
+}
 
+#confirmar:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
 
 .container{
     margin-top: 50px;
@@ -136,7 +153,16 @@ a:hover{
 .card img{
     width: 100px;
     padding: 10px;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0); 
 }
+
+.card img:hover{
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
 /* Media Queries para Responsividad */
 @media (max-width: 768px) {
     .container {
@@ -261,4 +287,14 @@ footer .volver{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 1rem;
     font-weight: 600;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0); 
+}
+
+footer .MetodoPago:hover,
+footer .volver:hover{
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
