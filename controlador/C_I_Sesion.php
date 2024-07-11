@@ -13,11 +13,11 @@ class LoginController {
             $nombreUsuario = $_POST['nombreUsuario'];
             $contraseña = $_POST['contraseña'];
 
-            $ids = $this->usuarioModel->verificarUsuario($nombreUsuario, $contraseña);
-            if ($ids) {
+            $usuario = $this->usuarioModel->obtenerUsuarioPorNombre($nombreUsuario);
+            if ($usuario && password_verify($contraseña, $usuario['contraseña'])) {
                 session_start();
-                $_SESSION['usuarioID'] = $ids['usuarioID'];
-                $_SESSION['clienteID'] = $ids['clienteID'];  // También almacena el clienteID en la sesión
+                $_SESSION['usuarioID'] = $usuario['usuarioID'];
+                $_SESSION['clienteID'] = $usuario['clienteID'];  // También almacena el clienteID en la sesión
                 header("Location: ../vista/V_V_Producto/index.php");
                 exit();
             } else {

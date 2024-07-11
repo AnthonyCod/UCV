@@ -13,18 +13,19 @@ class LoginController {
             $nombreUsuario = $_POST['nombreUsuario'];
             $contraseña = $_POST['contraseña'];
 
-            $usuario_id = $this->usuarioModel->verificarUsuario($nombreUsuario, $contraseña);
-            if ($usuario_id) {
+            $usuarioID = $this->usuarioModel->verificarUsuario($nombreUsuario, $contraseña);
+            if ($usuarioID) {
                 session_start();
-                $_SESSION['usuarioID'] = $usuario_id;
+                $_SESSION['usuarioID'] = $usuarioID;
                 header("Location: ../vista/V_A_Menu/index.php");
                 exit();
             } else {
-                header("Location: ../vista/V_I_Establecimiento/login.html");
+                header("Location: ../vista/V_I_Establecimiento/login.html?error=credenciales");
             }
         }
     }
 }
+
 $controller = new LoginController();
 $controller->login();
 ?>

@@ -9,7 +9,7 @@ class PersonaModel {
     }
 
     public function registrarCliente($nombreUsuario, $contraseña, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento) {
-        $fechaRegistro = date('Y-m-d'); // Obtener fecha actual
+        $fechaRegistro = date('Y-m-d'); 
 
         $stmt = $this->conexion->prepare("CALL i_Cliente(?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("sssssssss", $fechaRegistro, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento, $nombreUsuario, $contraseña);

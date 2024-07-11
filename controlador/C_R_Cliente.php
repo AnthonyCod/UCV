@@ -20,7 +20,10 @@ class RegistroController {
                 $genero = $_POST['genero'];
                 $fechaNacimiento = $_POST['fechaNacimiento'];
 
-                $resultado = $this->personaModel->registrarCliente($nombreUsuario, $contraseña, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento);
+                // Cifrar la contraseña
+                $contraseñaCifrada = password_hash($contraseña, PASSWORD_DEFAULT);
+
+                $resultado = $this->personaModel->registrarCliente($nombreUsuario, $contraseñaCifrada, $nombre, $apellido, $telefono, $correo, $genero, $fechaNacimiento);
 
                 if ($resultado) {
                     header("Location: ../Vista/V_I_Sesion/login.php");

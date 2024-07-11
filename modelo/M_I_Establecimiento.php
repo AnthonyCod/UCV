@@ -1,36 +1,28 @@
 <?php
 require_once 'm_conexion.php';
 
-class UsuarioModel
-{
+class UsuarioModel {
     private $conexion;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->conexion = $GLOBALS['conexion'];
     }
 
-    public function verificarUsuario($nombreUsuario, $contraseña)
-    {
-        $stmt = $this->conexion->prepare("call c_usuario(?,?);");
-        $stmt->bind_param("ss", $nombreUsuario, $contraseña);
+    public function verificarUsuario($nombreUsuario, $contraseña) {
+        // Preparar la llamada al procedimiento almacenado
+        $stmt = $this->conexion->prepare("CALL verificar_usuario_empresa(?, @p_usuarioID, @p_contraseña)");
+        $stmt->bind_param("s", $nombreUsuario);
         $stmt->execute();
-        $result = $stmt->get_result();
-        // Verificar si hay un resultado y obtenerlo
-        if ($result && $usuario = $result->fetch_assoc()) {
-            // La variable $usuario ahora contiene un array asociativo con las columnas 'usuarioID' y 'mensaje'
-            if ($usuario['usuarioID'] !== null) {
-                // Retorna el ID del usuario si la autenticación es correcta
-                return [
-                    'usuarioID' => $usuario['usuarioID']
-                ];
-            } else {
-                // Retorna el mensaje de error si la autenticación falla
 
-                echo "usuario o contraseña incorrecta";
-                return null;
+        // Obtener los resultados de las variables de salida
+        $result = $this->conexion->query("SELECT @p_usuarioID AS usuarioID, @p_contraseña AS contraseña");
+        if ($result && $data = $result->fetch_assoc()) {
+            // Verificar la contraseña ingresada con la almacenada
+            if (password_verify($contraseña, $data['contraseña'])) {
+                return $data['usuarioID'];
             }
         }
-        return null;  // Retorna null si ocurre algún error inesperado
+        return null; 
     }
 }
+?>
