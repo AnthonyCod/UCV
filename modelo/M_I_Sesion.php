@@ -11,8 +11,9 @@ class UsuarioModel
     }
 
     public function verificarUsuario($nombreUsuario, $contraseña) {
-        $stmt = $this->conexion->prepare("SELECT u.usuarioID, c.clienteID FROM usuario u INNER JOIN cliente c ON u.usuarioID = c.usuarioID WHERE u.nombreUsuario = ? AND u.contraseña = SHA2(?, 256)");
-        $stmt->bind_param("ss", $nombreUsuario, $contraseña);
+        $contraseñaHasheada = hash('sha256', $contraseña);
+        $stmt = $this->conexion->prepare("SELECT u.usuarioID, c.clienteID FROM usuario u INNER JOIN cliente c ON u.usuarioID = c.usuarioID WHERE u.nombreUsuario = ? AND u.contraseña = ?");
+        $stmt->bind_param("ss", $nombreUsuario, $contraseñaHasheada);
         $stmt->execute();
         $result = $stmt->get_result();
     
