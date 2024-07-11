@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Establecimiento</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="javascript/script.js" defer></script>
     <script src="javascript/agregarProducto.js" defer></script>
+    <script src="../V_R_Repartidor/javasacript/redireccion.js" defer></script>
 </head>
 <body>
 
@@ -17,7 +18,7 @@
         <div class="icon">
             <span class="fa fa-bars" id="bars"></span>
             <span>UCV FOOD </span>
-            <img src="../images/iconoPrincipal.png">
+            <img id="iconoPrincipal" src="../images/iconoPrincipal.png" alt="Icono Principal">
         </div>
 
         <div class="search-container">
@@ -50,11 +51,6 @@
         <!-- <div class="agregarTienda" style="display: none">
             <button class="nuevaTienda">Agregar Tienda</button>
         </div> -->
-
-        <div class="final">
-            <button class="nuevoProducto">¿Tienes alguna duda?</button>
-        </div>
     </footer>
-    
 </body>
 </html>
