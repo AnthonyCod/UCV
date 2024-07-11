@@ -610,38 +610,38 @@ footer .final button {
 
 .producto-image img {
     width: 100%;
-<<<<<<<<< Temporary merge branch 1
+
     height: 200px; /* Ajusta la altura según tus necesidades */
-=========
+
     height: auto; /* Permite que la altura se ajuste automáticamente */
     max-height: 120px; /* Ajusta la altura máxima según tus necesidades */
->>>>>>>>> Temporary merge branch 2
+
     object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsión */
 }
 
 .producto-info {
     padding: 10px;
-<<<<<<<<< Temporary merge branch 1
+
     text-align: center;
 }
 
 .producto-info h2 {
     font-size: 1em; /* Ajusta el tamaño de la fuente */
     margin: 0;
-=========
+
 }
 
 .producto-info h2 {
     font-size: 1.2em; /* Ajusta el tamaño de la fuente */
     margin: 10px 0;
->>>>>>>>> Temporary merge branch 2
+
 }
 
 .producto-info p {
     margin: 5px 0;
-<<<<<<<<< Temporary merge branch 1
+
     font-size: 0.9em; /* Ajusta el tamaño de la fuente */
-=========
+
     font-size: 1em; /* Ajusta el tamaño de la fuente */
 }
 
@@ -682,5 +682,5 @@ footer .final button {
     width: 100%;
     height: 200px;
     object-fit: cover;
->>>>>>>>> Temporary merge branch 2
+
 }
